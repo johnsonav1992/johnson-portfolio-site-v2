@@ -1,6 +1,9 @@
 import { RemixBrowser } from "@remix-run/react";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import theme from "./theme/theme";
+
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -11,7 +14,10 @@ function hydrate() {
     hydrateRoot(
       document,
       <StrictMode>
-        <RemixBrowser />
+        <CssBaseline />
+        <ThemeProvider theme={theme}>
+          <RemixBrowser />
+        </ThemeProvider>
       </StrictMode>
     );
   });
