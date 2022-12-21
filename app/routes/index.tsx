@@ -1,5 +1,3 @@
-import { Button } from "@mui/material"
-import theme from "~/theme/theme";
 
 export default function Index() {
   return (
