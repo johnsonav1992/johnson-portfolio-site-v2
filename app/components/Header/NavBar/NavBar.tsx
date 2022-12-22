@@ -2,8 +2,9 @@ import React from 'react';
 
 // Libraries
 // MUI
-import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Toolbar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import theme from '~/theme/theme';
 
 // Components
 // Types
@@ -15,25 +16,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const NavBar = () => {
     return (
-        
-        <AppBar >
-            <Toolbar>
-                <IconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    sx={{ mr: 2 }}
-                >
-                    <MenuIcon />
-                </IconButton>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        News
-                </Typography>
-                <Button color="inherit">Login</Button>
-            </Toolbar>
+        <AppBar 
+            elevation={10}
+            sx={{ bgcolor: theme.palette.gray.main }}
+        >
+            <Toolbar>Hello</Toolbar>
         </AppBar>
-        
     );
 };
 
