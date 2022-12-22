@@ -14,14 +14,11 @@ import theme from '~/theme/theme';
 // Services
 // Styles
 
+
 const NavBar = () => {
+
     return (
-        <AppBar 
-            elevation={10}
-            sx={{ bgcolor: theme.palette.gray.main }}
-        >
-            <Toolbar>Hello</Toolbar>
-        </AppBar>
+        
     );
 };
 
