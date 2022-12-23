@@ -15,6 +15,18 @@ export const theme: Theme = createTheme( {
             main: johnsonBlue
         }
     }
+    , typography: {
+        allVariants: {
+            fontFamily: 'Ubuntu'
+        }
+    }
+    , components: {
+        MuiTypography: {
+            defaultProps: {
+                fontFamily: 'Arial'
+            }
+        }
+    }
 
 } );
 

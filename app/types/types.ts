@@ -1,4 +1,5 @@
 // Theme
+import type React from 'react';
 
 declare module '@mui/material/styles' {
     export interface Palette {
@@ -16,4 +17,4 @@ declare module '@mui/material/styles' {
     
 }
 
-export {}
+export {};

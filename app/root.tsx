@@ -11,7 +11,7 @@ import Header from './components/Header/Header';
 
 export const meta: MetaFunction = () => ( {
     charset: 'utf-8'
-    , title: 'New Remix App'
+    , title: 'Alex Johnson - Web Developer'
     , viewport: 'width=device-width,initial-scale=1'
 } );
 
@@ -21,6 +21,9 @@ export default function App () {
             <head>
                 <Meta />
                 <Links />
+                { typeof document === 'undefined'
+                    ? '__STYLES__'
+                    : null }
             </head>
             <body>
                 <Header />

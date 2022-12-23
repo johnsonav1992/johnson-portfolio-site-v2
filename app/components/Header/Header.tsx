@@ -2,7 +2,7 @@ import React from 'react';
 
 // Libraries
 // MUI
-import { AppBar, Toolbar } from '@mui/material';
+import { AppBar, Toolbar, Typography, Grid } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import theme from '~/theme/theme';
 
@@ -14,7 +14,7 @@ import logo from '../../assets/logo-icon.svg';
 // Contexts
 // Services
 // Styles
-import { makeStyles, withStyles } from 'tss-react/mui';
+import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()( {
     appBar: {
@@ -34,10 +34,20 @@ const Header = () => {
             className={ classes.appBar }
         >
             <Toolbar>
-                <img 
-                    alt="AVJ logo"
-                    src={logo}
-                />
+                <Grid 
+                    container
+                    spacing={ 2 }
+                >
+                    <Grid item>
+                        <img 
+                            alt="AVJ logo"
+                            src={logo}
+                        />
+                    </Grid>
+                    <Grid item>
+                        <Typography variant='h2'>Alex Johnson</Typography>
+                    </Grid>
+                </Grid>
             </Toolbar>
         </AppBar>
     );
