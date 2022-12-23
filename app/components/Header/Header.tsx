@@ -44,8 +44,15 @@ const Header = () => {
                             src={logo}
                         />
                     </Grid>
-                    <Grid item>
-                        <Typography variant='h2'>Alex Johnson</Typography>
+                    <Grid 
+                        container
+                        item
+                        xs={ 6 }
+                        alignItems='center'
+                    >
+                        <Typography variant='h3'>
+                            Alex Johnson
+                        </Typography>
                     </Grid>
                 </Grid>
             </Toolbar>

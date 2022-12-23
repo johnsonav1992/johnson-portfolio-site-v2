@@ -19,12 +19,8 @@ export const theme: Theme = createTheme( {
         allVariants: {
             fontFamily: 'Ubuntu'
         }
-    }
-    , components: {
-        MuiTypography: {
-            defaultProps: {
-                fontFamily: 'Arial'
-            }
+        , h2: {
+            fontWeight: 500
         }
     }
 
