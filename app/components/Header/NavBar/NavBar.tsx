@@ -56,9 +56,9 @@ const NavBar = ( { className }: Props ) => {
         >
             { tabs.map( tab => {
                 return <Tab 
-                    key={tab.value} 
-                    value={tab.value} 
-                    label={tab.label} 
+                    key={ tab.value } 
+                    value={ tab.value } 
+                    label={ tab.label } 
                     sx={ tabStyle }
                     disableRipple
                 />;
