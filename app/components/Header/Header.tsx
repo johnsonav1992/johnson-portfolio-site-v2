@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from '@remix-run/react';
 
 // MUI
 import { 
@@ -17,6 +18,9 @@ import NavBar from './NavBar/NavBar';
 // Utils
 import logo from '../../assets/logo-icon.svg';
 
+// Contexts
+import { siteContext } from '~/context/context';
+
 // Styles
 import { makeStyles } from 'tss-react/mui';
 
@@ -25,9 +29,15 @@ const useStyles = makeStyles()( {
         backgroundColor: theme.palette.gray.main
         , height: 100
         , justifyContent: 'center'
+        , position: 'sticky'
     }
     , navBar: {
         marginLeft: 'auto'
+    }
+    , logo: {
+        '&:hover': {
+            cursor: 'pointer'
+        }
     }
 } );
 
@@ -35,18 +45,26 @@ const Header = () => {
     const { classes } = useStyles();
     const isSmScreen = useMediaQuery( theme.breakpoints.down( 'sm' ) );
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
+    const { setActiveTab } = useContext( siteContext );
+    const navigate = useNavigate();
 
     return (
-        <AppBar 
-            elevation={ 8 }
-            className={ classes.appBar }
-        >
-            <Toolbar>
-                <img 
-                    alt="AVJ logo"
-                    src={logo}
-                />
-                { !isSmScreen && 
+        <>
+            <AppBar 
+                elevation={ 8 }
+                className={ classes.appBar }
+            >
+                <Toolbar>
+                    <img 
+                        alt="AVJ logo"
+                        src={logo}
+                        onClick={ () => {
+                            setActiveTab( null );
+                            navigate( '/' );
+                        }}
+                        className={ classes.logo }
+                    />
+                    { !isSmScreen && 
                     <Typography 
                         variant={isSmScreen ? 'h4' : 'h3'}
                         marginLeft='1rem'
@@ -54,11 +72,11 @@ const Header = () => {
                     >
                         Alex Johnson
                     </Typography>
-                }
-                { !isMdScreen && 
+                    }
+                    { !isMdScreen && 
                     <NavBar className={ classes.navBar }/> 
-                }
-                { isMdScreen && 
+                    }
+                    { isMdScreen && 
                     <IconButton sx={{ marginLeft: 'auto' }}>
                         <MenuIcon 
                             sx={{ 
@@ -68,9 +86,10 @@ const Header = () => {
                             }}
                         />
                     </IconButton>
-                }
-            </Toolbar>
-        </AppBar>
+                    }
+                </Toolbar>
+            </AppBar>
+        </>
     );
 };
 

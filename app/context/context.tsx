@@ -6,17 +6,17 @@ interface Props {
 }
 
 interface ContextInterface {
-    activeTab: number;
-    setActiveTab: ( selectedTab: number ) => void;
+    activeTab: number | null;
+    setActiveTab: ( selectedTab: number | null ) => void;
 }
 
 export const siteContext = createContext<ContextInterface>( {
-    activeTab: 0
+    activeTab: null
     , setActiveTab: () => {}
 } );
 
 const ContextProvider = ( { children }: Props ) => {
-    const [ activeTab, setActiveTab ] = useState<number>( 0 );
+    const [ activeTab, setActiveTab ] = useState<number | null>( null );
     return (
         <siteContext.Provider value={{
             activeTab

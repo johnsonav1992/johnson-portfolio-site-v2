@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import type { SyntheticEvent } from 'react';
+import { Link } from '@remix-run/react';
 
 // MUI
 import { 
@@ -56,14 +57,15 @@ const NavBar = ( { className }: Props ) => {
         >
             { tabs.map( tab => {
                 return <Tab 
+                    component={Link}
                     key={ tab.value } 
                     value={ tab.value } 
-                    label={ tab.label } 
+                    label={ tab.label }
+                    to={tab.link}
                     sx={ tabStyle }
                     disableRipple
                 />;
             } )}
-            
         </Tabs>
     );
 };
