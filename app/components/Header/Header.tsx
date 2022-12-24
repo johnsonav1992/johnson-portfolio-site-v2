@@ -1,20 +1,22 @@
 import React from 'react';
 
-// Libraries
 // MUI
-import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
+import { 
+    AppBar
+    , Toolbar
+    , Typography
+    , IconButton
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import theme from '~/theme/theme';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 // Components
 import NavBar from './NavBar/NavBar';
-// Types
-// Ducks
+
 // Utils
 import logo from '../../assets/logo-icon.svg';
-// Contexts
-// Services
+
 // Styles
 import { makeStyles } from 'tss-react/mui';
 
@@ -28,7 +30,6 @@ const useStyles = makeStyles()( {
         marginLeft: 'auto'
     }
 } );
-
 
 const Header = () => {
     const { classes } = useStyles();
@@ -45,7 +46,6 @@ const Header = () => {
                     alt="AVJ logo"
                     src={logo}
                 />
-
                 { !isSmScreen && 
                     <Typography 
                         variant={isSmScreen ? 'h4' : 'h3'}

@@ -7,10 +7,19 @@ import {
     Scripts,
     ScrollRestoration
 } from '@remix-run/react';
+
+// MUI
+import { 
+    ThemeProvider
+    , CssBaseline
+} from '@mui/material';
+import theme from './theme/theme';
+
+// Components
 import Header from './components/Header/Header';
 
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import theme from './theme/theme';
+// Contexts 
+import ContextProvider from './context/context';
 
 export const meta: MetaFunction = () => ( {
     charset: 'utf-8'
@@ -27,13 +36,18 @@ export default function App () {
                 { typeof document === 'undefined'
                     ? '__STYLES__'
                     : null }
-                <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+                <link 
+                    href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" 
+                    rel="stylesheet"
+                />
             </head>
             <body>
-                <CssBaseline />
                 <ThemeProvider theme={theme}>
-                    <Header />
-                    <Outlet />
+                    <CssBaseline />
+                    <ContextProvider>
+                        <Header />
+                        <Outlet />
+                    </ContextProvider>
                 </ThemeProvider>
                 <ScrollRestoration />
                 <Scripts />

@@ -1,15 +1,18 @@
-import { Tab, Tabs } from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
+import type { SyntheticEvent } from 'react';
 
-// Libraries
 // MUI
+import { 
+    Tab
+    , Tabs
+} from '@mui/material';
 
-// Components
-// Types
-// Ducks
 // Utils
+import { tabs } from '../../../data/tabs';
+
 // Contexts
-// Services
+import { siteContext } from '~/context/context';
+
 // Styles
 import theme from '~/theme/theme';
 
@@ -18,38 +21,45 @@ interface Props {
 }
 
 const NavBar = ( { className }: Props ) => {
-
-    const tabs = [
-        {
-            label: 'About'
-            , value: 'about'
+    const { 
+        activeTab
+        , setActiveTab
+    } = useContext( siteContext );
+    
+    const tabStyle = {
+        color: theme.palette.common.white 
+        , textTransform: 'none'
+        , fontSize: '1.2rem'
+        , '&:hover': {
+            color: theme.palette.grey[ 400 ]
         }
-        , {
-            label: 'Skills'
-            , value: 'skills'
-        } 
-        , {
-            label: 'Work'
-            , value: 'work'
+        , '&.Mui-selected': {
+            color: theme.palette.grey[ 400 ]
         }
-        , {
-            label: 'Contact'
-            , value: 'contact'
-        }
-    ];
-
+        , display: 'flex'
+        , justifyContent: 'center'
+    };
+    
+    const handleChange = ( e: SyntheticEvent<Element, Event>, value: number ) => {
+        setActiveTab( value );
+    };
+    
     return (
-        <Tabs className={ className }>
+        <Tabs 
+            className={ className } 
+            value={ activeTab }
+            onChange={ handleChange }
+            TabIndicatorProps={{ 
+                style: { 
+                    backgroundColor: 'transparent'
+                } }}
+        >
             { tabs.map( tab => {
                 return <Tab 
                     key={tab.value} 
                     value={tab.value} 
                     label={tab.label} 
-                    sx={{ 
-                        color: theme.palette.common.white 
-                        , textTransform: 'none'
-                        , fontSize: '1.2rem'
-                    }}
+                    sx={ tabStyle }
                     disableRipple
                 />;
             } )}

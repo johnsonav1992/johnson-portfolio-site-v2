@@ -14,6 +14,9 @@ export const theme: Theme = createTheme( {
         , primary: {
             main: johnsonBlue
         }
+        , background: {
+            default: lightGray
+        }
     }
     , typography: {
         allVariants: {
@@ -23,7 +26,6 @@ export const theme: Theme = createTheme( {
             fontWeight: 500
         }
     }
-
 } );
 
 export default theme; 
