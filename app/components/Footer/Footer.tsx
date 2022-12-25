@@ -2,13 +2,18 @@ import React from 'react';
 
 // MUI
 import theme from '~/theme/theme';
-import Link from '@mui/material/Link';
+import { 
+    IconButton
+    , Typography
+    , Link
+} from '@mui/material';
+
+// Components
+import LinkedinIcon from './LinkedinIcon';
+import GitHubIcon from './GitHubIcon';
 
 // Styles
 import { makeStyles } from 'tss-react/mui';
-import { IconButton, Typography } from '@mui/material';
-import LinkedinIcon from './LinkedinIcon';
-import GitHubIcon from './GitHubIcon';
 
 const useStyles = makeStyles()( {
     footer: {
