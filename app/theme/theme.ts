@@ -21,6 +21,7 @@ export const theme: Theme = createTheme( {
     , typography: {
         allVariants: {
             fontFamily: 'Ubuntu'
+            , color: '#FFF'
         }
         , h2: {
             fontWeight: 500

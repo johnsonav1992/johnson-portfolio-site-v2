@@ -1,5 +1,5 @@
 export default function Index () {
     return (
-        <div>HOME</div>
+        <div style={{ minHeight: '100vh' }}>HOME</div>
     );
 }

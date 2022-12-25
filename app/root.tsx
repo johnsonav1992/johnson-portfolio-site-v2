@@ -20,6 +20,7 @@ import Header from './components/Header/Header';
 
 // Contexts 
 import ContextProvider from './context/context';
+import Footer from './components/Footer/Footer';
 
 export const meta: MetaFunction = () => ( {
     charset: 'utf-8'
@@ -47,6 +48,7 @@ export default function App () {
                     <ContextProvider>
                         <Header />
                         <Outlet />
+                        <Footer />
                     </ContextProvider>
                 </ThemeProvider>
                 <ScrollRestoration />
