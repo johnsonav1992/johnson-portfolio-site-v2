@@ -41,7 +41,7 @@ const NavBar = ( { className }: Props ) => {
         , justifyContent: 'center'
     };
     
-    const handleChange = ( e: SyntheticEvent<Element, Event>, value: number ) => {
+    const handleChange = ( e: SyntheticEvent<Element, Event>, value: string ) => {
         setActiveTab( value );
     };
     
@@ -58,8 +58,8 @@ const NavBar = ( { className }: Props ) => {
             { tabs.map( tab => {
                 return <Tab 
                     component={Link}
-                    key={ tab.value } 
-                    value={ tab.value } 
+                    key={ tab.link } 
+                    value={ tab.link } 
                     label={ tab.label }
                     to={tab.link}
                     sx={ tabStyle }

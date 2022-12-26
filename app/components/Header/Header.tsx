@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { useMatches, useNavigate } from '@remix-run/react';
+import React, { useContext } from 'react';
+import { useNavigate } from '@remix-run/react';
 
 // MUI
 import { 
@@ -47,19 +47,6 @@ const Header = () => {
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
     const { setActiveTab } = useContext( siteContext );
     const navigate = useNavigate();
-
-    const matches = useMatches();
-    const currentPath = matches[ 1 ].pathname;
-
-    useEffect( () => {
-        switch( currentPath ) {
-            case '/about': setActiveTab( 0 ); break;
-            case '/skills': setActiveTab( 1 ); break;
-            case '/work': setActiveTab( 2 ); break;
-            case '/contact': setActiveTab( 3 ); break;
-            default: setActiveTab( null );
-        }
-    }, [ currentPath, setActiveTab ] );
 
     return (
         <>

@@ -1,13 +1,17 @@
+import React, { 
+    createContext
+    , useState
+} from 'react';
 import type { ReactNode } from 'react';
-import React, { createContext, useState } from 'react';
+import { useMatches } from '@remix-run/react';
 
 interface Props {
     children?: ReactNode
 }
 
 interface ContextInterface {
-    activeTab: number | null;
-    setActiveTab: ( selectedTab: number | null ) => void;
+    activeTab: string| null;
+    setActiveTab: ( selectedTab: string | null ) => void;
 }
 
 export const siteContext = createContext<ContextInterface>( {
@@ -16,7 +20,9 @@ export const siteContext = createContext<ContextInterface>( {
 } );
 
 const ContextProvider = ( { children }: Props ) => {
-    const [ activeTab, setActiveTab ] = useState<number | null>( null );
+    const [ , { pathname: currentPath } ] = useMatches();
+    const [ activeTab, setActiveTab ] = useState<string | null>( currentPath || null );
+    
     return (
         <siteContext.Provider value={{
             activeTab
