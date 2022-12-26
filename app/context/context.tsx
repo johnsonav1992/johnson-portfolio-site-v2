@@ -20,9 +20,9 @@ export const siteContext = createContext<ContextInterface>( {
 } );
 
 const ContextProvider = ( { children }: Props ) => {
-    const [ , { pathname: currentPath } ] = useMatches();
-    const [ activeTab, setActiveTab ] = useState<string | null>( currentPath || null );
-    
+    const [ , { pathname } ] = useMatches();
+    const [ activeTab, setActiveTab ] = useState<string | null>( pathname || null );
+
     return (
         <siteContext.Provider value={{
             activeTab
