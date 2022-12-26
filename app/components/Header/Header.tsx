@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useNavigate } from '@remix-run/react';
+import { useMatches, useNavigate } from '@remix-run/react';
 
 // MUI
 import { 
@@ -47,6 +47,9 @@ const Header = () => {
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
     const { setActiveTab } = useContext( siteContext );
     const navigate = useNavigate();
+
+    const matches = useMatches();
+    const currentPath = matches[ 1 ].pathname;
 
     return (
         <>
