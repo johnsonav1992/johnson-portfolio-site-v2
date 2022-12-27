@@ -25,8 +25,17 @@ const useStyles = makeStyles()( {
         , paddingLeft: '1rem'
         , paddingRight: '1rem'
     }
-    , icon: {
+    , iconBtn: {
         color: theme.palette.common.white
+        , '&:hover': {
+            color: theme.palette.grey[ 400 ]
+        }
+        , '.MuiTypography-root': {
+            '&:hover': {
+                color: theme.palette.grey[ 400 ]
+            }
+        }
+        , gap: '.5rem'
     }
 } );
 
@@ -36,21 +45,21 @@ const Footer = () => {
     return (
         <footer className={ classes.footer }>
             <IconButton 
-                sx={{ gap: '.5rem' }} 
+                className={ classes.iconBtn } 
                 LinkComponent={Link}
                 href='https://www.linkedin.com/in/johnsonav/'
                 target='_blank'
             >
-                <LinkedinIcon className={ classes.icon } />
+                <LinkedinIcon />
                 <Typography variant='h6'>LinkedIn</Typography>
             </IconButton>
             <IconButton 
-                sx={{ gap: '.5rem' }} 
+                className={ classes.iconBtn } 
                 LinkComponent={Link}
                 href='https://github.com/johnsonav1992'
                 target='_blank'
             >
-                <GitHubIcon className={ classes.icon } />
+                <GitHubIcon />
                 <Typography variant='h6'>GitHub</Typography>
             </IconButton>
         </footer>
