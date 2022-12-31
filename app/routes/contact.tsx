@@ -17,12 +17,11 @@ const ContactPage = () => {
     };
     
     const handleSubmit = ( values: any ) => {
-        console.log( values );
-        submit( values, { method: 'post' } );
+        submit( values, { method: 'post' } ); //submit to Remix backend
     };
 
     const initialValues: object = {
-        test: ''
+        name: ''
     };
     
     return (
@@ -33,7 +32,7 @@ const ContactPage = () => {
             {( { values, handleChange }: any ) => (
                 <Form>
                     <div>Contact</div>
-                    <input type="text" name='test'value={values.test} onChange={handleChange} />
+                    <input type="text" name='name' value={values.name} onChange={handleChange} />
                     <button type='submit'>Submit</button>
                 </Form>
             )}
@@ -42,8 +41,9 @@ const ContactPage = () => {
 };
 
 export const action: ActionFunction = async ( { request } ) => {
-    const result = await request.formData();
-    console.log( Object.fromEntries( result ) );
+    const formData = await request.formData();
+    const data = Object.fromEntries( formData );
+    console.log( data );
     return redirect( '/' );
 };
 
