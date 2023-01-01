@@ -4,7 +4,7 @@ import { json, redirect } from '@remix-run/node';
 import type { ActionFunction } from '@remix-run/node';
 import type { FormikProps } from 'formik';
 import { Formik, Form } from 'formik';
-import { Button, TextField, Typography } from '@mui/material';
+import { Button, TextField, Typography, Grid } from '@mui/material';
 import * as Yup from 'yup';
 
 
@@ -43,44 +43,67 @@ const ContactPage = () => {
             validationSchema={ validationSchema }
             onSubmit={ ( values ) => handleSubmit( values ) }
         > 
-            {( { values, handleChange, errors }: FormikProps<ContactInput> ) => (
+            { ( 
+                { values
+                    , handleChange
+                    , errors
+                    , touched 
+                }: FormikProps<ContactInput> 
+            ) => (
                 <Form>
-                    <Typography variant='h2'>
-                        Contact Me
-                    </Typography>
-                    <TextField 
-                        name='name'
-                        label='Name'
-                        value={ values.name }
-                        onChange={ handleChange }
-                        error={ errors.name ? true : false }
-                        helperText={ errors.name }
-                    />
-                    <TextField 
-                        name='email'
-                        label='Email Address'
-                        value={ values.email }
-                        onChange={ handleChange }
-                        error={ errors.email ? true : false }
-                        helperText={ errors.email }
-                    />
-                    <TextField 
-                        name='message'
-                        label='Message'
-                        value={ values.message }
-                        onChange={ handleChange }
-                        error={ errors.message ? true : false }
-                        helperText={ errors.message }
-                    />
-                    <Button 
-                        color='primary'
-                        variant='contained'
-                        type='submit'
+                    <Grid 
+                        container
+                        direction='column'
+                        alignItems='center'
+                        // sx={ { width: '50%' } }
                     >
-                        Send
-                    </Button>
+                        <Grid item>
+                            <Typography variant='h2'>
+                                Contact Me
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <TextField 
+                                name='name'
+                                label='Name'
+                                value={ values.name }
+                                onChange={ handleChange }
+                                error={ errors.name ? true : false }
+                                helperText={ errors.name }
+                            />
+                        </Grid>
+                        <Grid item>
+                            <TextField 
+                                name='email'
+                                label='Email Address'
+                                value={ values.email }
+                                onChange={ handleChange }
+                                error={ errors.email ? true : false }
+                                helperText={ errors.email }
+                            />
+                        </Grid>
+                        <Grid item>
+                            <TextField 
+                                name='message'
+                                label='Message'
+                                value={ values.message }
+                                onChange={ handleChange }
+                                error={ errors.message ? true : false }
+                                helperText={ errors.message }
+                            />
+                        </Grid>
+                        <Grid item>
+                            <Button 
+                                color='primary'
+                                variant='contained'
+                                type='submit'
+                            >
+                                Send
+                            </Button>
+                        </Grid>
+                    </Grid>
                 </Form>
-            )}
+            ) }
         </Formik>
     );
 };
