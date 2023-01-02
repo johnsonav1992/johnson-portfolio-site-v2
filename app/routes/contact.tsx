@@ -103,7 +103,7 @@ const ContactPage = () => {
                                 type='submit'
                             >
                                 { transition.state !== 'idle' 
-                                    ? <CircularProgress color='warning' />
+                                    ? <CircularProgress sx={{ color: 'white ' }} />
                                     : 'Send' 
                                 }
                             </Button>
