@@ -12,8 +12,6 @@ const ContactPage = () => {
     const submit = useSubmit();
 
     const transition = useTransition();
-
-    console.log( transition.state === 'submitting' ? 'submitting' : '' );
     
     interface ContactInput {
         name: string;
