@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSubmit, useTransition } from '@remix-run/react';
-import { json, redirect } from '@remix-run/node';
+import { redirect } from '@remix-run/node';
 import type { ActionFunction } from '@remix-run/node';
 import type { FormikProps } from 'formik';
 import { Formik, Form } from 'formik';
-import { Button, TextField, Typography, Grid } from '@mui/material';
+import { Button, TextField, Typography, Grid, CircularProgress } from '@mui/material';
 import * as Yup from 'yup';
 
 
@@ -15,8 +15,6 @@ const ContactPage = () => {
 
     console.log( transition.state === 'submitting' ? 'submitting' : '' );
     
-    interface TestInput {
-        input: string;
     interface ContactInput {
         name: string;
         email: string;
@@ -104,7 +102,10 @@ const ContactPage = () => {
                                 variant='contained'
                                 type='submit'
                             >
-                                Send
+                                { transition.state !== 'idle' 
+                                    ? <CircularProgress color='warning' />
+                                    : 'Send' 
+                                }
                             </Button>
                         </Grid>
                     </Grid>
@@ -115,14 +116,14 @@ const ContactPage = () => {
 };
 
 export const action: ActionFunction = async ( { request } ) => {
-    setTimeout( async () => {
-        const formData = await request.formData(); 
-        const data = Object.fromEntries( formData ); 
+    for ( let i = 0; i < 10000000000; i++ ) {
+        i ++;
+    }
+    const formData = await request.formData(); 
+    const data = Object.fromEntries( formData ); 
+    console.log( data ); 
     
-        console.log( data ); 
-    
-        return redirect( '/' );
-    }, 2000 );
+    return redirect( '/' );
 };
 
 export default ContactPage;
