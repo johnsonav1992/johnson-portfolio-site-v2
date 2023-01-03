@@ -1,6 +1,6 @@
 import React, { 
     createContext
-    , useState
+    , useEffect, useState
 } from 'react';
 import type { ReactNode } from 'react';
 import { useMatches } from '@remix-run/react';
@@ -22,6 +22,10 @@ export const siteContext = createContext<ContextInterface>( {
 const ContextProvider = ( { children }: Props ) => {
     const [ , { pathname } ] = useMatches();
     const [ activeTab, setActiveTab ] = useState<string | null>( pathname || null );
+
+    useEffect( () => {
+        setActiveTab( pathname );
+    },  [ pathname ] );
 
     return (
         <siteContext.Provider value={{
