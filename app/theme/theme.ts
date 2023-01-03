@@ -27,6 +27,38 @@ export const theme: Theme = createTheme( {
             fontWeight: 500
         }
     }
+    , components: {
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    color: 'white'
+                    , '& .MuiInput': {
+                        color: 'white'
+                    }
+                    , '& label.Mui-focused': {
+                        color: 'white'
+                    }
+                    , '& .Mui-focused': {
+                        color: 'white'
+                    }
+                    , '& .MuiInput-underline:after': {
+                        borderBottomColor: 'white'
+                    }
+                    , '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                            borderColor: 'white'
+                        }
+                        , '&:hover fieldset': {
+                            borderColor: 'white'
+                        }
+                        , '&.Mui-focused fieldset': {
+                            borderColor: 'white'
+                        }
+                    }
+                }
+            }
+        }
+    }
 } );
 
 export default theme; 
