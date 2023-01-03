@@ -154,7 +154,10 @@ const ContactPage = () => {
                                 } }
                             >
                                 { transition.state !== 'idle' 
-                                    ? <CircularProgress sx={ { color: 'white ' } } />
+                                    ? <CircularProgress 
+                                        sx={ { color: theme.palette.common.white } }
+                                        size='1.5rem'
+                                    />
                                     : 'Send' 
                                 }
                             </Button>
