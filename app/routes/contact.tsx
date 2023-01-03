@@ -76,14 +76,14 @@ const ContactPage = () => {
                         direction='column'
                         alignItems='center'
                         spacing={ 3 }
-                        sx={ { paddingTop: '1rem' } }
+                        sx={ { paddingTop: '1.5rem', minHeight: '100vh' } }
                     >
                         <Grid 
                             container
                             item 
                             justifyContent='center'
                         >
-                            <Typography variant={ isMdScreen ? 'h3' : 'h2'}>
+                            <Typography variant={ isMdScreen ? 'h4' : 'h3'}>
                                 Contact Me
                             </Typography>
                         </Grid>
@@ -95,7 +95,10 @@ const ContactPage = () => {
                         >
                             <Typography 
                                 variant={ isMdScreen ? 'body1' : 'h6' } 
-                                sx={ { margin: isMdScreen ? '0 1.5rem 0' : '' } }
+                                sx={ { 
+                                    margin: isMdScreen ? '0 1.5rem 0' : ''
+                                    , width: isMdScreen ? '90%' : '50%' 
+                                } }
                             >
                                 Please fill out the form below and I will get back to you as soon as I can. Thank you!
                             </Typography>
@@ -112,7 +115,7 @@ const ContactPage = () => {
                                 onChange={ handleChange }
                                 error={ errors.name ? true : false }
                                 helperText={ errors.name }
-                                sx={ { width: '50%' } }
+                                sx={ { width: isMdScreen ? '90%' : '50%' } }
                             />
                         </Grid>
                         <Grid 
@@ -127,7 +130,7 @@ const ContactPage = () => {
                                 onChange={ handleChange }
                                 error={ errors.email ? true : false }
                                 helperText={ errors.email }
-                                sx={ { width: '50%' } }
+                                sx={ { width: isMdScreen ? '90%' : '50%' } }
                             />
                         </Grid>
                         <Grid container item justifyContent='center'>
@@ -139,7 +142,7 @@ const ContactPage = () => {
                                 onChange={ handleChange }
                                 error={ errors.message ? true : false }
                                 helperText={ errors.message }
-                                sx={ { width: '50%' } }
+                                sx={ { width: isMdScreen ? '90%' : '50%' } }
                                 rows={5}
                             />
                         </Grid>
@@ -149,7 +152,7 @@ const ContactPage = () => {
                                 variant='contained'
                                 type='submit'
                                 sx={ { 
-                                    width: '30%'
+                                    width: isMdScreen ? '90%' : '30%'
                                     , marginBottom: '1rem' 
                                 } }
                             >

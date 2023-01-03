@@ -23,6 +23,7 @@ const ContextProvider = ( { children }: Props ) => {
     const [ , { pathname } ] = useMatches();
     const [ activeTab, setActiveTab ] = useState<string | null>( pathname || null );
 
+    // For redirects - automatically updates the selected tab with new pathname
     useEffect( () => {
         setActiveTab( pathname );
     },  [ pathname ] );

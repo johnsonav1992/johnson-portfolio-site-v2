@@ -31,8 +31,10 @@ export const theme: Theme = createTheme( {
         MuiTextField: {
             styleOverrides: {
                 root: {
-                    color: 'white'
-                    , '& .MuiInput': {
+                    input: { // TODO: fix input autofill bg color
+                        color: 'white'
+                    }
+                    , textArea: {
                         color: 'white'
                     }
                     , '& label.Mui-focused': {
