@@ -19,18 +19,18 @@ import theme from '~/theme/theme';
 const useStyles = makeStyles()( ( theme ) => {
     return  {
         outerContainer: {
-            minHeight: '100vh'
+            minHeight: '90vh'
         }
         , link: { 
             textDecoration: 'none'
             , color:'inherit' 
         }
         , headshot: {
-            maxWidth: '45vw'
+            maxWidth: 500
             , [ theme.breakpoints.down( 'md' ) ]: {
-                minWidth: '100%'
-                , transform: 'translateX(-5%)'
+                transform: 'translateX(-5%)'
             }
+            , filter: 'drop-shadow( 0px 5px 12px rgba(0, 0, 0, 0.7))'
         }
     } ;
 } );

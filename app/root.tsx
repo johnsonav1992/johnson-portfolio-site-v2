@@ -5,13 +5,15 @@ import {
     Meta,
     Outlet,
     Scripts,
-    ScrollRestoration
+    ScrollRestoration,
+    useMatches
 } from '@remix-run/react';
 
 // MUI
 import { 
     ThemeProvider
     , CssBaseline
+    , Box
 } from '@mui/material';
 import theme from './theme/theme';
 
@@ -29,6 +31,7 @@ export const meta: MetaFunction = () => ( {
 } );
 
 export default function App () {
+    const [ , { pathname } ] = useMatches();
     return (
         <html lang="en">
             <head>
@@ -47,8 +50,11 @@ export default function App () {
                     <CssBaseline />
                     <ContextProvider>
                         <Header />
+                        {/* <Box sx={{ height: { ...theme.mixins.toolbar } }}/> */}
                         <Outlet />
-                        <Footer />
+                        { pathname !== '/' && 
+                            <Footer /> 
+                        }
                     </ContextProvider>
                 </ThemeProvider>
                 <ScrollRestoration />
