@@ -1,5 +1,16 @@
-import { Button, Grid, Typography, useMediaQuery } from '@mui/material';
+// Libraries
 import { Link } from '@remix-run/react';
+
+// MUI
+import { 
+    Button
+    , Grid
+    , Typography
+    , useMediaQuery 
+} from '@mui/material';
+
+// Assets
+import headshot from '../assets/headshot-transparent-bg.png';
 
 // Styles
 import { makeStyles } from 'tss-react/mui';
@@ -14,25 +25,41 @@ const useStyles = makeStyles()( ( theme ) => {
             textDecoration: 'none'
             , color:'inherit' 
         }
+        , headshot: {
+            maxWidth: '45vw'
+            , [ theme.breakpoints.down( 'md' ) ]: {
+                minWidth: '100%'
+                , transform: 'translateX(-5%)'
+            }
+        }
     } ;
 } );
 
 export default function Index () {
-    const { classes } = useStyles();
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
+    const { classes } = useStyles();
     
     return (
         <Grid 
             container
+            spacing={ 4 }
             className={ classes.outerContainer }
         >
-            <Grid 
+            <Grid
+                container 
                 item
+                justifyContent={ isMdScreen ? 'center' : 'flex-end'}
+                alignItems='flex-end'
+                flexGrow={ 1 }
                 xs={ 12 }
-                md={ 6 }
+                md={ 7 }
                 sx={ isMdScreen ? { order: 2 } : undefined }
             >
-                Hey
+                <img 
+                    src={ headshot } 
+                    alt="Alex Johnson Headshot"
+                    className={ classes.headshot } 
+                />
             </Grid>
             <Grid
                 container 
@@ -42,10 +69,10 @@ export default function Index () {
                 alignItems={ isMdScreen ? 'center' : undefined }
                 spacing={ 2 }
                 xs={ 12 }
-                md={ 6 }
+                md={ 5 }
             >
                 <Grid item>
-                    <Typography variant='h2'>Alex Johnson</Typography>
+                    <Typography variant={ isMdScreen ? 'h3' : 'h2'}>Alex Johnson</Typography>
                 </Grid>
                 <Grid item>
                     <Typography variant='h5'>full-stack web developer</Typography>
