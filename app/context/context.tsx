@@ -29,10 +29,10 @@ const ContextProvider = ( { children }: Props ) => {
     },  [ pathname ] );
 
     return (
-        <siteContext.Provider value={{
+        <siteContext.Provider value={ {
             activeTab
             , setActiveTab
-        }}>
+        } }>
             {children}
         </siteContext.Provider>
     );
