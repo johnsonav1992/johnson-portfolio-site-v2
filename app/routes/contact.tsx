@@ -29,7 +29,7 @@ const ContactPage = () => {
     };
 
     const validationSchema = Yup.object( {
-        name: Yup.string().required( 'You must enter a name' )
+        name: Yup.string().required( 'You must enter a name.' )
         , email: 
             Yup.string()
                 .email( 'Must be a valid email address.' )

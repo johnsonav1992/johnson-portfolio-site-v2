@@ -30,6 +30,8 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
         , errors
         , handleChange
     } = formikProps;
+
+    const inputWidth = isMdScreen ? '90%' : '40%';
     
     return (
         <Form>
@@ -59,7 +61,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                         variant={ isMdScreen ? 'body1' : 'h6' } 
                         sx={ { 
                             margin: isMdScreen ? '0 1.5rem 0' : ''
-                            , width: isMdScreen ? '90%' : '50%' 
+                            , width: inputWidth 
                         } }
                     >
                         Please fill out the form below and I will get back to you as soon as I can. Thank you!
@@ -77,7 +79,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                         onChange={ handleChange }
                         error={ errors.name ? true : false }
                         helperText={ errors.name }
-                        sx={ { width: isMdScreen ? '90%' : '50%' } }
+                        sx={ { width: inputWidth } }
                     />
                 </Grid>
                 <Grid 
@@ -92,7 +94,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                         onChange={ handleChange }
                         error={ errors.email ? true : false }
                         helperText={ errors.email }
-                        sx={ { width: isMdScreen ? '90%' : '50%' } }
+                        sx={ { width: inputWidth } }
                     />
                 </Grid>
                 <Grid container item justifyContent='center'>
@@ -104,7 +106,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                         onChange={ handleChange }
                         error={ errors.message ? true : false }
                         helperText={ errors.message }
-                        sx={ { width: isMdScreen ? '90%' : '50%' } }
+                        sx={ { width: inputWidth } }
                         rows={5}
                     />
                 </Grid>
