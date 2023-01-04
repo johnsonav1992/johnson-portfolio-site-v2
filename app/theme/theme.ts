@@ -60,6 +60,13 @@ export const theme: Theme = createTheme( {
                 }
             }
         }
+        , MuiButton: {
+            styleOverrides: {
+                root: {
+                    borderRadius: '.5rem'
+                }
+            }
+        }
     }
 } );
 
