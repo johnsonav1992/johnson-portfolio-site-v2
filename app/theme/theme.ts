@@ -4,6 +4,8 @@ import type { Theme } from '@mui/material';
 const darkGray = '#1F1F27';
 const lightGray = '#2f313a';
 const johnsonBlue = '#04295e';
+const imgShadow = `0px 2px 30px 3px rgb(35, 35, 35),0px 1px 20px 4px rgb(35, 35, 35),0px 1px 20px 5px rgb(35, 35, 35)`;
+// This shadow is theme.shadows[25]
 
 export const theme: Theme = createTheme( {
     palette: {
@@ -69,5 +71,7 @@ export const theme: Theme = createTheme( {
         }
     }
 } );
+
+theme.shadows.push( imgShadow );
 
 export default theme; 
