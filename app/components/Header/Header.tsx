@@ -38,6 +38,7 @@ const useStyles = makeStyles()( {
         '&:hover': {
             cursor: 'pointer'
         }
+        , boxShadow: '0px 1px 10px rgb(0 0 0 / 70%)'
     }
 } );
 
@@ -64,7 +65,7 @@ const Header = () => {
                         }}
                         className={ classes.logo }
                     />
-                    { !isSmScreen && 
+                    {/* { !isSmScreen && 
                     <Typography 
                         variant={isSmScreen ? 'h4' : 'h3'}
                         marginLeft='1rem'
@@ -72,7 +73,7 @@ const Header = () => {
                     >
                         Alex Johnson
                     </Typography>
-                    }
+                    } */}
                     { !isMdScreen && 
                     <NavBar className={ classes.navBar }/> 
                     }
