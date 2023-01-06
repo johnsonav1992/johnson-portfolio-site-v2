@@ -14,7 +14,11 @@ declare module '@mui/material/styles' {
             , light: React.CSSProperties['color']
         }
     }
-    
+
 }
 
-export {};
+export interface Skill {
+    id: number;
+    name: string;
+    iconSrc: string;
+}
