@@ -1,10 +1,14 @@
 import React from 'react';
 
+// Libraries
+import { Link } from '@remix-run/react';
+
 //MUI
 import { 
     Button
     , Grid
     , Typography
+    , useMediaQuery
 } from '@mui/material';
 
 // Assets
@@ -15,15 +19,18 @@ import theme from '~/theme/theme';
 import { aboutText } from '~/data/text';
 
 const AboutPage = () => {
+    const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
+
     return (
         <Grid 
             container 
             justifyContent='center'
+            direction={ isMdScreen ? 'column' : 'row' }
             spacing={ 3 }
             sx={ { 
                 padding: '2rem'
                 , minHeight: '90vh'
-                , gap: '5rem'
+                , gap: isMdScreen ? '1rem' : '2rem'
             } }
         >
             <Grid 
@@ -37,7 +44,7 @@ const AboutPage = () => {
                     item 
                     container
                     direction='column'
-                    alignItems='flex-start'
+                    alignItems={ isMdScreen ? 'center' : 'flex-start' }
                     justifyContent='center'
                     spacing={ 2 }
                 >
@@ -51,15 +58,14 @@ const AboutPage = () => {
                             { aboutText }
                         </Typography>
                     </Grid>
-                    <Grid 
-                        item
-                        sx={{ width: '40%' }}
-                    >
+                    <Grid item>
                         <Button 
                             variant='contained'
-                            fullWidth
+                            component={Link}
+                            to='/contact'
+                            sx={{ width: '9rem' }}
                         >
-                            Contact me
+                            Contact Me
                         </Button>
                     </Grid>
                 </Grid>
@@ -69,14 +75,14 @@ const AboutPage = () => {
                 container
                 justifyContent='center'
                 alignItems='center'
-                xs={ 12 }
-                lg={ 4 }
+                xs={ 10 }
+                lg={ 5 }
             >
                 <img 
                     src={ aboutHeadshot } 
                     alt="Alex Johnson Headshot"
                     style={{ 
-                        maxWidth: '100%'
+                        maxWidth: '70%'
                         //@ts-ignore
                         , boxShadow: theme.shadows[ 25 ]
                         , borderRadius: '.5em'

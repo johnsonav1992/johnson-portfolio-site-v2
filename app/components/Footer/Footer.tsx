@@ -4,6 +4,7 @@ import React from 'react';
 import theme from '~/theme/theme';
 import { 
     IconButton
+    , Grid
     , Typography
     , Link
 } from '@mui/material';
@@ -21,7 +22,7 @@ const useStyles = makeStyles()( {
         , height: 50
         , display: 'flex'
         , alignItems: 'center'
-        , justifyContent: 'flex-end'
+        , justifyContent: 'space-between'
         , paddingLeft: '1rem'
         , paddingRight: '1rem'
     }
@@ -42,26 +43,37 @@ const useStyles = makeStyles()( {
 const Footer = () => {
     const { classes } = useStyles();
 
+    const currentYear = new Date().getFullYear();
+
     return (
         <footer className={ classes.footer }>
-            <IconButton 
-                className={ classes.iconBtn } 
-                LinkComponent={Link}
-                href='https://www.linkedin.com/in/johnsonav/'
-                target='_blank'
-            >
-                <LinkedinIcon />
-                <Typography variant='h6'>LinkedIn</Typography>
-            </IconButton>
-            <IconButton 
-                className={ classes.iconBtn } 
-                LinkComponent={Link}
-                href='https://github.com/johnsonav1992'
-                target='_blank'
-            >
-                <GitHubIcon />
-                <Typography variant='h6'>GitHub</Typography>
-            </IconButton>
+            <Grid container>
+                <Grid item xs={6}>
+                    <Typography variant='body2'>
+                        {`ⓒ AJ Web Development - ${ currentYear }`}
+                    </Typography>
+                </Grid>
+            </Grid>
+            <Grid item container xs={6}>
+                <IconButton 
+                    className={ classes.iconBtn } 
+                    LinkComponent={Link}
+                    href='https://www.linkedin.com/in/johnsonav/'
+                    target='_blank'
+                >
+                    <LinkedinIcon />
+                    <Typography variant='h6'>LinkedIn</Typography>
+                </IconButton>
+                <IconButton 
+                    className={ classes.iconBtn } 
+                    LinkComponent={Link}
+                    href='https://github.com/johnsonav1992'
+                    target='_blank'
+                >
+                    <GitHubIcon />
+                    <Typography variant='h6'>GitHub</Typography>
+                </IconButton>
+            </Grid>
         </footer>
     );
 };

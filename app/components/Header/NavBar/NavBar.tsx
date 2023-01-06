@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import type { SyntheticEvent } from 'react';
+
+// Libraries
 import { Link } from '@remix-run/react';
 
 // MUI
@@ -13,6 +14,9 @@ import { tabs } from '../../../data/tabs';
 
 // Contexts
 import { siteContext } from '~/context/context';
+
+// Types
+import type { SyntheticEvent } from 'react';
 
 // Styles
 import theme from '~/theme/theme';
