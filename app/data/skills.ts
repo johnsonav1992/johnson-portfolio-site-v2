@@ -1,6 +1,3 @@
-// Libraries
-
-
 // Types
 import type { Skill } from '~/types/types';
 
@@ -28,12 +25,9 @@ import tailwind from '../assets/tailwind.svg';
 import vue from '../assets/vue.svg';
 import ts from '../assets/ts.svg';
 
-// Crypto Library
-const crypto = require( 'crypto' );
-
 export const skills: Skill[] = [
     {
-        id: 1
+        id: 0
         , name: 'TypeScript'
         , iconSrc: ts
     }
