@@ -17,7 +17,7 @@ declare module '@mui/material/styles' {
 
 }
 export interface Skill {
-    id: string;
+    id: number;
     name: string;
     iconSrc: string;
 }
