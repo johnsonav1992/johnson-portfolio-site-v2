@@ -20,6 +20,7 @@ const useStyles = makeStyles()( ( theme ) => {
     return  {
         outerContainer: {
             minHeight: '90vh'
+            , marginTop: '1rem'
         }
         , link: { 
             textDecoration: 'none'
@@ -27,6 +28,9 @@ const useStyles = makeStyles()( ( theme ) => {
         }
         , headshot: {
             maxWidth: 500
+            , [ theme.breakpoints.down( 'xs' ) ]: {
+                maxWidth: 300
+            }
             , [ theme.breakpoints.down( 'md' ) ]: {
                 transform: 'translateX(-5%)'
             }

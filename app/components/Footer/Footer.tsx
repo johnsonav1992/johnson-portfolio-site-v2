@@ -7,6 +7,7 @@ import {
     , Grid
     , Typography
     , Link
+    , useMediaQuery
 } from '@mui/material';
 
 // Components
@@ -46,6 +47,7 @@ const useStyles = makeStyles()( {
 
 const Footer = () => {
     const { classes } = useStyles();
+    const isSmScreen = useMediaQuery( theme.breakpoints.down( 'sm' ) );
     const currentYear = new Date().getFullYear();
 
     return (
@@ -64,7 +66,11 @@ const Footer = () => {
                         target='_blank'
                     >
                         <LinkedinIcon />
-                        <Typography variant='h6'>LinkedIn</Typography>
+                        { !isSmScreen && 
+                            <Typography variant='h6'>
+                                LinkedIn
+                            </Typography>
+                        }
                     </IconButton>
                     <IconButton 
                         className={ classes.iconBtn } 
@@ -73,7 +79,11 @@ const Footer = () => {
                         target='_blank'
                     >
                         <GitHubIcon />
-                        <Typography variant='h6'>GitHub</Typography>
+                        { !isSmScreen && 
+                            <Typography variant='h6'>
+                                GitHub
+                            </Typography>
+                        }
                     </IconButton>
                 </Grid>
             </Grid>
