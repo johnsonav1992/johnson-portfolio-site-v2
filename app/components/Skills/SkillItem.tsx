@@ -22,6 +22,7 @@ const SkillItem = ( { skill }: Props ) => {
             direction='column'
             alignItems='center'
             justifyContent='center'
+            spacing={ 2 }
             item
             xs={ 6 }
             sm={ 4 }
