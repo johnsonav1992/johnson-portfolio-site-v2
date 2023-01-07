@@ -26,12 +26,18 @@ import redux from '../assets/redux.svg';
 import svelte from '../assets/svelte.svg';
 import tailwind from '../assets/tailwind.svg';
 import vue from '../assets/vue.svg';
+import ts from '../assets/ts.svg';
 
 // Crypto Library
 const crypto = require( 'crypto' );
 
 export const skills: Skill[] = [
     {
+        id: 1
+        , name: 'TypeScript'
+        , iconSrc: ts
+    }
+    , {
         id: 1
         , name: 'Axios'
         , iconSrc: axios

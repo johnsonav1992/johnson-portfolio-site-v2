@@ -38,22 +38,25 @@ const useStyles = makeStyles()( {
         }
         , gap: '.5rem'
     }
+    , copyrightTextContainer: {
+        display: 'flex'
+        , alignItems: 'center'
+    }
 } );
 
 const Footer = () => {
     const { classes } = useStyles();
-
     const currentYear = new Date().getFullYear();
 
     return (
         <footer className={ classes.footer }>
             <Grid container justifyContent='space-between'>
-                <Grid container alignItems='center'>
+                <Grid className={ classes.copyrightTextContainer }>
                     <Typography variant='body2'>
                         {`© ${ currentYear } - AJ Web Development`}
                     </Typography>
                 </Grid>
-                <Grid container>
+                <Grid>
                     <IconButton 
                         className={ classes.iconBtn } 
                         LinkComponent={Link}
