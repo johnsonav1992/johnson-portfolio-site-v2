@@ -24,6 +24,7 @@ import svelte from '../assets/svelte.svg';
 import tailwind from '../assets/tailwind.svg';
 import vue from '../assets/vue.svg';
 import ts from '../assets/ts.svg';
+import remix from '../assets/remix.svg';
 
 export const skills: Skill[] = [
     {
@@ -115,6 +116,11 @@ export const skills: Skill[] = [
         id: 17
         , name: 'React'
         , iconSrc: react
+    }
+    , {
+        id: 30
+        , name: 'Remix'
+        , iconSrc: remix
     }
     , {
         id: 18
