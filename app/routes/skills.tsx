@@ -28,7 +28,7 @@ const SkillsPage = () => {
             direction='column'
             alignItems='center'
             component='main'
-            sx={{ paddingTop: '1rem' }}
+            sx={ { padding: '2rem' } }
         >
             <Grid item>
                 <Typography variant='h3'>

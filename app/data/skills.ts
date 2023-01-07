@@ -1,6 +1,9 @@
 // Types
 import type { Skill } from '~/types/types';
 
+// Libraries
+import uuid from 'react-uuid';
+
 // Assets
 import axios from '../assets/axios.svg';
 import bootstrap from '../assets/bootstrap.svg';
@@ -25,122 +28,134 @@ import tailwind from '../assets/tailwind.svg';
 import vue from '../assets/vue.svg';
 import ts from '../assets/ts.svg';
 import remix from '../assets/remix.svg';
+import prisma from '../assets/prisma.svg';
+import mui from '../assets/mui.svg';
 
 export const skills: Skill[] = [
     {
-        id: 0
-        , name: 'TypeScript'
-        , iconSrc: ts
-    }
-    , {
-        id: 1
-        , name: 'Axios'
-        , iconSrc: axios
-    }
-    , {
-        id: 2
-        , name: 'Bootstrap'
-        , iconSrc: bootstrap
-    }
-    , {
-        id: 3
-        , name: 'CSS'
-        , iconSrc: css
-    }
-    , {
-        id: 4
-        , name: 'Firebase'
-        , iconSrc: firebase
-    }
-    , {
-        id: 5
-        , name: 'Git'
-        , iconSrc: git
-    }
-    , {
-        id: 6
-        , name: 'GitHub'
-        , iconSrc: github
-    }
-    , {
-        id: 7
-        , name: 'HTML'
-        , iconSrc: html
-    }
-    , {
-        id: 8
-        , name: 'Jest'
-        , iconSrc: jest
-    }
-    , {
-        id: 9
-        , name: 'jQuery'
-        , iconSrc: jquery
-    }
-    , {
-        id: 10
-        , name: 'JavaScript'
-        , iconSrc: js
-    }
-    , {
-        id: 11
-        , name: 'MongoDB'
-        , iconSrc: mongodb
-    }
-    , {
-        id: 12
-        , name: 'Node.js'
-        , iconSrc: nodejs
-    }
-    , {
-        id: 13
-        , name: 'PHP'
-        , iconSrc: php
-    }
-    , {
-        id: 14
-        , name: 'PostgreSQL'
-        , iconSrc: postgres
-    }
-    , {
-        id: 15
-        , name: 'Postman'
-        , iconSrc: postman
-    }
-    , {
-        id: 16
-        , name: 'Python'
-        , iconSrc: python
-    }
-    , {
-        id: 17
+        id: uuid()
         , name: 'React'
         , iconSrc: react
     }
     , {
-        id: 30
+        id: uuid()
+        , name: 'TypeScript'
+        , iconSrc: ts
+    }
+    , {
+        id: uuid()
         , name: 'Remix'
         , iconSrc: remix
     }
     , {
-        id: 18
-        , name: 'Redux'
-        , iconSrc: redux
+        id: uuid()
+        , name: 'MUI'
+        , iconSrc: mui
     }
     , {
-        id: 19
+        id: uuid()
+        , name: 'HTML'
+        , iconSrc: html
+    }
+    , {
+        id: uuid()
+        , name: 'CSS'
+        , iconSrc: css
+    }
+    , {
+        id: uuid()
+        , name: 'JavaScript'
+        , iconSrc: js
+    }
+    , {
+        id: uuid()
+        , name: 'Node.js'
+        , iconSrc: nodejs
+    }
+    , {
+        id: uuid()
         , name: 'Svelte'
         , iconSrc: svelte
     }
     , {
-        id: 20
+        id: uuid()
+        , name: 'Vue'
+        , iconSrc: vue
+    }
+    , {
+        id: uuid()
+        , name: 'MongoDB'
+        , iconSrc: mongodb
+    }
+    , {
+        id: uuid()
+        , name: 'PostgreSQL'
+        , iconSrc: postgres
+    }
+    , {
+        id: uuid()
+        , name: 'Firebase'
+        , iconSrc: firebase
+    }
+    , {
+        id: uuid()
+        , name: 'Prisma'
+        , iconSrc: prisma
+    }
+    , {
+        id: uuid()
+        , name: 'Postman'
+        , iconSrc: postman
+    }
+    , {
+        id: uuid()
+        , name: 'Axios'
+        , iconSrc: axios
+    }
+    , {
+        id: uuid()
+        , name: 'PHP'
+        , iconSrc: php
+    }
+    , {
+        id: uuid()
+        , name: 'Python'
+        , iconSrc: python
+    }
+    , {
+        id: uuid()
+        , name: 'Bootstrap'
+        , iconSrc: bootstrap
+    }
+    , {
+        id: uuid()
         , name: 'Tailwind CSS'
         , iconSrc: tailwind
     }
     , {
-        id: 21
-        , name: 'Vue'
-        , iconSrc: vue
+        id: uuid()
+        , name: 'jQuery'
+        , iconSrc: jquery
+    }
+    , {
+        id: uuid()
+        , name: 'Git'
+        , iconSrc: git
+    }
+    , {
+        id: uuid()
+        , name: 'GitHub'
+        , iconSrc: github
+    }
+    , {
+        id: uuid()
+        , name: 'Redux'
+        , iconSrc: redux
+    }
+    , {
+        id: uuid()
+        , name: 'Jest'
+        , iconSrc: jest
     }
     
 ];
