@@ -1,3 +1,5 @@
+// Libraries
+import crypto from 'crypto';
 
 // Types
 import type { Skill } from '~/types/types';
@@ -27,107 +29,107 @@ import vue from '../assets/vue.svg';
 
 export const skills: Skill[] = [
     {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Axios'
         , iconSrc: axios
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Bootstrap'
         , iconSrc: bootstrap
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'CSS'
         , iconSrc: css
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Firebase'
         , iconSrc: firebase
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Git'
         , iconSrc: git
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'GitHub'
         , iconSrc: github
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'HTML'
         , iconSrc: html
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Jest'
         , iconSrc: jest
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'jQuery'
         , iconSrc: jquery
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'JavaScript'
         , iconSrc: js
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'MongoDB'
         , iconSrc: mongodb
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Node.js'
         , iconSrc: nodejs
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'PHP'
         , iconSrc: php
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'PostgreSQL'
         , iconSrc: postgres
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Postman'
         , iconSrc: postman
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Python'
         , iconSrc: python
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'React'
         , iconSrc: react
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Redux'
         , iconSrc: redux
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Svelte'
         , iconSrc: svelte
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Tailwind CSS'
         , iconSrc: tailwind
     }
     , {
-        id: +crypto.randomUUID()
+        id: String( crypto.randomUUID() )
         , name: 'Vue'
         , iconSrc: vue
     }

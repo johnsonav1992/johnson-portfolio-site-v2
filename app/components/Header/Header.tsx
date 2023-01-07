@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
+
+// Libraries
 import { useNavigate } from '@remix-run/react';
 
 // MUI
 import { 
     AppBar
     , Toolbar
-    , Typography
     , IconButton
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';

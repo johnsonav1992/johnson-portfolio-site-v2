@@ -50,7 +50,7 @@ const Footer = () => {
             <Grid container>
                 <Grid item xs={6}>
                     <Typography variant='body2'>
-                        {`ⓒ AJ Web Development - ${ currentYear }`}
+                        {`© ${ currentYear } - AJ Web Development`}
                     </Typography>
                 </Grid>
             </Grid>
