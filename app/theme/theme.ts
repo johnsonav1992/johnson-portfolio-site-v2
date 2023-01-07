@@ -26,6 +26,9 @@ export const theme: Theme = createTheme( {
             , color: '#FFF'
         }
         , h2: {
+            fontWeight: 600
+        }
+        , h3: {
             fontWeight: 500
         }
     }

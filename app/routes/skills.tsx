@@ -38,7 +38,10 @@ const SkillsPage = () => {
             <Grid
                 item 
                 container
-                sx={ { width: '50%' } }
+                sx={ { 
+                    width: isMdScreen ? '100%' : '75%'
+                    , marginTop: '1rem'
+                } }
             >
                 { skills.map( ( skill: Skill ) => {
                     return <SkillItem 

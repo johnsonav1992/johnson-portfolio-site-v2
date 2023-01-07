@@ -47,32 +47,32 @@ const Footer = () => {
 
     return (
         <footer className={ classes.footer }>
-            <Grid container>
-                <Grid item xs={6}>
+            <Grid container justifyContent='space-between'>
+                <Grid container alignItems='center'>
                     <Typography variant='body2'>
                         {`© ${ currentYear } - AJ Web Development`}
                     </Typography>
                 </Grid>
-            </Grid>
-            <Grid item container xs={6}>
-                <IconButton 
-                    className={ classes.iconBtn } 
-                    LinkComponent={Link}
-                    href='https://www.linkedin.com/in/johnsonav/'
-                    target='_blank'
-                >
-                    <LinkedinIcon />
-                    <Typography variant='h6'>LinkedIn</Typography>
-                </IconButton>
-                <IconButton 
-                    className={ classes.iconBtn } 
-                    LinkComponent={Link}
-                    href='https://github.com/johnsonav1992'
-                    target='_blank'
-                >
-                    <GitHubIcon />
-                    <Typography variant='h6'>GitHub</Typography>
-                </IconButton>
+                <Grid container>
+                    <IconButton 
+                        className={ classes.iconBtn } 
+                        LinkComponent={Link}
+                        href='https://www.linkedin.com/in/johnsonav/'
+                        target='_blank'
+                    >
+                        <LinkedinIcon />
+                        <Typography variant='h6'>LinkedIn</Typography>
+                    </IconButton>
+                    <IconButton 
+                        className={ classes.iconBtn } 
+                        LinkComponent={Link}
+                        href='https://github.com/johnsonav1992'
+                        target='_blank'
+                    >
+                        <GitHubIcon />
+                        <Typography variant='h6'>GitHub</Typography>
+                    </IconButton>
+                </Grid>
             </Grid>
         </footer>
     );
