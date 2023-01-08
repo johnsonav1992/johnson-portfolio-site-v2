@@ -6,6 +6,9 @@ import { redirect } from '@remix-run/node';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
+// Utils
+import { sendEmail } from '~/email/sendEmail';
+
 // Types
 import type { ActionFunction } from '@remix-run/node';
 import type { FormikProps } from 'formik';
@@ -56,12 +59,11 @@ const ContactPage = () => {
 };
 
 export const action: ActionFunction = async ( { request } ) => {
-    for ( let i = 0; i < 10000000000; i++ ) {
-        i ++;
-    }
     const formData = await request.formData(); 
     const data = Object.fromEntries( formData ); 
     console.table( data ); 
+
+    await sendEmail( String( data.name ), String( data.email ), String( data.message ) );
     
     return redirect( '/' );
 };
