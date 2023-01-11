@@ -30,6 +30,8 @@ import ts from '../assets/ts.svg';
 import remix from '../assets/remix.svg';
 import prisma from '../assets/prisma.svg';
 import mui from '../assets/mui.svg';
+import graphql from '../assets/graphql.svg';
+import hasura from '../assets/hasura.svg';
 
 export const skills: Skill[] = [
     {
@@ -96,6 +98,16 @@ export const skills: Skill[] = [
         id: uuid()
         , name: 'Firebase'
         , iconSrc: firebase
+    }
+    , {
+        id: uuid()
+        , name: 'GraphQL'
+        , iconSrc: graphql
+    }
+    , {
+        id: uuid()
+        , name: 'Hasura'
+        , iconSrc: hasura
     }
     , {
         id: uuid()
