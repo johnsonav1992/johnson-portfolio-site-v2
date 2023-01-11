@@ -15,6 +15,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 // Components
 import NavBar from './NavBar/NavBar';
+import SideDrawer from '../Drawer/SideDrawer';
 
 // Utils
 import logo from '../../assets/logo-icon.svg';
@@ -47,8 +48,16 @@ const Header = () => {
     const { classes } = useStyles();
     const isSmScreen = useMediaQuery( theme.breakpoints.down( 'sm' ) );
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
-    const { setActiveTab } = useContext( siteContext );
+    const { 
+        setActiveTab
+        , setDrawerIsOpen
+        , drawerIsOpen
+    } = useContext( siteContext );
     const navigate = useNavigate();
+
+    const toggleDrawer = () => {
+        setDrawerIsOpen( !drawerIsOpen );
+    };
 
     return (
         <>
@@ -79,7 +88,10 @@ const Header = () => {
                     <NavBar className={ classes.navBar }/> 
                     }
                     { isMdScreen && 
-                    <IconButton sx={{ marginLeft: 'auto' }}>
+                    <IconButton 
+                        sx={{ marginLeft: 'auto' }}
+                        onClick={ toggleDrawer }
+                    >
                         <MenuIcon 
                             sx={{ 
                                 color: theme.palette.common.white
@@ -91,6 +103,7 @@ const Header = () => {
                     }
                 </Toolbar>
             </AppBar>
+            <SideDrawer />
         </>
     );
 };
