@@ -10,6 +10,7 @@ import {
     , IconButton
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import theme from '~/theme/theme';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -92,13 +93,27 @@ const Header = () => {
                         sx={{ marginLeft: 'auto' }}
                         onClick={ toggleDrawer }
                     >
-                        <MenuIcon 
-                            sx={{ 
-                                color: theme.palette.common.white
-                                , width: '3rem'
-                                , height: '3rem'
-                            }}
-                        />
+                        { !drawerIsOpen ? 
+                        
+                            <MenuIcon 
+                                sx={{ 
+                                    color: theme.palette.common.white
+                                    , width: '3rem'
+                                    , height: '3rem'
+                                }}
+                            />
+                            :
+                            <CloseIcon 
+                                sx={{ 
+                                    color: theme.palette.common.white
+                                    , width: '3rem'
+                                    , height: '3rem'
+                                    , '&:hover': {
+                                        cursor: 'pointer'
+                                    }
+                                }}
+                            />
+                        }
                     </IconButton>
                     }
                 </Toolbar>

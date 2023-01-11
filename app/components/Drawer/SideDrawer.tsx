@@ -29,6 +29,7 @@ const SideDrawer = () => {
             onClose={ () => setDrawerIsOpen( false ) }
             onOpen={ () => setDrawerIsOpen( true ) }
             open={ drawerIsOpen }
+            BackdropProps={ { invisible: true } }
         >
             <List>
                 { tabs.map( tab => 
