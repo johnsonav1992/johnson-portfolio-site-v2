@@ -24,7 +24,7 @@ export const sendEmail = async ( name: string, email: string, message: string ) 
         , replyTo: email
         , subject: `Message received from ${ name } - ${ email }`
         , text: message
-        , html: formattedReceiptEmail()
+        , html: '<img alt="GitHub" height="32" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="display: block; height: auto; border: 0;" title="GitHub" width="32"/>'
     };
 
     await transporter.sendMail( mailOptions, ( error: Error | null, info: SMTPTransport.SentMessageInfo ) => {
