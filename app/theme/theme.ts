@@ -72,6 +72,13 @@ export const theme: Theme = createTheme( {
                 }
             }
         }
+        , MuiDrawer: {
+            styleOverrides: {
+                paper: {
+                    background: darkGray
+                }
+            }
+        }
     }
 } );
 
