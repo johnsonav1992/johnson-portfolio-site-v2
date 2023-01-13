@@ -24,7 +24,8 @@ const WorkItemComponent = ( { project }: Props ) => {
             container
             direction='column'
             alignItems='center'
-            xs={ 6 }
+            xs={ 12 }
+            md={ 6 }
             sx={ {
                 gap: '1rem'
             } }
