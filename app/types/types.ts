@@ -21,3 +21,13 @@ export interface Skill {
     name: string;
     iconSrc: string;
 }
+
+export interface WorkItem {
+    id: string;
+    name: string;
+    imgSrc: string;
+    prodLink?: string;
+    videoLink?: string;
+    technologies: string[];
+    description: string;
+}

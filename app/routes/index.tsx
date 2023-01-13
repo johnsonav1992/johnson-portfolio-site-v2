@@ -46,6 +46,7 @@ export default function Index () {
     return (
         <Grid 
             container
+            component='main'
             spacing={ 4 }
             className={ classes.outerContainer }
         >
