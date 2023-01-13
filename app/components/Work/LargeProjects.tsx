@@ -6,7 +6,10 @@ import {
     , Typography
     , useMediaQuery
 } from '@mui/material';
-import WorkItem from './WorkItem';
+import WorkItem from './WorkItemComponent';
+
+// Data 
+import { largeProjects } from '~/data/work';
 
 // Styles
 import theme from '~/theme/theme';
@@ -20,6 +23,9 @@ const LargeProjects = () => {
             container
             direction='column'
             alignItems='center'
+            sx={ {
+                gap: '2rem'
+            } }
         >
             <Grid item>
                 <Typography variant='h4'>
@@ -30,11 +36,16 @@ const LargeProjects = () => {
                 item
                 container
                 sx={ { 
-                    width: isMdScreen ? '100%' : '75%'
+                    width: isMdScreen ? '100%' : '90%'
                     , marginTop: '1rem'
                 } }
             >
-                <WorkItem />
+                { largeProjects.map( project => 
+                    <WorkItem 
+                        key={ project.id }
+                        project={ project }
+                    />
+                )}
             </Grid>
         </Grid>
     );
