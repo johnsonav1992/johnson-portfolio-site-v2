@@ -36,8 +36,12 @@ export const theme: Theme = createTheme( {
         MuiTextField: {
             styleOverrides: {
                 root: {
-                    input: { // TODO: fix input autofill bg color
+                    input: { 
                         color: 'white'
+                        , '&:-webkit-autofill': {
+                            WebkitBoxShadow: `0 0 0 100px ${ lightGray } inset`
+                            , WebkitTextFillColor: 'white'
+                        }
                     }
                     , textArea: {
                         color: 'white'
