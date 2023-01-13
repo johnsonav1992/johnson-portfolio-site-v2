@@ -30,6 +30,14 @@ const useStyles = makeStyles()( {
         , overflow: 'auto'
         , height: '100vh'
     }
+    , selected: {
+        '&.Mui-selected': {
+            backgroundColor: theme.palette.primary.main
+            , '&:hover': {
+                backgroundColor: theme.palette.primary.dark
+            }
+        }
+    }
 } );
 
 const SideDrawer = () => {
@@ -37,6 +45,8 @@ const SideDrawer = () => {
     const {
         drawerIsOpen
         , setDrawerIsOpen
+        , activeTab
+        , setActiveTab
     } = useContext( siteContext );
 
     return (
@@ -52,11 +62,16 @@ const SideDrawer = () => {
             <Box sx={ { ...theme.mixins.toolbar } }/>
             <List>
                 { tabs.map( tab => 
-                    <ListItemButton 
+                    <ListItemButton
                         key={ tab.label }
                         component={ Link }
                         to={ tab.link }
-                        onClick={ () => setDrawerIsOpen( false )}
+                        selected={ activeTab === tab.link }
+                        onClick={ () => {
+                            setDrawerIsOpen( false );
+                            setActiveTab( tab.link );
+                        } }
+                        classes={ { selected: classes.selected } }
                     >
                         <ListItemText>
                             <Typography variant='body1'>
