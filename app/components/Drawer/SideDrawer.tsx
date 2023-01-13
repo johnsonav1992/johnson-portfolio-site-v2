@@ -8,8 +8,9 @@ import {
     SwipeableDrawer
     , List
     , ListItemButton
-    , ListItemText,
-    Typography
+    , ListItemText
+    , Typography
+    , Box
 } from '@mui/material';
 
 // Contexts
@@ -18,7 +19,21 @@ import { siteContext } from '~/context/context';
 // Data
 import { tabs } from '~/data/tabs';
 
+// Styles
+import { makeStyles } from 'tss-react/mui';
+import theme from '~/theme/theme';
+
+const useStyles = makeStyles()( {
+    drawerPaper: {
+        width: 150
+        , top: theme.mixins.toolbar.minHeight
+        , overflow: 'auto'
+        , height: '100vh'
+    }
+} );
+
 const SideDrawer = () => {
+    const { classes } = useStyles();
     const {
         drawerIsOpen
         , setDrawerIsOpen
@@ -29,8 +44,12 @@ const SideDrawer = () => {
             onClose={ () => setDrawerIsOpen( false ) }
             onOpen={ () => setDrawerIsOpen( true ) }
             open={ drawerIsOpen }
-            BackdropProps={ { invisible: true } }
+            anchor='right'
+            classes={{
+                paper: classes.drawerPaper
+            }}
         >
+            <Box sx={ { ...theme.mixins.toolbar } }/>
             <List>
                 { tabs.map( tab => 
                     <ListItemButton 
@@ -40,7 +59,7 @@ const SideDrawer = () => {
                         onClick={ () => setDrawerIsOpen( false )}
                     >
                         <ListItemText>
-                            <Typography variant='body1' color='primary'>
+                            <Typography variant='body1'>
                                 { tab.label }
                             </Typography>
                         </ListItemText>
