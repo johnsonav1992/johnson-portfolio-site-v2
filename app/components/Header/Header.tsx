@@ -95,7 +95,6 @@ const Header = () => {
                         onClick={ toggleDrawer }
                     >
                         { !drawerIsOpen ? 
-                        
                             <MenuIcon 
                                 sx={{ 
                                     color: theme.palette.common.white
