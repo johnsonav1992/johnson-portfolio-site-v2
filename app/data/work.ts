@@ -14,6 +14,7 @@ export const largeProjects: WorkItem[] = [
     {
         id: uuid()
         , name: 'BabyBright'
+        , route: 'babybright'
         , imgSrc: babyBrightImg
         , prodLink: 'https://babybright.up.railway.app/'
         , videoLink: 'https://www.youtube.com/watch?v=U2v_vwOJ8nI'
@@ -35,6 +36,7 @@ export const largeProjects: WorkItem[] = [
     , {
         id: uuid()
         , name: 'Cocktail Central App'
+        , route: 'cocktailcentral'
         , imgSrc: cocktailCentralImg
         , prodLink: 'https://cocktail-central.up.railway.app/'
         , videoLink: 'https://www.youtube.com/watch?v=uLWQw6ePprc'
@@ -53,6 +55,7 @@ export const largeProjects: WorkItem[] = [
     , {
         id: uuid()
         , name: 'M. J. Financial Coaching'
+        , route: 'mjfc'
         , imgSrc: mjfc
         , prodLink: 'https://www.madisonjohnsonfc.com/'
         , technologies: [ 
@@ -67,6 +70,7 @@ export const smallProjects: WorkItem[] = [
     {
         id: uuid()
         , name: 'M. J. Financial Coaching'
+        , route: 'mjfc'
         , imgSrc: mjfc
         , prodLink: 'https://www.madisonjohnsonfc.com/'
         , technologies: [ 

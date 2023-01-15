@@ -25,6 +25,7 @@ export interface Skill {
 export interface WorkItem {
     id: string;
     name: string;
+    route: string;
     imgSrc: string;
     prodLink?: string;
     videoLink?: string;

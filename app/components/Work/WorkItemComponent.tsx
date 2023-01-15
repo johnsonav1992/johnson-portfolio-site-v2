@@ -2,7 +2,6 @@ import React from 'react';
 
 // MUI
 import { 
-    Box,
     Grid
     , Typography
     , useMediaQuery
@@ -13,6 +12,7 @@ import type { WorkItem } from '~/types/types';
 
 // Styles
 import theme from '~/theme/theme';
+import { Link } from '@remix-run/react';
 
 interface Props {
     project: WorkItem;
@@ -25,13 +25,19 @@ const WorkItemComponent = ( { project }: Props ) => {
         <Grid 
             item
             container
+            component={Link}
             direction='column'
             alignItems='center'
             xs={ 12 }
             md={ 6 }
             sx={ {
                 gap: '1rem'
+                , '&:hover': {
+                    cursor: 'pointer'
+                }
+                , textDecoration: 'none'
             } }
+            to={`/work/${ project.route }`}
         >
             <Grid 
                 item 
@@ -43,7 +49,9 @@ const WorkItemComponent = ( { project }: Props ) => {
             >
                 <Typography 
                     variant='h6'
-                    sx={{ fontSize: 'clamp(1rem, -0.2857rem + 3.0476vw, 2rem)' }}
+                    sx={ { 
+                        fontSize: 'clamp(1rem, -0.2857rem + 3.0476vw, 2rem)' 
+                    } }
                 >
                     { project.name }
                 </Typography>
