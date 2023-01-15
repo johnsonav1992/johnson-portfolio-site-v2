@@ -1,15 +1,11 @@
 import React from 'react';
 
-// Libraries
 // MUI
 import { Grid, Typography } from '@mui/material';
-import ProjectList from '~/components/Work/ProjectList';
+
 // Components
-// Types
-// Ducks
-// Utils
-// Contexts
-// Services
+import ProjectList from '~/components/Work/ProjectList';
+
 // Styles
 
 const WorkPage = () => {
@@ -27,7 +23,10 @@ const WorkPage = () => {
                 item
                 sx={ { marginBottom: '2rem' } }
             >
-                <Typography variant='h3'>
+                <Typography 
+                    variant='h3' 
+                    gutterBottom
+                >
                     My Work
                 </Typography>
             </Grid>

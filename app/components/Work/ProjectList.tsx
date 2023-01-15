@@ -2,6 +2,7 @@ import React from 'react';
 
 // MUI
 import { 
+    Divider,
     Grid
     , Typography
     , useMediaQuery
@@ -46,6 +47,13 @@ const ProjectList = ( { projectType }: Props ) => {
                     }
                 </Typography>
             </Grid>
+            <Divider 
+                variant='middle' 
+                sx={ { 
+                    borderColor: theme.palette.common.white
+                    , width: '75%' 
+                } }
+            />
             <Grid
                 item
                 container
