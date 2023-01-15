@@ -5,7 +5,7 @@ import uuid from 'react-uuid';
 import type { WorkItem } from '~/types/types';
 
 // Assets
-import babyBrightImg from '../assets/babybright.jpeg';
+import babyBrightImg from '../assets/babybright.png';
 import cocktailCentralImg from '../assets/cocktail-central-screenshot.png';
 import mjfc from '../assets/mjfc.png';
 

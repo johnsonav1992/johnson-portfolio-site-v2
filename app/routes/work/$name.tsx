@@ -1,9 +1,9 @@
 import React from 'react';
 
-const $name = () => {
+const WorkDetail = () => {
     return (
         <div>$name</div>
     );
 };
 
-export default $name;
+export default WorkDetail;

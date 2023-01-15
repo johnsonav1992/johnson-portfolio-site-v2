@@ -47,7 +47,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                     item 
                     justifyContent='center'
                 >
-                    <Typography variant={ isMdScreen ? 'h4' : 'h3'}>
+                    <Typography variant='h3'>
                                 Contact Me
                     </Typography>
                 </Grid>
