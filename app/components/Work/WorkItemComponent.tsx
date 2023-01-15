@@ -2,9 +2,10 @@ import React from 'react';
 
 // MUI
 import { 
+    Box,
     Grid
     , Typography
-    , Avatar
+    , useMediaQuery
 } from '@mui/material';
 
 // Types
@@ -18,6 +19,8 @@ interface Props {
 }
 
 const WorkItemComponent = ( { project }: Props ) => {
+    const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
+
     return (
         <Grid 
             item
@@ -35,19 +38,21 @@ const WorkItemComponent = ( { project }: Props ) => {
                 container 
                 justifyContent='flex-start'
                 sx={ {
-                    width: '30vw'
+                    width: isMdScreen ? '90%' : '30vw'
                 } }
             >
-                <Typography variant='h5'>
+                <Typography 
+                    variant='h6'
+                    sx={{ fontSize: 'clamp(1rem, -0.2857rem + 3.0476vw, 2rem)' }}
+                >
                     { project.name }
                 </Typography>
             </Grid>
             <img 
-                src={ project.imgSrc } 
+                src={ project.imgSrc }
                 alt={ project.name }
                 style={ {
-                    width: '30vw'
-                    , height: '20vw'
+                    width: isMdScreen ? '75vw' : '30vw'
                     , borderRadius: '0.5em'
                     // @ts-ignore
                     , boxShadow: theme.shadows[ 25 ]

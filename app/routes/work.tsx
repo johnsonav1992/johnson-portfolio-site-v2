@@ -3,7 +3,7 @@ import React from 'react';
 // Libraries
 // MUI
 import { Grid, Typography } from '@mui/material';
-import LargeProjects from '~/components/Work/LargeProjects';
+import ProjectList from '~/components/Work/ProjectList';
 // Components
 // Types
 // Ducks
@@ -12,7 +12,7 @@ import LargeProjects from '~/components/Work/LargeProjects';
 // Services
 // Styles
 
-const work = () => {
+const WorkPage = () => {
     return (
         <Grid
             container
@@ -21,7 +21,6 @@ const work = () => {
             component='main'
             sx={ { 
                 padding: '2rem'
-                , gap: '2rem'
             } }
         >
             <Grid 
@@ -32,9 +31,10 @@ const work = () => {
                     My Work
                 </Typography>
             </Grid>
-            <LargeProjects />
+            <ProjectList projectType='large' />
+            <ProjectList projectType='small' />
         </Grid>
     );
 };
 
-export default work;
+export default WorkPage;
