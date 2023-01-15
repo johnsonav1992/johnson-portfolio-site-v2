@@ -37,7 +37,7 @@ const WorkItemComponent = ( { project }: Props ) => {
                 }
                 , textDecoration: 'none'
             } }
-            to={`/work/${ project.route }`}
+            to={ project.route }
         >
             <Grid 
                 item 
