@@ -8,6 +8,7 @@ import type { WorkItem } from '~/types/types';
 import babyBrightImg from '../assets/babybright.png';
 import cocktailCentralImg from '../assets/cocktail-central-screenshot.png';
 import mjfc from '../assets/mjfc.png';
+import metronome from '../assets/metronome.png';
 
 
 export const largeProjects: WorkItem[] = [
@@ -69,14 +70,14 @@ export const largeProjects: WorkItem[] = [
 export const smallProjects: WorkItem[] = [
     {
         id: uuid()
-        , name: 'M. J. Financial Coaching'
-        , route: 'mjfc'
-        , imgSrc: mjfc
-        , prodLink: 'https://www.madisonjohnsonfc.com/'
+        , name: 'React Metronome'
+        , route: 'reactmetronome'
+        , imgSrc: metronome
+        , prodLink: ''
         , technologies: [ 
             'HTML'
             , 'CSS'
         ]
-        , description: `Website for Madison Johnson's Financial Coaching business.`
+        , description: `Working metronome built with React`
     }
 ];
