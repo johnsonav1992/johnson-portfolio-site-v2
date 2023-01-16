@@ -9,6 +9,7 @@ import ProjectList from '~/components/Work/ProjectList';
 // Styles
 
 const WorkPage = () => {
+
     return (
         <Grid
             container
