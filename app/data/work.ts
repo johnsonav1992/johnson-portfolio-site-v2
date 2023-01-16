@@ -9,6 +9,7 @@ import babyBrightImg from '../assets/babybright.png';
 import cocktailCentralImg from '../assets/cocktail-central-screenshot.png';
 import mjfc from '../assets/mjfc.png';
 import metronome from '../assets/metronome.png';
+import bmi from '../assets/bmi.png';
 
 
 export const largeProjects: WorkItem[] = [
@@ -79,5 +80,18 @@ export const smallProjects: WorkItem[] = [
             , 'CSS'
         ]
         , description: `Working metronome built with React`
+    }
+    , {
+        id: uuid()
+        , name: 'BMI Calculator'
+        , route: 'bmicalculator'
+        , imgSrc: bmi
+        , prodLink: ''
+        , technologies: [ 
+            'React'
+            , 'HTML'
+            , 'CSS'
+        ]
+        , description: `Simple React app. to calculate someone's BMI. Indicates whether a person is overweight or not with conditional rendering.`
     }
 ];
