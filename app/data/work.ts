@@ -10,6 +10,11 @@ import cocktailCentralImg from '../assets/cocktail-central-screenshot.png';
 import mjfc from '../assets/mjfc.png';
 import metronome from '../assets/metronome.png';
 import bmi from '../assets/bmi.png';
+import gif from '../assets/gif-finder.png';
+import sveltefeedback from '../assets/svelte-feedback.png';
+import todo from '../assets/todo.png';
+import rps from '../assets/rps.png';
+import tictactoe from '../assets/react-tictactoe.png';
 
 
 export const largeProjects: WorkItem[] = [
@@ -74,7 +79,7 @@ export const smallProjects: WorkItem[] = [
         , name: 'React Metronome'
         , route: 'reactmetronome'
         , imgSrc: metronome
-        , prodLink: ''
+        , prodLink: 'https://johnson-react-metronome.netlify.app/'
         , technologies: [ 
             'HTML'
             , 'CSS'
@@ -86,12 +91,77 @@ export const smallProjects: WorkItem[] = [
         , name: 'BMI Calculator'
         , route: 'bmicalculator'
         , imgSrc: bmi
-        , prodLink: ''
+        , prodLink: 'https://hj-bmi-calculator.netlify.app/'
         , technologies: [ 
             'React'
             , 'HTML'
             , 'CSS'
         ]
         , description: `Simple React app. to calculate someone's BMI. Indicates whether a person is overweight or not with conditional rendering.`
+    }
+    , {
+        id: uuid()
+        , name: 'Gif Finder App'
+        , route: 'giffinder'
+        , imgSrc: gif
+        , prodLink: 'https://johnson-gif-finder.netlify.app/'
+        , technologies: [ 
+            'React'
+            , 'HTML'
+            , 'CSS'
+        ]
+        , description: `An app that allows a user to search for gifs, powered by the Giphy API.`
+    }
+    , {
+        id: uuid()
+        , name: 'React Tic Tac Toe'
+        , route: 'tictactoe'
+        , imgSrc: tictactoe
+        , prodLink: 'https://johnson-react-tictactoe.netlify.app/'
+        , technologies: [ 
+            'React'
+            , 'HTML'
+            , 'CSS'
+        ]
+        , description: `Tic Tac Toe with a React flair!`
+    }
+    , {
+        id: uuid()
+        , name: 'Svelte Feedback App'
+        , route: 'sveltefeedback'
+        , imgSrc: sveltefeedback
+        , prodLink: 'https://johnson-svelte-feedback.netlify.app/'
+        , technologies: [ 
+            'Svelte'
+            , 'HTML'
+            , 'CSS'
+        ]
+        , description: `A simple feedback posting app developed with Svelte.`
+    }
+    , {
+        id: uuid()
+        , name: 'To-Do List App'
+        , route: 'todo'
+        , imgSrc: todo
+        , prodLink: 'https://johnson-todoapp.netlify.app/'
+        , technologies: [ 
+            'JavaScript'
+            , 'HTML'
+            , 'CSS'
+        ]
+        , description: `A useful to-do list application that allows users to add and delete to-do items. Each item is saved in local storage in the browser to allow the user to return later and pull up their saved list. `
+    }
+    , {
+        id: uuid()
+        , name: 'Rock, Paper, Scissors'
+        , route: 'rps'
+        , imgSrc: rps
+        , prodLink: 'https://johnson-rockpaperscissors.netlify.app/'
+        , technologies: [ 
+            'JavaScript'
+            , 'HTML'
+            , 'CSS'
+        ]
+        , description: `A classic rock, paper, scissors game where a user can play the computer in three-round matches. The game resets after someone has one so it can be played again. `
     }
 ];
