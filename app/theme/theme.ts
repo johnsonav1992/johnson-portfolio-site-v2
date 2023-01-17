@@ -83,6 +83,14 @@ export const theme: Theme = createTheme( {
                 }
             }
         }
+        , MuiPaper: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: darkGray
+                    , borderRadius: '.5em'
+                }
+            }
+        }
     }
 } );
 

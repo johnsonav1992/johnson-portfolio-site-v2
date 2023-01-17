@@ -7,7 +7,7 @@ import {
     , Typography
     , useMediaQuery
 } from '@mui/material';
-import WorkItem from './WorkItemComponent';
+import WorkItemComponent from './WorkItemComponent';
 
 // Data 
 import { 
@@ -66,12 +66,12 @@ const ProjectList = ( { projectType }: Props ) => {
             >
                 { projectType === 'large' 
                     ? largeProjects.map( project => 
-                        <WorkItem 
+                        <WorkItemComponent 
                             key={ project.id }
                             project={ project }
                         /> )
                     : smallProjects.map( project => 
-                        <WorkItem 
+                        <WorkItemComponent
                             key={ project.id }
                             project={ project }
                         /> )
