@@ -1,7 +1,9 @@
 import React from 'react';
 
 // MUI
-import { Grid, Typography } from '@mui/material';
+import { Grid
+    , Typography 
+} from '@mui/material';
 
 // Components
 import ProjectList from '~/components/Work/ProjectList';
