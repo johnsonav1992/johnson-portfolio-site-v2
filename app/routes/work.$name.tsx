@@ -8,14 +8,22 @@ import { Link } from '@remix-run/react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ExternalLink from '@mui/material/Link';
-
+import { 
+    Button
+    , Container
+    , Grid
+    , Paper
+    , Typography
+    , useMediaQuery 
+} from '@mui/material';
 
 // Data
 import { 
     smallProjects
     , largeProjects
 } from '~/data/work';
-import { Box, Button, Grid, Paper, Typography, useMediaQuery } from '@mui/material';
+
+// Theme
 import theme from '~/theme/theme';
 
 const ProjectDetail = () => {
@@ -28,9 +36,17 @@ const ProjectDetail = () => {
         );
 
     if ( !project ) {
-        return <Box>
+        return <Container>
+            <Grid 
+                container 
+                justifyContent='center' 
+                sx={ { 
+                    height: '90vh'
+                    , marginTop: '2rem' 
+                } }>
             This project does not exist, please go back and try again
-        </Box>;
+            </Grid>;
+        </Container>;
     }
 
     console.log( project.technologies );
