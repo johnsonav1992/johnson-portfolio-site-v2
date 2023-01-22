@@ -10,12 +10,14 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ExternalLink from '@mui/material/Link';
 import { 
     Button
-    , Container
     , Grid
     , Paper
     , Typography
     , useMediaQuery 
 } from '@mui/material';
+
+// Components
+import ProjectError from '~/components/Work/ProjectError';
 
 // Data
 import { 
@@ -36,20 +38,8 @@ const ProjectDetail = () => {
         );
 
     if ( !project ) {
-        return <Container>
-            <Grid 
-                container 
-                justifyContent='center' 
-                sx={ { 
-                    height: '90vh'
-                    , marginTop: '2rem' 
-                } }>
-            This project does not exist, please go back and try again
-            </Grid>;
-        </Container>;
+        return <ProjectError />;
     }
-
-    console.log( project.technologies );
 
     return (
         <Grid 
