@@ -1,8 +1,10 @@
 import React from 'react';
 
 // Libraries
-import { useParams } from '@remix-run/react';
-import { Link } from '@remix-run/react';
+import { 
+    useParams
+    , Link 
+} from '@remix-run/react';
 
 // MUI
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -71,7 +73,10 @@ const ProjectDetail = () => {
                     } }
                 >
                     <Grid item>
-                        <Typography variant='h3' textAlign='center'>
+                        <Typography 
+                            variant='h3' 
+                            textAlign='center'
+                        >
                             { project.name }
                         </Typography>
                     </Grid>
@@ -114,8 +119,8 @@ const ProjectDetail = () => {
                                     Tech Stack:     
                                 </Typography>                                    
                                 <Typography variant='body2'>
-                                    { `${ project.technologies.map( techItem =>
-                                        ` ${ techItem }`
+                                    { `${ project.technologies.map( 
+                                        techItem => ` ${ techItem }`
                                     ) }`
                                     }
                                 </Typography>
