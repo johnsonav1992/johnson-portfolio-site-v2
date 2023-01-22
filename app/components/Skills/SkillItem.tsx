@@ -9,8 +9,6 @@ import {
 // Types
 import type { Skill } from '../../types/types';
 
-// Styles
-
 interface Props {
     skill: Skill
 }

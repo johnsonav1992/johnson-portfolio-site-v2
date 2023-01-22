@@ -22,7 +22,7 @@ import type { ContactInput } from '~/routes/contact';
 import theme from '~/theme/theme';
 
 const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
-    const transition = useTransition();
+    const { state } = useTransition();
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
 
     const {
@@ -40,7 +40,10 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                 direction='column'
                 alignItems='center'
                 spacing={ 3 }
-                sx={ { paddingTop: '1.5rem', minHeight: '100vh' } }
+                sx={ { 
+                    paddingTop: '1.5rem'
+                    , minHeight: '100vh' 
+                } }
             >
                 <Grid 
                     container
@@ -48,7 +51,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                     justifyContent='center'
                 >
                     <Typography variant='h3'>
-                                Contact Me
+                        Contact Me
                     </Typography>
                 </Grid>
                 <Grid 
@@ -64,7 +67,8 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                             , width: inputWidth 
                         } }
                     >
-                        Please fill out the form below and I will get back to you as soon as I can. Thank you!
+                        Please fill out the form below and I will 
+                        get back to you as soon as I can. Thank you!
                     </Typography>
                 </Grid>
                 <Grid 
@@ -110,7 +114,11 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                         rows={5}
                     />
                 </Grid>
-                <Grid container item justifyContent='center'>
+                <Grid 
+                    item 
+                    container 
+                    justifyContent='center'
+                >
                     <Button 
                         color='primary'
                         variant='contained'
@@ -120,7 +128,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                             , marginBottom: '1rem' 
                         } }
                     >
-                        { transition.state !== 'idle' 
+                        { state !== 'idle' 
                             ? <CircularProgress 
                                 sx={ { color: theme.palette.common.white } }
                                 size='1.5rem'

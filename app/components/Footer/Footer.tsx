@@ -1,7 +1,6 @@
 import React from 'react';
 
 // MUI
-import theme from '~/theme/theme';
 import { 
     IconButton
     , Grid
@@ -16,6 +15,7 @@ import GitHubIcon from './GitHubIcon';
 
 // Styles
 import { makeStyles } from 'tss-react/mui';
+import theme from '~/theme/theme';
 
 const useStyles = makeStyles()( {
     footer: {
@@ -52,7 +52,10 @@ const Footer = () => {
 
     return (
         <footer className={ classes.footer }>
-            <Grid container justifyContent='space-between'>
+            <Grid 
+                container 
+                justifyContent='space-between'
+            >
                 <Grid className={ classes.copyrightTextContainer }>
                     <Typography variant='body2'>
                         {`© ${ currentYear } - AJ Web Development`}

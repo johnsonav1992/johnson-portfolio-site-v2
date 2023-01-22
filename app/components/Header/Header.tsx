@@ -11,7 +11,6 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import theme from '~/theme/theme';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 // Components
@@ -26,6 +25,7 @@ import { siteContext } from '~/context/context';
 
 // Styles
 import { makeStyles } from 'tss-react/mui';
+import theme from '~/theme/theme';
 
 const useStyles = makeStyles()( {
     appBar: {

@@ -8,8 +8,6 @@ import { Grid
 // Components
 import ProjectList from '~/components/Work/ProjectList';
 
-// Styles
-
 const WorkPage = () => {
 
     return (
