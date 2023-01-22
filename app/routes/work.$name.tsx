@@ -2,8 +2,12 @@ import React from 'react';
 
 // Libraries
 import { useParams } from '@remix-run/react';
+import { Link } from '@remix-run/react';
 
 // MUI
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import ExternalLink from '@mui/material/Link';
 
 
 // Data
@@ -11,10 +15,12 @@ import {
     smallProjects
     , largeProjects
 } from '~/data/work';
-import { Box, Grid, Paper, Typography } from '@mui/material';
+import { Box, Button, Grid, Paper, Typography, useMediaQuery } from '@mui/material';
+import theme from '~/theme/theme';
 
 const ProjectDetail = () => {
     const { name: projectRoute } = useParams();
+    const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
 
     const project = [ ...smallProjects, ...largeProjects ]
         .find( 
@@ -40,18 +46,26 @@ const ProjectDetail = () => {
                 , minHeight: '90vh'
             } }
         >
-            <Grid item>
+            <Grid 
+                item 
+                container 
+                justifyContent='center'
+            >
                 <Grid 
                     component={Paper}
+                    item
                     container
                     direction='column'
+                    md={ 6 }
+                    sm={ 12 }
+                    elevation={ 5 }
                     sx={ {
                         padding: '2rem'
                         , gap: '2rem'
                     } }
                 >
                     <Grid item>
-                        <Typography variant='h3'>
+                        <Typography variant='h3' textAlign='center'>
                             { project.name }
                         </Typography>
                     </Grid>
@@ -80,7 +94,7 @@ const ProjectDetail = () => {
                             direction='column'
                             component='article'
                             sx={ {
-                                width: '80%'
+                                width: isMdScreen ? '100%' : '80%'
                                 , gap: '1rem'
                             } }
                         >
@@ -100,6 +114,35 @@ const ProjectDetail = () => {
                                     }
                                 </Typography>
                             </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid 
+                        item
+                        container
+                        justifyContent='space-between'
+                    >
+                        <Grid item>
+                            <Button 
+                                component={Link} 
+                                variant='contained' 
+                                color='inherit'
+                                to='/work'
+                                startIcon={<ArrowBackIcon />}
+                            >
+                                Back
+                            </Button>
+                        </Grid>
+                        <Grid item>
+                            <Button
+                                component={ ExternalLink }
+                                variant='contained' 
+                                color='primary'
+                                href={ project.prodLink }
+                                target='_blank'
+                                endIcon={<OpenInNewIcon />}
+                            >
+                                Hosted Project
+                            </Button>
                         </Grid>
                     </Grid>
                 </Grid>
