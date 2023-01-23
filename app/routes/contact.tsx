@@ -6,15 +6,15 @@ import { redirect } from '@remix-run/node';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
+// Components
+import ContactForm from '~/components/Contact/ContactForm';
+
 // Utils
 import { sendEmail } from '~/email/sendEmail';
 
 // Types
 import type { ActionFunction } from '@remix-run/node';
 import type { FormikProps } from 'formik';
-
-// Styles
-import ContactForm from '~/components/Contact/ContactForm';
 
 export interface ContactInput {
     name: string;
@@ -63,7 +63,11 @@ export const action: ActionFunction = async ( { request } ) => {
     const data = Object.fromEntries( formData ); 
     console.table( data ); 
 
-    await sendEmail( String( data.name ), String( data.email ), String( data.message ) );
+    await sendEmail( 
+        String( data.name )
+        , String( data.email )
+        , String( data.message ) 
+    );
     
     return redirect( '/' );
 };

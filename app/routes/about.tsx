@@ -13,10 +13,12 @@ import {
 
 // Assets
 import aboutHeadshot from '../assets/about-page-headshot.jpg';
-import theme from '~/theme/theme';
 
 // Data
 import { aboutText } from '~/data/text';
+
+// Styles
+import theme from '~/theme/theme';
 
 const AboutPage = () => {
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
@@ -63,7 +65,7 @@ const AboutPage = () => {
                             variant='contained'
                             component={Link}
                             to='/contact'
-                            sx={{ width: '9rem' }}
+                            sx={ { width: '9rem' } }
                         >
                             Contact Me
                         </Button>
@@ -81,12 +83,12 @@ const AboutPage = () => {
                 <img 
                     src={ aboutHeadshot } 
                     alt="Alex Johnson Headshot"
-                    style={{ 
+                    style={ { 
                         maxWidth: '70%'
                         //@ts-ignore
                         , boxShadow: theme.shadows[ 25 ]
                         , borderRadius: '.5em'
-                    }} 
+                    } } 
                 />
             </Grid>
         </Grid>

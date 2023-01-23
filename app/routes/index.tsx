@@ -77,10 +77,14 @@ export default function Index () {
                 md={ 5 }
             >
                 <Grid item>
-                    <Typography variant={ isMdScreen ? 'h3' : 'h2'}>Alex Johnson</Typography>
+                    <Typography variant={ isMdScreen ? 'h3' : 'h2'}>
+                        Alex Johnson
+                    </Typography>
                 </Grid>
                 <Grid item>
-                    <Typography variant='h5'>full-stack web developer</Typography>
+                    <Typography variant='h5'>
+                        full-stack web developer
+                    </Typography>
                 </Grid>
                 <Grid item>
                     <Button 
