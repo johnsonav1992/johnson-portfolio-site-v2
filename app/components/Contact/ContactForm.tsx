@@ -3,7 +3,7 @@ import React from 'react';
 // Libraries
 import type { FormikProps } from 'formik';
 import { Form } from 'formik';
-import { useTransition } from '@remix-run/react';
+import { useActionData, useTransition } from '@remix-run/react';
 
 // MUI
 import { 
@@ -24,6 +24,7 @@ import theme from '~/theme/theme';
 const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
     const { state } = useTransition();
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
+    const errorData = useActionData();
 
     const {
         values
@@ -55,9 +56,10 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                     </Typography>
                 </Grid>
                 <Grid 
-                    container
                     item 
-                    justifyContent='center' 
+                    container
+                    direction='column'
+                    alignItems='center' 
                     textAlign='center'
                 >
                     <Typography 
@@ -70,6 +72,14 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                         Please fill out the form below and I will 
                         get back to you as soon as I can. Thank you!
                     </Typography>
+                    { errorData && 
+                        <Typography 
+                            variant='body1' 
+                            color='error'
+                        >
+                            There was an error sending your message - Please try again.
+                        </Typography>
+                    }
                 </Grid>
                 <Grid 
                     container

@@ -13,7 +13,7 @@ export const sendEmail = async ( name: string, email: string, message: string ) 
     const transporter = nodemailer.createTransport( {
         service: 'gmail'
         , auth: {
-            user: process.env.GMAIL_EMAI
+            user: process.env.GMAIL_EMAIL
             , pass: process.env.GMAIL_PASS
         }
     } );
@@ -25,18 +25,14 @@ export const sendEmail = async ( name: string, email: string, message: string ) 
         , replyTo: email
         , subject: `Message received from ${ name } - ${ email }`
         , text: message
-        , html: '<img alt="GitHub" height="32" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="display: block; height: auto; border: 0;" title="GitHub" width="32"/>'
+        // , html: '<img alt="GitHub" height="32" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="display: block; height: auto; border: 0;" title="GitHub" width="32"/>'
     };
 
-    await transporter.sendMail( mailOptions, ( e: Error | null, info: SMTPTransport.SentMessageInfo ) => {
-        if ( e ) {
-            error = e;
-        } else {
-            console.log( 'Email sent: ' + info.response );
-        } 
-    } );
-
-    console.log( error );
+    try {
+        await transporter.sendMail( mailOptions );
+    } catch ( err: any ) {
+        error = err;
+    }
 
     return error;
 };
