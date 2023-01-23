@@ -4,9 +4,6 @@ import nodemailer from 'nodemailer';
 // Utils
 import { formattedReceiptEmail } from './formattedReceiptEmail';
 
-// Types
-import type SMTPTransport from 'nodemailer/lib/smtp-transport';
-
 export const sendEmail = async ( name: string, email: string, message: string ) => {
 
     const transporter = nodemailer.createTransport( {
