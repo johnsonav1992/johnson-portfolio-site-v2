@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Libraries
-import { useSubmit } from '@remix-run/react';
+import { useActionData, useSubmit } from '@remix-run/react';
 import { redirect } from '@remix-run/node';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -24,6 +24,9 @@ export interface ContactInput {
 
 const ContactPage = () => {
     const submit = useSubmit();
+    const data = useActionData();
+
+    console.log( 'action data', data );
     
     const initialValues: ContactInput = {
         name: ''
@@ -63,11 +66,13 @@ export const action: ActionFunction = async ( { request } ) => {
     const data = Object.fromEntries( formData ); 
     console.table( data ); 
 
-    await sendEmail( 
+    const result = await sendEmail( 
         String( data.name )
         , String( data.email )
         , String( data.message ) 
     );
+    
+    console.log( result );
     
     return redirect( '/' );
 };
