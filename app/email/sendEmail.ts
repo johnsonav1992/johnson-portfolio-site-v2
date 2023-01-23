@@ -8,7 +8,6 @@ import { formattedReceiptEmail } from './formattedReceiptEmail';
 import type SMTPTransport from 'nodemailer/lib/smtp-transport';
 
 export const sendEmail = async ( name: string, email: string, message: string ) => {
-    let error;
 
     const transporter = nodemailer.createTransport( {
         service: 'gmail'
@@ -30,8 +29,7 @@ export const sendEmail = async ( name: string, email: string, message: string ) 
 
     try {
         await transporter.sendMail( mailOptions );
-    } catch ( err: any ) {
-        error = err;
+    } catch ( error: any ) {
         return error;
     }
 };
