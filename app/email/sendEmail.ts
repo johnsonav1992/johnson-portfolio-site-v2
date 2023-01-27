@@ -21,12 +21,19 @@ export const sendEmail = async ( name: string, email: string, message: string ) 
         , replyTo: email
         , subject: `Message received from ${ name } - ${ email }`
         , text: message
-        // , html: '<img alt="GitHub" height="32" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="display: block; height: auto; border: 0;" title="GitHub" width="32"/>'
     };
 
     try {
         await transporter.sendMail( mailOptions );
+        return { 
+            type: 'success'
+            , message: 'Email sent successfully!' 
+        };
     } catch ( error: any ) {
-        return error;
+        console.error( error );
+        return { 
+            type: 'error'
+            , message: 'There was an error sending your message - Please try again.' 
+        };
     }
 };

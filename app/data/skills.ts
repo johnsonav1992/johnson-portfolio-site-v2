@@ -32,6 +32,7 @@ import prisma from '../assets/prisma.svg';
 import mui from '../assets/mui.svg';
 import graphql from '../assets/graphql.svg';
 import hasura from '../assets/hasura.svg';
+import apollo from '../assets/apollo.svg';
 
 export const skills: Skill[] = [
     {
@@ -103,6 +104,11 @@ export const skills: Skill[] = [
         id: uuid()
         , name: 'GraphQL'
         , iconSrc: graphql
+    }
+    , {
+        id: uuid()
+        , name: 'Apollo'
+        , iconSrc: apollo
     }
     , {
         id: uuid()

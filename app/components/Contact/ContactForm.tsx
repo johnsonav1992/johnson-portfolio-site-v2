@@ -77,7 +77,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                             variant='body1' 
                             color='error'
                         >
-                            There was an error sending your message - Please try again.
+                            { errorData }
                         </Typography>
                     }
                 </Grid>

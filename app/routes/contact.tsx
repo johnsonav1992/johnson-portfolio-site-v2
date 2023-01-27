@@ -61,7 +61,6 @@ const ContactPage = () => {
 export const action: ActionFunction = async ( { request } ) => {
     const formData = await request.formData(); 
     const data = Object.fromEntries( formData ); 
-    console.table( data ); 
 
     const result = await sendEmail( 
         String( data.name )
@@ -69,7 +68,7 @@ export const action: ActionFunction = async ( { request } ) => {
         , String( data.message ) 
     );
 
-    if ( result.message ) return result.message;
+    if ( result.type === 'error' ) return result.message;
     
     return redirect( '/' );
 };
