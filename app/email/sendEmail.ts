@@ -17,7 +17,7 @@ export const sendEmail = async ( name: string, email: string, message: string ) 
     const mailOptions = {
         from: name
         , sender: name
-        , to: `johnsonav1992@gmail.com`
+        , to: process.env.GMAIL_EMAIL
         , replyTo: email
         , subject: `Message received from ${ name } - ${ email }`
         , text: message
