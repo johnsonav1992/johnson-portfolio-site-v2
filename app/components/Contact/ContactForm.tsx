@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 // Libraries
 import type { FormikProps } from 'formik';
@@ -18,6 +18,10 @@ import {
 // Types
 import type { ContactInput } from '~/routes/contact';
 
+
+// Contexts
+import { siteContext } from '~/context/context';
+
 // Styles
 import theme from '~/theme/theme';
 
@@ -25,6 +29,8 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
     const { state } = useTransition();
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
     const errorData = useActionData();
+
+    const { setSnackbarOpen } = useContext( siteContext );
 
     const {
         values

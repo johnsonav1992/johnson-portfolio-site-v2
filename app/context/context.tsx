@@ -16,6 +16,8 @@ interface ContextInterface {
     drawerIsOpen: boolean;
     setActiveTab: ( selectedTab: string | null ) => void;
     setDrawerIsOpen: ( newState: boolean ) => void;
+    snackbarOpen: boolean;
+    setSnackbarOpen: ( newState: boolean ) => void;
 }
 
 export const siteContext = createContext<ContextInterface>( {
@@ -23,12 +25,15 @@ export const siteContext = createContext<ContextInterface>( {
     , drawerIsOpen: false
     , setActiveTab: () => {}
     , setDrawerIsOpen: () => {}
+    , snackbarOpen: false
+    , setSnackbarOpen: () => {}
 } );
 
 const ContextProvider = ( { children }: Props ) => {
     const [ , { pathname } ] = useMatches();
     const [ activeTab, setActiveTab ] = useState<string | null>( pathname || null );
     const [ drawerIsOpen, setDrawerIsOpen ] = useState<boolean>( false );
+    const [ snackbarOpen, setSnackbarOpen ] = useState<boolean>( false );
 
     // For redirects - automatically updates the selected tab with new pathname
     useEffect( () => {
@@ -41,6 +46,8 @@ const ContextProvider = ( { children }: Props ) => {
             , drawerIsOpen
             , setActiveTab
             , setDrawerIsOpen
+            , snackbarOpen
+            , setSnackbarOpen
         } }>
             {children}
         </siteContext.Provider>
