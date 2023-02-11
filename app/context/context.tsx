@@ -11,6 +11,11 @@ interface Props {
     children?: ReactNode
 }
 
+interface Alert {
+    message: string;
+    type: string;
+}
+
 interface ContextInterface {
     activeTab: string| null;
     drawerIsOpen: boolean;
@@ -18,6 +23,8 @@ interface ContextInterface {
     setDrawerIsOpen: ( newState: boolean ) => void;
     snackbarOpen: boolean;
     setSnackbarOpen: ( newState: boolean ) => void;
+    alert: Alert | null;
+    setAlert: ( newAlert: Alert ) => void;
 }
 
 export const siteContext = createContext<ContextInterface>( {
@@ -27,6 +34,8 @@ export const siteContext = createContext<ContextInterface>( {
     , setDrawerIsOpen: () => {}
     , snackbarOpen: false
     , setSnackbarOpen: () => {}
+    , alert: null
+    , setAlert: () => {}
 } );
 
 const ContextProvider = ( { children }: Props ) => {
@@ -34,6 +43,7 @@ const ContextProvider = ( { children }: Props ) => {
     const [ activeTab, setActiveTab ] = useState<string | null>( pathname || null );
     const [ drawerIsOpen, setDrawerIsOpen ] = useState<boolean>( false );
     const [ snackbarOpen, setSnackbarOpen ] = useState<boolean>( false );
+    const [ alert, setAlert ] = useState<Alert | null>( null );
 
     // For redirects - automatically updates the selected tab with new pathname
     useEffect( () => {
@@ -48,6 +58,8 @@ const ContextProvider = ( { children }: Props ) => {
             , setDrawerIsOpen
             , snackbarOpen
             , setSnackbarOpen
+            , alert
+            , setAlert
         } }>
             {children}
         </siteContext.Provider>
