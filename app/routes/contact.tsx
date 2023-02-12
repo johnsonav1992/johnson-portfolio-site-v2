@@ -1,13 +1,21 @@
-import React, { useContext } from 'react';
+import React, { 
+    useContext
+    , useEffect 
+} from 'react';
 
 // Libraries
-import { useSubmit, useTransition } from '@remix-run/react';
-import { redirect } from '@remix-run/node';
+import { 
+    useActionData
+    , useSubmit 
+} from '@remix-run/react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 // MUI
-import { IconButton, Snackbar } from '@mui/material';
+import { 
+    IconButton
+    , Snackbar 
+} from '@mui/material';
 import theme from '~/theme/theme';
 
 // Components
@@ -38,15 +46,14 @@ const ContactPage = () => {
         , alert
         , setAlert
     } = useContext( siteContext );
-    const { submission } = useTransition();
+    const actionData = useActionData();
     
-    if ( submission ) {
-        setSnackbarOpen( true );
-        setAlert( {
-            message:'Success'
-            , type: 'success'
-        } );
-    }
+    useEffect( () => {
+        if ( actionData ) {
+            setSnackbarOpen( true );
+            setAlert( actionData );
+        }
+    }, [ actionData, setAlert, setSnackbarOpen ] );
     
     const initialValues: ContactInput = {
         name: ''
@@ -133,9 +140,7 @@ export const action: ActionFunction = async ( { request } ) => {
         , String( data.message ) 
     );
 
-    if ( result.type === 'error' ) return result.message;
-    
-    return redirect( '/contact' );
+    return result; 
 };
 
 export default ContactPage;

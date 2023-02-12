@@ -28,7 +28,6 @@ import theme from '~/theme/theme';
 const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
     const { state } = useTransition();
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
-    const errorData = useActionData();
 
     const { setSnackbarOpen } = useContext( siteContext );
 
@@ -78,14 +77,6 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                         Please fill out the form below and I will 
                         get back to you as soon as I can. Thank you!
                     </Typography>
-                    { errorData && 
-                        <Typography 
-                            variant='body1' 
-                            color='error'
-                        >
-                            { errorData }
-                        </Typography>
-                    }
                 </Grid>
                 <Grid 
                     container
