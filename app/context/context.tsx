@@ -11,7 +11,7 @@ interface Props {
     children?: ReactNode
 }
 
-interface Alert {
+export interface Alert {
     message: string;
     type: string;
 }
