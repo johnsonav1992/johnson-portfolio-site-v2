@@ -31,7 +31,7 @@ export const sendEmail = async ( name: string, email: string, message: string ) 
         await transporter.sendMail( mailOptions );
         return { 
             type: 'success'
-            , message: 'Email sent successfully!' 
+            , message: 'Email sent successfully! We will get back to you soon!' 
         };
     } catch ( error: any ) {
         console.error( error );
