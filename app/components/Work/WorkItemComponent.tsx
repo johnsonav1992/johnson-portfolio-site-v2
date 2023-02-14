@@ -13,7 +13,7 @@ import {
 // Types
 import type { WorkItem } from '~/types/types';
 
-// Styles
+// Theme
 import theme from '~/theme/theme';
 
 interface Props {

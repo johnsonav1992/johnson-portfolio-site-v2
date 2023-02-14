@@ -12,9 +12,11 @@ import {
 // Assets
 import headshot from '../assets/headshot-transparent-bg.png';
 
+// Theme
+import theme from '~/theme/theme';
+
 // Styles
 import { makeStyles } from 'tss-react/mui';
-import theme from '~/theme/theme';
 
 const useStyles = makeStyles()( ( theme ) => {
     return  {

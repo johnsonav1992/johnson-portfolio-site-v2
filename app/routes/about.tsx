@@ -3,7 +3,7 @@ import React from 'react';
 // Libraries
 import { Link } from '@remix-run/react';
 
-//MUI
+// MUI
 import { 
     Button
     , Grid
@@ -17,7 +17,7 @@ import aboutHeadshot from '../assets/about-page-headshot.jpg';
 // Data
 import { aboutText } from '~/data/text';
 
-// Styles
+// Theme
 import theme from '~/theme/theme';
 
 const AboutPage = () => {

@@ -23,9 +23,11 @@ import logo from '../../assets/logo-icon.svg';
 // Contexts
 import { siteContext } from '~/context/context';
 
+// Theme
+import theme from '~/theme/theme';
+
 // Styles
 import { makeStyles } from 'tss-react/mui';
-import theme from '~/theme/theme';
 
 const useStyles = makeStyles()( {
     appBar: {
@@ -48,7 +50,6 @@ const useStyles = makeStyles()( {
 
 const Header = () => {
     const { classes } = useStyles();
-    const isSmScreen = useMediaQuery( theme.breakpoints.down( 'sm' ) );
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
     const { 
         setActiveTab

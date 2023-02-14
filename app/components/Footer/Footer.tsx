@@ -13,9 +13,11 @@ import {
 import LinkedinIcon from './LinkedinIcon';
 import GitHubIcon from './GitHubIcon';
 
+// Theme
+import theme from '~/theme/theme';
+
 // Styles
 import { makeStyles } from 'tss-react/mui';
-import theme from '~/theme/theme';
 
 const useStyles = makeStyles()( {
     footer: {

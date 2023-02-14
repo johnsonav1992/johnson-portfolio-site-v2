@@ -18,7 +18,7 @@ import {
 // Types
 import type { ContactInput } from '~/routes/contact';
 
-// Styles
+// Theme
 import theme from '~/theme/theme';
 
 const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {

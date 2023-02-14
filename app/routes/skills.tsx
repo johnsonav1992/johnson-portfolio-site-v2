@@ -16,7 +16,7 @@ import { skills } from '~/data/skills';
 // Types
 import type { Skill } from '~/types/types';
 
-// Styles
+// Theme
 import theme from '~/theme/theme';
 
 const SkillsPage = () => {

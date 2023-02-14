@@ -18,7 +18,7 @@ import { siteContext } from '~/context/context';
 // Types
 import type { SyntheticEvent } from 'react';
 
-// Styles
+// Theme
 import theme from '~/theme/theme';
 
 interface Props {

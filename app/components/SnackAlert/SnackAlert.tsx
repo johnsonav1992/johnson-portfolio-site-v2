@@ -7,9 +7,11 @@ import {
 } from '@mui/material';
 import { Close } from '@mui/icons-material';
 
+// Contexts
+import { siteContext } from '~/context/context';
+
 // Theme
 import theme from '~/theme/theme';
-import { siteContext } from '~/context/context';
 
 const SnackAlert = () => {
     const {

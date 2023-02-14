@@ -15,7 +15,7 @@ import {
     , smallProjects
 } from '~/data/work';
 
-// Styles
+// Theme
 import theme from '~/theme/theme';
 
 interface Props {

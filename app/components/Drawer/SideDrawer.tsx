@@ -19,9 +19,11 @@ import { siteContext } from '~/context/context';
 // Data
 import { tabs } from '~/data/tabs';
 
+// Theme
+import theme from '~/theme/theme';
+
 // Styles
 import { makeStyles } from 'tss-react/mui';
-import theme from '~/theme/theme';
 
 const useStyles = makeStyles()( {
     drawerPaper: {
