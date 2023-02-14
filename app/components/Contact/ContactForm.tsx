@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 // Libraries
 import type { FormikProps } from 'formik';
 import { Form } from 'formik';
-import { useActionData, useTransition } from '@remix-run/react';
+import { useTransition } from '@remix-run/react';
 
 // MUI
 import { 
@@ -18,18 +18,12 @@ import {
 // Types
 import type { ContactInput } from '~/routes/contact';
 
-
-// Contexts
-import { siteContext } from '~/context/context';
-
 // Styles
 import theme from '~/theme/theme';
 
 const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
     const { state } = useTransition();
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
-
-    const { setSnackbarOpen } = useContext( siteContext );
 
     const {
         values

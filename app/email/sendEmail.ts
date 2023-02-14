@@ -2,7 +2,7 @@
 import nodemailer from 'nodemailer';
 
 // Utils
-import { formattedReceiptEmail } from './formattedReceiptEmail';
+import { formattedReceiptEmail } from './formattedReceiptEmail'; //save for later
 
 export const sendEmail = async ( name: string, email: string, message: string ) => {
 
@@ -20,7 +20,11 @@ export const sendEmail = async ( name: string, email: string, message: string ) 
         , to: process.env.GMAIL_EMAIL
         , replyTo: email
         , subject: `Message received from ${ name } - ${ email }`
-        , text: message
+        , html: `
+        <h1>New AJ Web Development Contact Form Submission</h1>
+        <h2>From ${ name } - ${ email }</h2>
+        <p>Message: ${ message }</p>
+        `
     };
 
     try {
