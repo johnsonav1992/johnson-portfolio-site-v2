@@ -23,7 +23,8 @@ export const sendEmail = async ( name: string, email: string, message: string ) 
         , html: `
         <h1>New AJ Web Development Contact Form Submission</h1>
         <h2>From ${ name } - ${ email }</h2>
-        <p>Message: ${ message }</p>
+        <h3>Message:</h3>
+        <p>${ message }</p>
         `
     };
 
