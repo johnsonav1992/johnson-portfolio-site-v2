@@ -2,7 +2,7 @@
 import nodemailer from 'nodemailer';
 
 // Utils
-import { formattedReceiptEmail } from './formattedReceiptEmail'; //save for later
+import { formattedReceiptEmail } from './formattedReceiptEmail'; //save for later!
 
 export const sendEmail = async ( name: string, email: string, message: string ) => {
 
