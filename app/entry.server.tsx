@@ -5,8 +5,12 @@ import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import createEmotionServer from '@emotion/server/create-instance';
 
-const key = 'custom';
-const cache = createCache( { key } );
+const key = 'mui';
+const cache = createCache( { 
+    key
+    , prepend: true
+} );
+
 const {
     extractCriticalToChunks
     , constructStyleTagsFromChunks
@@ -23,6 +27,7 @@ export default function handleRequest (
         <CacheProvider value={cache}>
             <RemixServer context={remixContext} url={request.url} />
         </CacheProvider>
+
     );
 
     const chunks = extractCriticalToChunks( markup );
