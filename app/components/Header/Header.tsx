@@ -36,6 +36,7 @@ const useStyles = makeStyles()( {
         , justifyContent: 'center'
         , position: 'sticky'
         , zIndex: theme.zIndex.drawer + 1
+        , borderRadius: 0
     }
     , navBar: {
         marginLeft: 'auto'
