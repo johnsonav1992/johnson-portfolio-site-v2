@@ -16,6 +16,7 @@ import todo from '../assets/todo.png';
 import rps from '../assets/rps.png';
 import tictactoe from '../assets/react-tictactoe.png';
 import wordcounter from '../assets/wordcounter.png';
+import calc from '../assets/calc.png';
 
 
 export const largeProjects: WorkItem[] = [
@@ -76,6 +77,19 @@ export const largeProjects: WorkItem[] = [
 
 export const smallProjects: WorkItem[] = [
     {
+        id: uuid()
+        , name: 'TI-108 Calculator'
+        , route: 'calc'
+        , imgSrc: calc
+        , prodLink: ''
+        , technologies: [ 
+            'React'
+            , 'HTML'
+            , 'CSS'
+        ]
+        , description: `A custom-built replica of the old-school TI-108 school calculator built with React and CSS`
+    }
+    , {
         id: uuid()
         , name: 'React Metronome'
         , route: 'reactmetronome'

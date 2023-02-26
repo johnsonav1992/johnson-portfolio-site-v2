@@ -27,7 +27,7 @@ const WorkItemComponent = ( { project }: Props ) => {
         <Grid 
             item
             container
-            component={Link}
+            component={project.prodLink ? Link : 'div'}
             direction='column'
             alignItems='center'
             xs={ 12 }
