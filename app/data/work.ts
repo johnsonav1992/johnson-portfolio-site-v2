@@ -15,6 +15,7 @@ import sveltefeedback from '../assets/svelte-feedback.png';
 import todo from '../assets/todo.png';
 import rps from '../assets/rps.png';
 import tictactoe from '../assets/react-tictactoe.png';
+import wordcounter from '../assets/wordcounter.png';
 
 
 export const largeProjects: WorkItem[] = [
@@ -81,7 +82,8 @@ export const smallProjects: WorkItem[] = [
         , imgSrc: metronome
         , prodLink: 'https://johnson-react-metronome.netlify.app/'
         , technologies: [ 
-            'HTML'
+            'React'
+            , 'HTML'
             , 'CSS'
         ]
         , description: `Working metronome built with React`
@@ -124,6 +126,19 @@ export const smallProjects: WorkItem[] = [
             , 'CSS'
         ]
         , description: `Tic Tac Toe with a React flair!`
+    }
+    , {
+        id: uuid()
+        , name: 'Word Counter App'
+        , route: 'wordcounter'
+        , imgSrc: wordcounter
+        , prodLink: 'https://jm-word-counter-app.netlify.app'
+        , technologies: [ 
+            'React'
+            , 'HTML'
+            , 'CSS'
+        ]
+        , description: `A simple react app where a user can copy and paste a block of text and count receive the word count.`
     }
     , {
         id: uuid()
