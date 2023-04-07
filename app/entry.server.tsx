@@ -5,10 +5,10 @@ import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import createEmotionServer from '@emotion/server/create-instance';
 
-const key = 'mui';
 const cache = createCache( { 
-    key
+    key: 'css'
     , prepend: true
+    , speedy: true
 } );
 
 const {
@@ -27,7 +27,6 @@ export default function handleRequest (
         <CacheProvider value={cache}>
             <RemixServer context={remixContext} url={request.url} />
         </CacheProvider>
-
     );
 
     const chunks = extractCriticalToChunks( markup );
