@@ -46,9 +46,9 @@ const ContextProvider = ( { children }: Props ) => {
     const [ alert, setAlert ] = useState<Alert | null>( null );
 
     // For redirects - automatically updates the selected tab with new pathname
-    useEffect( () => {
-        setActiveTab( pathname );
-    },  [ pathname ] );
+    // useEffect( () => {
+    //     setActiveTab( pathname || null );
+    // },  [ pathname ] );
 
     return (
         <siteContext.Provider value={ {
