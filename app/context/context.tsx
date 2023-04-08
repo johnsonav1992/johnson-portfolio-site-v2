@@ -40,15 +40,10 @@ export const siteContext = createContext<ContextInterface>( {
 
 const ContextProvider = ( { children }: Props ) => {
     const [ , { pathname } ] = useMatches();
-    const [ activeTab, setActiveTab ] = useState<string | null>( pathname || null );
+    const [ activeTab, setActiveTab ] = useState<string | null>( pathname );
     const [ drawerIsOpen, setDrawerIsOpen ] = useState<boolean>( false );
     const [ snackbarOpen, setSnackbarOpen ] = useState<boolean>( false );
     const [ alert, setAlert ] = useState<Alert | null>( null );
-
-    // For redirects - automatically updates the selected tab with new pathname
-    // useEffect( () => {
-    //     setActiveTab( pathname || null );
-    // },  [ pathname ] );
 
     return (
         <siteContext.Provider value={ {

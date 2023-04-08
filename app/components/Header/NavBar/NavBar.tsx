@@ -66,7 +66,15 @@ const NavBar = ( { className }: Props ) => {
                     value={ tab.link } 
                     label={ tab.label }
                     to={tab.link}
-                    sx={ tabStyle }
+                    sx={ 
+                        tab.label === 'Home'
+                            ? { 
+                                ...tabStyle
+                                , opacity: 0
+                                , pointerEvents: 'none' 
+                            } 
+                            : tabStyle 
+                    }
                     disableRipple
                 />;
             } )}
