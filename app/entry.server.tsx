@@ -7,7 +7,6 @@ import createEmotionServer from '@emotion/server/create-instance';
 
 const cache = createCache( { 
     key: 'css'
-    , prepend: true
     , speedy: true
 } );
 
