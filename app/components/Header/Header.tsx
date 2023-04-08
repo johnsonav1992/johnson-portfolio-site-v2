@@ -74,7 +74,7 @@ const Header = () => {
                         alt="AVJ logo"
                         src={logo}
                         onClick={ () => {
-                            setActiveTab( null );
+                            setActiveTab( '/' );
                             navigate( '/' );
                         }}
                         className={ classes.logo }
