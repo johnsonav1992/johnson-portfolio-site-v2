@@ -44,6 +44,12 @@ const NavBar = ( { className }: Props ) => {
         , display: 'flex'
         , justifyContent: 'center'
     };
+
+    const hidden = {
+        ...tabStyle
+        , opacity: 0
+        , pointerEvents: 'none' 
+    };
     
     const handleChange = ( e: SyntheticEvent<Element, Event>, value: string ) => {
         setActiveTab( value );
@@ -67,12 +73,8 @@ const NavBar = ( { className }: Props ) => {
                     label={ tab.label }
                     to={tab.link}
                     sx={ 
-                        tab.label === 'Home'
-                            ? { 
-                                ...tabStyle
-                                , opacity: 0
-                                , pointerEvents: 'none' 
-                            } 
+                        tab.hidden
+                            ? hidden
                             : tabStyle 
                     }
                     disableRipple

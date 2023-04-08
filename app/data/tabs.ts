@@ -2,6 +2,7 @@ export const tabs = [
     {
         label: 'Home'
         , link: '/'
+        , hidden: true
     }
     , {
         label: 'About'
