@@ -35,10 +35,6 @@ export default function handleRequest (
 
     responseHeaders.set( 'Content-Type', 'text/html' );
 
-    ( async () => {
-        await new Promise( ( resolve ) => setTimeout( resolve, 1000 ) );
-    } )();
-
     return new Response( '<!DOCTYPE html>' + markup, {
         headers: responseHeaders
         , status: responseStatusCode
