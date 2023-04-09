@@ -1,14 +1,15 @@
 import { RemixBrowser } from '@remix-run/react';
-import { startTransition, StrictMode } from 'react';
-import { hydrateRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import { startTransition } from 'react';
+import { StrictMode } from 'react';
 
 function hydrate () {
     startTransition( () => {
-        hydrateRoot(
-            document,
+        ReactDOM.hydrate(
             <StrictMode>
                 <RemixBrowser />
-            </StrictMode>
+            </StrictMode>,
+            document
         );
     } );
 }
@@ -20,3 +21,10 @@ if ( window.requestIdleCallback ) {
     // https://caniuse.com/requestidlecallback
     window.setTimeout( hydrate, 1 );
 }
+
+
+
+
+
+
+
