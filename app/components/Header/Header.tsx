@@ -93,13 +93,13 @@ const Header = () => {
                     }
                     { isMdScreen && 
                     <IconButton 
-                        sx={{ marginLeft: 'auto' }}
+                        sx={ { ml: 'auto' } }
                         onClick={ toggleDrawer }
                     >
                         { !drawerIsOpen ? 
                             <MenuIcon 
                                 sx={{ 
-                                    color: theme.palette.common.white
+                                    color: ( theme ) => theme.palette.common.white
                                     , width: '3rem'
                                     , height: '3rem'
                                 }}
@@ -107,7 +107,7 @@ const Header = () => {
                             :
                             <CloseIcon 
                                 sx={{ 
-                                    color: theme.palette.common.white
+                                    color: ( theme ) => theme.palette.common.white
                                     , width: '3rem'
                                     , height: '3rem'
                                     , '&:hover': {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Libraries
 import { Link } from '@remix-run/react';
 
@@ -19,11 +17,11 @@ const ProjectError = () => {
             alignItems='center' 
             sx={ { 
                 height: '90vh'
-                , marginTop: '2rem' 
+                , mt: '2rem' 
                 , gap: '1rem'
             } }>
             <Typography variant='body1'>
-                    This project does not exist, please go back and try again
+                This project does not exist, please go back and try again
             </Typography>
             <Button 
                 component={Link} 

@@ -57,9 +57,9 @@ const SideDrawer = () => {
             onOpen={ () => setDrawerIsOpen( true ) }
             open={ drawerIsOpen }
             anchor='right'
-            classes={{
+            classes={ {
                 paper: classes.drawerPaper
-            }}
+            } }
         >
             <Box sx={ { ...theme.mixins.toolbar } }/>
             <List>

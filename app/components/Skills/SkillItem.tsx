@@ -1,5 +1,3 @@
-import React from 'react';
-
 // MUI
 import { 
     Grid
@@ -25,7 +23,7 @@ const SkillItem = ( { skill }: Props ) => {
             xs={ 6 }
             sm={ 4 }
             md={ 3 }
-            sx={ { padding: '1rem 0 1rem' } }
+            sx={ { p: '1rem 0 1rem' } }
         >
             <Grid item>
                 <img

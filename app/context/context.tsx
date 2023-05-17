@@ -1,6 +1,6 @@
 import React, { 
     createContext
-    , useEffect, useState
+    , useState
 } from 'react';
 import type { ReactNode } from 'react';
 

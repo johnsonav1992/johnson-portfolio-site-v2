@@ -1,9 +1,12 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 // Libraries
 import { Link } from '@remix-run/react';
 
 // MUI
+import type {
+    Theme
+} from '@mui/material';
 import { 
     Tab
     , Tabs
@@ -18,9 +21,6 @@ import { siteContext } from '~/context/context';
 // Types
 import type { SyntheticEvent } from 'react';
 
-// Theme
-import theme from '~/theme/theme';
-
 interface Props {
     className?: string;
 }
@@ -32,14 +32,14 @@ const NavBar = ( { className }: Props ) => {
     } = useContext( siteContext );
     
     const tabStyle = {
-        color: theme.palette.common.white 
+        color: ( theme: Theme ) => theme.palette.common.white 
         , textTransform: 'none'
         , fontSize: '1.2rem'
         , '&:hover': {
-            color: theme.palette.grey[ 400 ]
+            color: ( theme: Theme ) => theme.palette.grey[ 400 ]
         }
         , '&.Mui-selected': {
-            color: theme.palette.grey[ 400 ]
+            color: ( theme: Theme ) => theme.palette.grey[ 400 ]
         }
         , display: 'flex'
         , justifyContent: 'center'

@@ -10,9 +10,6 @@ import { Close } from '@mui/icons-material';
 // Contexts
 import { siteContext } from '~/context/context';
 
-// Theme
-import theme from '~/theme/theme';
-
 const SnackAlert = () => {
     const {
         snackbarOpen
@@ -42,11 +39,11 @@ const SnackAlert = () => {
             ContentProps={ 
                 { 
                     sx: { 
-                        backgroundColor: 
-                        alert?.type === 'success' 
-                            ? theme.palette.success.main 
-                            : theme.palette.error.main
-                        , color: theme.palette.common.white 
+                        backgroundColor: ( theme ) =>
+                            alert?.type === 'success' 
+                                ? theme.palette.success.main 
+                                : theme.palette.error.main
+                        , color: ( theme ) => theme.palette.common.white 
                     } 
                 } 
             }

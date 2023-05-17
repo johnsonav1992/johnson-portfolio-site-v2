@@ -75,6 +75,8 @@ export const largeProjects: WorkItem[] = [
     }
 ];
 
+Number( '1' );
+
 export const smallProjects: WorkItem[] = [
     {
         id: uuid()

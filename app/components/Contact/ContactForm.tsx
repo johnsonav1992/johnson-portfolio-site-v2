@@ -3,7 +3,7 @@ import React from 'react';
 // Libraries
 import type { FormikProps } from 'formik';
 import { Form } from 'formik';
-import { useTransition } from '@remix-run/react';
+import { useNavigation } from '@remix-run/react';
 
 // MUI
 import { 
@@ -22,7 +22,7 @@ import type { ContactInput } from '~/routes/contact';
 import theme from '~/theme/theme';
 
 const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
-    const { state } = useTransition();
+    const { state } = useNavigation();
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
 
     const {
@@ -41,7 +41,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                 alignItems='center'
                 spacing={ 3 }
                 sx={ { 
-                    paddingTop: '1.5rem'
+                    pt: '1.5rem'
                     , minHeight: '100vh' 
                 } }
             >
@@ -64,7 +64,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                     <Typography 
                         variant={ isMdScreen ? 'body1' : 'h6' } 
                         sx={ { 
-                            margin: isMdScreen ? '0 1.5rem 0' : ''
+                            m: isMdScreen ? '0 1.5rem 0' : ''
                             , width: inputWidth 
                         } }
                     >
@@ -82,7 +82,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                         label='Name'
                         value={ values.name }
                         onChange={ handleChange }
-                        error={ errors.name ? true : false }
+                        error={ !!errors.name }
                         helperText={ errors.name }
                         sx={ { width: inputWidth } }
                     />
@@ -97,7 +97,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                         label='Email Address'
                         value={ values.email }
                         onChange={ handleChange }
-                        error={ errors.email ? true : false }
+                        error={ !!errors.email }
                         helperText={ errors.email }
                         sx={ { width: inputWidth } }
                     />
@@ -109,10 +109,10 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                         label='Message'
                         value={ values.message }
                         onChange={ handleChange }
-                        error={ errors.message ? true : false }
+                        error={ !!errors.message }
                         helperText={ errors.message }
                         sx={ { width: inputWidth } }
-                        rows={5}
+                        rows={ 5 }
                     />
                 </Grid>
                 <Grid 
@@ -126,12 +126,12 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                         type='submit'
                         sx={ { 
                             width: isMdScreen ? '90%' : '30%'
-                            , marginBottom: '1rem' 
+                            , mb: '1rem' 
                         } }
                     >
                         { state !== 'idle' 
                             ? <CircularProgress 
-                                sx={ { color: theme.palette.common.white } }
+                                sx={ { color: ( theme ) => theme.palette.common.white } }
                                 size='1.5rem'
                             />
                             : 'Send' 

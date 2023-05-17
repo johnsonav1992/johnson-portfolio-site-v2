@@ -33,7 +33,7 @@ const ProjectList = ( { projectType }: Props ) => {
             alignItems='center'
             sx={ {
                 gap: '2rem'
-                , marginBottom: '4rem'
+                , mb: '4rem'
             } }
         >
             <Grid item>
@@ -50,7 +50,7 @@ const ProjectList = ( { projectType }: Props ) => {
             <Divider 
                 variant='middle' 
                 sx={ { 
-                    borderColor: theme.palette.common.white
+                    borderColor: ( theme ) => theme.palette.common.white
                     , width: '75%' 
                 } }
             />
