@@ -1,7 +1,4 @@
-import React, { 
-    useContext
-    , useEffect 
-} from 'react';
+import { useEffect } from 'react';
 
 // Libraries
 import { 
