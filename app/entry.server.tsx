@@ -29,7 +29,6 @@ export default function handleRequest (
 
     const chunks = extractCriticalToChunks( markup );
     const styles = constructStyleTagsFromChunks( chunks );
-    console.log( styles );
 
     markup = markup.replace( '__STYLES__', styles );
 
