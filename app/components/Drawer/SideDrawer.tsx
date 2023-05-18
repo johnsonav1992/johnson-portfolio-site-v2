@@ -1,5 +1,3 @@
-import React, { useContext } from 'react';
-
 // Libraries
 import { Link } from '@remix-run/react';
 

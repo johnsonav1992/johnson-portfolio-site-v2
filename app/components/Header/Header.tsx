@@ -1,5 +1,3 @@
-import React, { useContext } from 'react';
-
 // Libraries
 import { useNavigate } from '@remix-run/react';
 
