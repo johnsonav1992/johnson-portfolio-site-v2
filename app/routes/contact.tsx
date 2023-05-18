@@ -19,7 +19,7 @@ import SnackAlert from '~/components/SnackAlert/SnackAlert';
 import { sendEmail } from '~/email/sendEmail';
 
 // Contexts
-import { siteContext } from '~/context/context';
+import { useSiteContext } from '~/context/context';
 
 // Types
 import type { ActionFunction } from '@remix-run/node';
@@ -36,7 +36,7 @@ const ContactPage = () => {
     const { 
         setSnackbarOpen
         , setAlert
-    } = useContext( siteContext );
+    } = useSiteContext();
     const actionData = useActionData();
     
     useEffect( () => {

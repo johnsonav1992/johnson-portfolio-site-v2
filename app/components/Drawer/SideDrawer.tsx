@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 
 // Contexts
-import { siteContext } from '~/context/context';
+import { useSiteContext } from '~/context/context';
 
 // Data
 import { tabs } from '~/data/tabs';
@@ -49,7 +49,7 @@ const SideDrawer = () => {
         , setDrawerIsOpen
         , activeTab
         , setActiveTab
-    } = useContext( siteContext );
+    } = useSiteContext();
 
     return (
         <SwipeableDrawer 

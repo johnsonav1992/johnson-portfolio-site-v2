@@ -21,7 +21,7 @@ import SideDrawer from '../Drawer/SideDrawer';
 import logo from '../../assets/logo-icon.svg';
 
 // Contexts
-import { siteContext } from '~/context/context';
+import { useSiteContext } from '~/context/context';
 
 // Theme
 import theme from '~/theme/theme';
@@ -56,7 +56,7 @@ const Header = () => {
         setActiveTab
         , setDrawerIsOpen
         , drawerIsOpen
-    } = useContext( siteContext );
+    } = useSiteContext();
     const navigate = useNavigate();
 
     const toggleDrawer = () => {

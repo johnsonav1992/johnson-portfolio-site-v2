@@ -8,14 +8,14 @@ import {
 import { Close } from '@mui/icons-material';
 
 // Contexts
-import { siteContext } from '~/context/context';
+import { useSiteContext } from '~/context/context';
 
 const SnackAlert = () => {
     const {
         snackbarOpen
         , setSnackbarOpen
         , alert
-    } = useContext( siteContext );
+    } = useSiteContext();
 
     const handleSnackClose = () => {
         setSnackbarOpen( false );

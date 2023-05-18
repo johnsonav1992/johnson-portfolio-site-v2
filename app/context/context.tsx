@@ -1,5 +1,6 @@
 import React, { 
     createContext
+    , useContext
     , useState
 } from 'react';
 import type { ReactNode } from 'react';
@@ -27,7 +28,7 @@ interface ContextInterface {
     setAlert: ( newAlert: Alert ) => void;
 }
 
-export const siteContext = createContext<ContextInterface>( {
+export const SiteContext = createContext<ContextInterface>( {
     activeTab: null
     , drawerIsOpen: false
     , setActiveTab: () => {}
@@ -46,7 +47,7 @@ const ContextProvider = ( { children }: Props ) => {
     const [ alert, setAlert ] = useState<Alert | null>( null );
 
     return (
-        <siteContext.Provider value={ {
+        <SiteContext.Provider value={ {
             activeTab
             , drawerIsOpen
             , setActiveTab
@@ -57,8 +58,12 @@ const ContextProvider = ( { children }: Props ) => {
             , setAlert
         } }>
             {children}
-        </siteContext.Provider>
+        </SiteContext.Provider>
     );
 };
 
 export default ContextProvider;
+
+export const useSiteContext = () => {
+    return useContext( SiteContext );
+};

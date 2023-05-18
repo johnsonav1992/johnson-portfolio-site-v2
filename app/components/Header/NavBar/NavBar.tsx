@@ -16,7 +16,7 @@ import {
 import { tabs } from '../../../data/tabs';
 
 // Contexts
-import { siteContext } from '~/context/context';
+import { useSiteContext } from '~/context/context';
 
 // Types
 import type { SyntheticEvent } from 'react';
@@ -29,7 +29,7 @@ const NavBar = ( { className }: Props ) => {
     const { 
         activeTab
         , setActiveTab
-    } = useContext( siteContext );
+    } = useSiteContext();
     
     const tabStyle = {
         color: ( theme: Theme ) => theme.palette.common.white 
