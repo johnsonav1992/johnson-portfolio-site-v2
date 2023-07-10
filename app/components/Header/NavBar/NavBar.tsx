@@ -29,19 +29,19 @@ const NavBar = ( { className }: Props ) => {
         , setActiveTab
     } = useSiteContext();
     
-    const tabStyle = {
-        color: ( theme: Theme ) => theme.palette.common.white 
+    const tabStyle = ( theme: Theme ) => ( {
+        color: theme.palette.common.white 
         , textTransform: 'none'
         , fontSize: '1.2rem'
         , '&:hover': {
-            color: ( theme: Theme ) => theme.palette.grey[ 400 ]
+            color: theme.palette.grey[ 400 ]
         }
         , '&.Mui-selected': {
-            color: ( theme: Theme ) => theme.palette.grey[ 400 ]
+            color: theme.palette.grey[ 400 ]
         }
         , display: 'flex'
         , justifyContent: 'center'
-    };
+    } );
 
     const hidden = {
         ...tabStyle
