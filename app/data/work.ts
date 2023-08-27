@@ -70,7 +70,7 @@ export const smallProjects: WorkItem[] = [
         , name: 'TI-108 Calculator'
         , route: 'calc'
         , imgSrc: calc
-        , prodLink: ''
+        , prodLink: 'https://ti108.netlify.app/'
         , technologies: [ 
             'React'
             , 'HTML'
