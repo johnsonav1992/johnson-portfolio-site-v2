@@ -65,7 +65,7 @@ const NavBar = ( { className }: Props ) => {
         >
             { tabs.map( tab => {
                 return <Tab 
-                    component={Link}
+                    component={ Link }
                     key={ tab.link } 
                     value={ tab.link } 
                     label={ tab.label }

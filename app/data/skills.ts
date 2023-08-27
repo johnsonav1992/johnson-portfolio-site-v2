@@ -33,6 +33,8 @@ import mui from '../assets/mui.svg';
 import graphql from '../assets/graphql.svg';
 import hasura from '../assets/hasura.svg';
 import apollo from '../assets/apollo.svg';
+import cypress from '../assets/cypress.svg';
+import laravel from '../assets/laravel.svg';
 
 export const skills: Skill[] = [
     {
@@ -137,6 +139,11 @@ export const skills: Skill[] = [
     }
     , {
         id: uuid()
+        , name: 'Laravel'
+        , iconSrc: laravel
+    }
+    , {
+        id: uuid()
         , name: 'Python'
         , iconSrc: python
     }
@@ -169,6 +176,11 @@ export const skills: Skill[] = [
         id: uuid()
         , name: 'Redux'
         , iconSrc: redux
+    }
+    , {
+        id: uuid()
+        , name: 'Cypress'
+        , iconSrc: cypress
     }
     , {
         id: uuid()
