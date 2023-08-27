@@ -7,7 +7,6 @@ import type { WorkItem } from '~/types/types';
 // Assets
 import babyBrightImg from '../assets/babybright.png';
 import cocktailCentralImg from '../assets/cocktail-central-screenshot.png';
-import mjfc from '../assets/mjfc.png';
 import metronome from '../assets/metronome.png';
 import bmi from '../assets/bmi.png';
 import gif from '../assets/gif-finder.png';
@@ -60,18 +59,6 @@ export const largeProjects: WorkItem[] = [
         ]
         , description: `A cocktail recipe app for users to find, save, and organize cocktail recipes for an easy drink-mixing
         experience using the Cocktail DB API.`
-    }
-    , {
-        id: uuid()
-        , name: 'M. J. Financial Coaching'
-        , route: 'mjfc'
-        , imgSrc: mjfc
-        , prodLink: 'https://www.madisonjohnsonfc.com/'
-        , technologies: [ 
-            'HTML'
-            , 'CSS'
-        ]
-        , description: `Website for Madison Johnson's Financial Coaching business.`
     }
 ];
 
