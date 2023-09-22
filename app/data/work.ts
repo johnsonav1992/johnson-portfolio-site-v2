@@ -17,6 +17,7 @@ import tictactoe from '../assets/react-tictactoe.png';
 import wordcounter from '../assets/wordcounter.png';
 import calc from '../assets/calc.png';
 import tc from '../assets/tungsten-carbide.png';
+import memory from '../assets/memory.png';
 
 
 export const largeProjects: WorkItem[] = [
@@ -68,7 +69,21 @@ Number( '1' );
 export const smallProjects: WorkItem[] = [
     {
         id: uuid()
-        , name: 'Tungsten Carbide VS Code Theme'
+        , name: 'Memory Fun'
+        , route: 'memory-fun'
+        , imgSrc: memory
+        , prodLink: 'https://memoryfun.netlify.app'
+        , technologies: [ 
+            'React'
+            , 'TypeScript'
+            , 'MUI Joy'
+            , 'Jotai'
+        ]
+        , description: `A fun memory game for one or two players. Can choose between different card sets!`
+    }
+    , {
+        id: uuid()
+        , name: 'Tungsten Carbide VSC Theme'
         , route: 'tungsten-carbide'
         , imgSrc: tc
         , prodLink: 'https://marketplace.visualstudio.com/items?itemName=johnsonav.tungsten-carbide'
