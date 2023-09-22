@@ -16,6 +16,7 @@ import rps from '../assets/rps.png';
 import tictactoe from '../assets/react-tictactoe.png';
 import wordcounter from '../assets/wordcounter.png';
 import calc from '../assets/calc.png';
+import tc from '../assets/tungsten-carbide.png';
 
 
 export const largeProjects: WorkItem[] = [
@@ -66,6 +67,18 @@ Number( '1' );
 
 export const smallProjects: WorkItem[] = [
     {
+        id: uuid()
+        , name: 'Tungsten Carbide VS Code Theme'
+        , route: 'tungsten-carbide'
+        , imgSrc: tc
+        , prodLink: 'https://marketplace.visualstudio.com/items?itemName=johnsonav.tungsten-carbide'
+        , technologies: [ 
+            'JSON'
+            , 'VS Code Theming'
+        ]
+        , description: `My first theme for VS Code - A sleek dark theme with a pop of neon`
+    }
+    , {
         id: uuid()
         , name: 'TI-108 Calculator'
         , route: 'calc'

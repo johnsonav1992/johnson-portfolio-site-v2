@@ -187,5 +187,4 @@ export const skills: Skill[] = [
         , name: 'Jest'
         , iconSrc: jest
     }
-    
 ];

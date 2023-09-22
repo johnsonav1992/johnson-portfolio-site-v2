@@ -74,7 +74,7 @@ const ProjectDetail = () => {
                 >
                     <Grid item>
                         <Typography 
-                            variant='h3' 
+                            variant={ isMdScreen ? 'h4' : 'h3' } 
                             textAlign='center'
                         >
                             { project.name }
@@ -89,7 +89,7 @@ const ProjectDetail = () => {
                             src={ project.imgSrc } 
                             alt={ project.name } 
                             style={ { 
-                                width: '60%'
+                                width: isMdScreen ? '100%' : '80%'
                                 , borderRadius: '.5em' 
                             } }
                         />    
