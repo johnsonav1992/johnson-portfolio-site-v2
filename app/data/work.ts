@@ -26,7 +26,6 @@ export const largeProjects: WorkItem[] = [
         , name: 'BabyBright'
         , route: 'babybright'
         , imgSrc: babyBrightImg
-        , prodLink: 'https://babybright.up.railway.app/'
         , videoLink: 'https://www.youtube.com/watch?v=U2v_vwOJ8nI'
         , technologies: [ 
             'React'
