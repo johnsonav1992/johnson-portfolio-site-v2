@@ -82,6 +82,7 @@ export const smallProjects: WorkItem[] = [
         , route: 'memory-fun'
         , imgSrc: memory
         , prodLink: 'https://memoryfun.netlify.app'
+        , repoLink: 'https://github.com/johnsonav1992/memory-fun'
         , technologies: [ 
             'React'
             , 'TypeScript'
@@ -109,6 +110,7 @@ export const smallProjects: WorkItem[] = [
         , route: 'calc'
         , imgSrc: calc
         , prodLink: 'https://ti108.netlify.app/'
+        , repoLink: 'https://github.com/johnsonav1992/ti-108-calculator'
         , technologies: [ 
             'React'
             , 'HTML'
