@@ -132,6 +132,7 @@ const ProjectDetail = () => {
                         item
                         container
                         justifyContent='space-between'
+                        gap={'1rem'}
                     >
                         <Grid item>
                             <Button 
@@ -146,44 +147,43 @@ const ProjectDetail = () => {
                         </Grid>
                         <Grid 
                             container 
-                            wrap='nowrap'
-                            width='unset'
+                            wrap={isMdScreen ? 'wrap' : 'nowrap'}
+                            width={isMdScreen ? '100%' : 'unset'}
+                            gap='1rem'
                         >
                             {
                                 project.prodLink
                                 &&
                                 (
-                                    <Grid item>
-                                        <Button
-                                            component={ ExternalLink }
-                                            variant='contained' 
-                                            color='primary'
-                                            href={ project.prodLink }
-                                            target='_blank'
-                                            endIcon={<OpenInNewIcon />}
-                                        >
-                                            Hosted Project
-                                        </Button>
-                                    </Grid> 
+                                    <Button
+                                        component={ ExternalLink }
+                                        variant='contained' 
+                                        color='primary'
+                                        href={ project.prodLink }
+                                        target='_blank'
+                                        endIcon={<OpenInNewIcon />}
+                                        sx={{ width: isMdScreen ? '100%' : undefined }}
+                                    >
+                                        Hosted Project
+                                    </Button>
                                 )
                             }
                             {
                                 project.repoLink
                                 &&
                                 (
-                                    <Grid item ml='1rem'>
-                                        <Button
-                                            component={ ExternalLink }
-                                            variant='contained'
-                                            color='inherit'
-                                            href={ project.repoLink }
-                                            target='_blank'
-                                            startIcon={<GitHubIcon />}
-                                            endIcon={<OpenInNewIcon />}
-                                        >
-                                            Repo
-                                        </Button>
-                                    </Grid>
+                                    <Button
+                                        component={ ExternalLink }
+                                        variant='contained'
+                                        color='inherit'
+                                        href={ project.repoLink }
+                                        target='_blank'
+                                        startIcon={<GitHubIcon />}
+                                        endIcon={<OpenInNewIcon />}
+                                        sx={{ width: isMdScreen ? '100%' : undefined }}
+                                    >
+                                        Repo
+                                    </Button>
                                 )
                             }
                         </Grid>
