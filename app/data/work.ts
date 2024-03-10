@@ -8,16 +8,13 @@ import type { WorkItem } from '~/types/types';
 import babyBrightImg from '../assets/babybright.png';
 import cocktailCentralImg from '../assets/cocktail-central-screenshot.png';
 import metronome from '../assets/metronome.png';
-import bmi from '../assets/bmi.png';
 import gif from '../assets/gif-finder.png';
-import sveltefeedback from '../assets/svelte-feedback.png';
-import todo from '../assets/todo.png';
 import rps from '../assets/rps.png';
 import tictactoe from '../assets/react-tictactoe.png';
-import wordcounter from '../assets/wordcounter.png';
 import calc from '../assets/calc.png';
 import tc from '../assets/tungsten-carbide.png';
 import memory from '../assets/memory.png';
+import battleship from '../assets/battleship.png';
 
 
 export const largeProjects: WorkItem[] = [
@@ -27,6 +24,7 @@ export const largeProjects: WorkItem[] = [
         , route: 'babybright'
         , imgSrc: babyBrightImg
         , videoLink: 'https://www.youtube.com/watch?v=U2v_vwOJ8nI'
+        , repoLink: 'https://github.com/johnsonav1992/baby-app'
         , technologies: [ 
             'React'
             , 'ReactRouter'
@@ -63,10 +61,22 @@ export const largeProjects: WorkItem[] = [
     }
 ];
 
-Number( '1' );
-
 export const smallProjects: WorkItem[] = [
     {
+        id: uuid()
+        , name: 'Battleship'
+        , route: 'battleship'
+        , imgSrc: battleship
+        , repoLink: 'https://github.com/johnsonav1992/ts-battleship'
+        , technologies: [ 
+            'React'
+            , 'TypeScript'
+            , 'MUI Joy'
+            , 'Jotai'
+        ]
+        , description: `A fully-fledged battleship game with a computer AI that can potentially beat human players!`
+    }
+    , {
         id: uuid()
         , name: 'Memory Fun'
         , route: 'memory-fun'
@@ -86,6 +96,7 @@ export const smallProjects: WorkItem[] = [
         , route: 'tungsten-carbide'
         , imgSrc: tc
         , prodLink: 'https://marketplace.visualstudio.com/items?itemName=johnsonav.tungsten-carbide'
+        , repoLink: 'https://github.com/johnsonav1992/tungsten-carbide-vscode-theme'
         , technologies: [ 
             'JSON'
             , 'VS Code Theming'
@@ -120,19 +131,6 @@ export const smallProjects: WorkItem[] = [
     }
     , {
         id: uuid()
-        , name: 'BMI Calculator'
-        , route: 'bmicalculator'
-        , imgSrc: bmi
-        , prodLink: 'https://hj-bmi-calculator.netlify.app/'
-        , technologies: [ 
-            'React'
-            , 'HTML'
-            , 'CSS'
-        ]
-        , description: `Simple React app. to calculate someone's BMI. Indicates whether a person is overweight or not with conditional rendering.`
-    }
-    , {
-        id: uuid()
         , name: 'Gif Finder App'
         , route: 'giffinder'
         , imgSrc: gif
@@ -156,45 +154,6 @@ export const smallProjects: WorkItem[] = [
             , 'CSS'
         ]
         , description: `Tic Tac Toe with a React flair!`
-    }
-    , {
-        id: uuid()
-        , name: 'Word Counter App'
-        , route: 'wordcounter'
-        , imgSrc: wordcounter
-        , prodLink: 'https://jm-word-counter-app.netlify.app'
-        , technologies: [ 
-            'React'
-            , 'HTML'
-            , 'CSS'
-        ]
-        , description: `A simple react app where a user can copy and paste a block of text and count receive the word count.`
-    }
-    , {
-        id: uuid()
-        , name: 'Svelte Feedback App'
-        , route: 'sveltefeedback'
-        , imgSrc: sveltefeedback
-        , prodLink: 'https://johnson-svelte-feedback.netlify.app/'
-        , technologies: [ 
-            'Svelte'
-            , 'HTML'
-            , 'CSS'
-        ]
-        , description: `A simple feedback posting app developed with Svelte.`
-    }
-    , {
-        id: uuid()
-        , name: 'To-Do List App'
-        , route: 'todo'
-        , imgSrc: todo
-        , prodLink: 'https://johnson-todoapp.netlify.app/'
-        , technologies: [ 
-            'JavaScript'
-            , 'HTML'
-            , 'CSS'
-        ]
-        , description: `A useful to-do list application that allows users to add and delete to-do items. Each item is saved in local storage in the browser to allow the user to return later and pull up their saved list. `
     }
     , {
         id: uuid()

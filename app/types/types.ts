@@ -28,6 +28,7 @@ export interface WorkItem {
     route: string;
     imgSrc: string;
     prodLink?: string;
+    repoLink?: string;
     videoLink?: string;
     technologies: string[];
     description: string;

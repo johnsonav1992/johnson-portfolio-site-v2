@@ -29,6 +29,7 @@ import {
 
 // Theme
 import theme from '~/theme/theme';
+import GitHubIcon from '~/components/Footer/GitHubIcon';
 
 const ProjectDetail = () => {
     const { name: projectRoute } = useParams();
@@ -143,17 +144,48 @@ const ProjectDetail = () => {
                                 Back
                             </Button>
                         </Grid>
-                        <Grid item>
-                            <Button
-                                component={ ExternalLink }
-                                variant='contained' 
-                                color='primary'
-                                href={ project.prodLink }
-                                target='_blank'
-                                endIcon={<OpenInNewIcon />}
-                            >
-                                Hosted Project
-                            </Button>
+                        <Grid 
+                            container 
+                            wrap='nowrap'
+                            width='unset'
+                        >
+                            {
+                                project.prodLink
+                                &&
+                                (
+                                    <Grid item>
+                                        <Button
+                                            component={ ExternalLink }
+                                            variant='contained' 
+                                            color='primary'
+                                            href={ project.prodLink }
+                                            target='_blank'
+                                            endIcon={<OpenInNewIcon />}
+                                        >
+                                            Hosted Project
+                                        </Button>
+                                    </Grid> 
+                                )
+                            }
+                            {
+                                project.repoLink
+                                &&
+                                (
+                                    <Grid item ml='1rem'>
+                                        <Button
+                                            component={ ExternalLink }
+                                            variant='contained'
+                                            color='inherit'
+                                            href={ project.repoLink }
+                                            target='_blank'
+                                            startIcon={<GitHubIcon />}
+                                            endIcon={<OpenInNewIcon />}
+                                        >
+                                            Repo
+                                        </Button>
+                                    </Grid>
+                                )
+                            }
                         </Grid>
                     </Grid>
                 </Grid>
