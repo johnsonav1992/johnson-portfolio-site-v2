@@ -15,10 +15,23 @@ import calc from '../assets/calc.png';
 import tc from '../assets/tungsten-carbide.png';
 import memory from '../assets/memory.png';
 import battleship from '../assets/battleship.png';
+import formularity from '../assets/formularity_logo_orig.png';
 
 
 export const largeProjects: WorkItem[] = [
     {
+        id: uuid()
+        , name: 'Formularity - React Form Library'
+        , route: 'formularity'
+        , imgSrc: formularity
+        , repoLink: 'https://github.com/johnsonav1992/formularity'
+        , technologies: [ 
+            'React'
+            , 'TypeScript'
+        ]
+        , description: `A React library for build forms with ease! Currently in dev with alpha pre-releases happening frequently!`
+    }
+    , {
         id: uuid()
         , name: 'BabyBright'
         , route: 'babybright'
