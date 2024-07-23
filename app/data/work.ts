@@ -29,7 +29,7 @@ export const largeProjects: WorkItem[] = [
             'React'
             , 'TypeScript'
         ]
-        , description: `A React library for build forms with ease! Currently in dev with alpha pre-releases happening frequently!`
+        , description: `A React library for building forms with ease! Currently in dev with alpha pre-releases happening frequently!`
     }
     , {
         id: uuid()
