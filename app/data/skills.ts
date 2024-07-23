@@ -35,6 +35,12 @@ import hasura from '../assets/hasura.svg';
 import apollo from '../assets/apollo.svg';
 import cypress from '../assets/cypress.svg';
 import laravel from '../assets/laravel.svg';
+import angular from '../assets/angular.svg';
+import rust from '../assets/rust.png';
+import csharp from '../assets/c-sharp.svg';
+import dotnet from '../assets/dot-net.svg';
+import nextjs from '../assets/nextjs.png';
+import gitlab from '../assets/gitlab.svg';
 
 export const skills: Skill[] = [
     {
@@ -46,6 +52,16 @@ export const skills: Skill[] = [
         id: uuid()
         , name: 'TypeScript'
         , iconSrc: ts
+    }
+    , {
+        id: uuid()
+        , name: 'Angular'
+        , iconSrc: angular
+    }
+    , {
+        id: uuid()
+        , name: 'Next.js'
+        , iconSrc: nextjs
     }
     , {
         id: uuid()
@@ -76,6 +92,21 @@ export const skills: Skill[] = [
         id: uuid()
         , name: 'Node.js'
         , iconSrc: nodejs
+    }
+    , {
+        id: uuid()
+        , name: 'Rust'
+        , iconSrc: rust
+    }
+    , {
+        id: uuid()
+        , name: 'C#'
+        , iconSrc: csharp
+    }
+    , {
+        id: uuid()
+        , name: '.NET'
+        , iconSrc: dotnet
     }
     , {
         id: uuid()
@@ -171,6 +202,11 @@ export const skills: Skill[] = [
         id: uuid()
         , name: 'GitHub'
         , iconSrc: github
+    }
+    , {
+        id: uuid()
+        , name: 'GitLab'
+        , iconSrc: gitlab
     }
     , {
         id: uuid()
