@@ -32,7 +32,7 @@ export const largeProjects: WorkItem[] = [
             , 'Open-Meteo API'
             , 'MapBox API'
             , 'Nest.js'
-            , 'CHart.js'
+            , 'Chart.js'
             , 'TypeScript'
         ]
         , description: `A fully-fledged lawncare tracking app for avid Lawn Care Nuts!`
