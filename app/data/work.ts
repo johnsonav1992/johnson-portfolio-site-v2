@@ -16,10 +16,28 @@ import tc from '../assets/tungsten-carbide.png';
 import memory from '../assets/memory.png';
 import battleship from '../assets/battleship.png';
 import formularity from '../assets/formularity_logo_orig.png';
+import yardvark from '../assets/yardvark.png';
 
 
 export const largeProjects: WorkItem[] = [
     {
+        id: uuid()
+        , name: 'Yardvark'
+        , route: 'yardvark'
+        , imgSrc: yardvark
+        , repoLink: 'https://github.com/johnsonav1992/yardvark'
+        , technologies: [ 
+            'Angular'
+            , 'PrimeNG'
+            , 'Open-Meteo API'
+            , 'MapBox API'
+            , 'Nest.js'
+            , 'CHart.js'
+            , 'TypeScript'
+        ]
+        , description: `A fully-fledged lawncare tracking app for avid Lawn Care Nuts!`
+    }
+    , {
         id: uuid()
         , name: 'Formularity - React Form Library'
         , route: 'formularity'
