@@ -1,15 +1,14 @@
 // Libraries
-import { useNavigate } from '@remix-run/react';
+import { useNavigate } from 'react-router';
 
 // MUI
 import { 
     AppBar
     , Toolbar
     , IconButton
+    , useMediaQuery
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 
 // Components
 import NavBar from './NavBar/NavBar';

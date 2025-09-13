@@ -3,7 +3,7 @@ import {
     IconButton
     , Snackbar 
 } from '@mui/material';
-import { Close } from '@mui/icons-material';
+import CloseIcon from '@mui/icons-material/Close';
 
 // Contexts
 import { useSiteContext } from '~/context/context';
@@ -30,7 +30,7 @@ const SnackAlert = () => {
                     color="inherit"
                     onClick={ handleSnackClose }
                 >
-                    <Close fontSize="small" />
+                    <CloseIcon fontSize="small" />
                 </IconButton> 
             }
             autoHideDuration={ 3000 }

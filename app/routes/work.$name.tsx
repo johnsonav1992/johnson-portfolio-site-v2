@@ -1,10 +1,7 @@
 import React from 'react';
 
 // Libraries
-import { 
-    useParams
-    , Link 
-} from '@remix-run/react';
+import { useParams, Link } from 'react-router';
 
 // MUI
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';

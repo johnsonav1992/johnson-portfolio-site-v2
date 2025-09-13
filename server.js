@@ -1,5 +1,5 @@
-import { createRequestHandler } from "@remix-run/netlify";
-import * as build from "@remix-run/dev/server-build";
+import { createRequestHandler } from "@react-router/netlify";
+import * as build from "@react-router/dev/server-build";
 
 /*
  * Returns a context object with at most 3 keys:
