@@ -61,6 +61,9 @@ const WorkItemComponent = ( { project }: Props ) => {
                 alt={ project.name }
                 style={ {
                     width: isMdScreen ? '75vw' : '30vw'
+                    , height: isMdScreen ? '50vw' : '20vw'
+                    , objectFit: 'cover'
+                    , objectPosition: project.objectPosition || 'center top'
                     , borderRadius: '0.5em'
                     // @ts-ignore
                     , boxShadow: theme.shadows[ 25 ]

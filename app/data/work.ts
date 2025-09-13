@@ -17,6 +17,7 @@ import memory from '../assets/memory.png';
 import battleship from '../assets/battleship.png';
 import formularity from '../assets/formularity_logo_orig.png';
 import yardvark from '../assets/yardvark.png';
+import a1 from '../assets/a1-sprinkler-repair.png';
 
 
 export const largeProjects: WorkItem[] = [
@@ -36,6 +37,19 @@ export const largeProjects: WorkItem[] = [
             , 'TypeScript'
         ]
         , description: `A fully-fledged lawncare tracking app for avid Lawn Care Nuts!`
+    }
+    , {
+        id: uuid()
+        , name: 'A1 Sprinkler Repair'
+        , route: 'a1-sprinkler-repair'
+        , imgSrc: a1
+        , repoLink: 'https://github.com/johnsonav1992/a1-sprinkler-repair'
+        , prodLink: 'https://www.a1sprinklerrepair.com'
+        , technologies: [ 
+            'Astro'
+            , 'TypeScript'
+        ]
+        , description: `A modern website for a local sprinkler repair company built with Astro and TypeScript.`
     }
     , {
         id: uuid()
@@ -70,6 +84,7 @@ export const largeProjects: WorkItem[] = [
             , 'bcrypt'
         ]
         , description: `A React application for users to track essential daily baby activities such as feedings, diaper changes and sleep.`
+        , objectPosition: 'left top'
     }
     , {
         id: uuid()
@@ -134,6 +149,7 @@ export const smallProjects: WorkItem[] = [
             , 'VS Code Theming'
         ]
         , description: `My first theme for VS Code - A sleek dark theme with a pop of neon`
+        , objectPosition: 'left top'
     }
     , {
         id: uuid()

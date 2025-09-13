@@ -32,4 +32,5 @@ export interface WorkItem {
     videoLink?: string;
     technologies: string[];
     description: string;
+    objectPosition?: string;
 }

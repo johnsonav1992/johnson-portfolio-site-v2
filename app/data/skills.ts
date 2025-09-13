@@ -41,6 +41,7 @@ import csharp from '../assets/c-sharp.svg';
 import dotnet from '../assets/dot-net.svg';
 import nextjs from '../assets/nextjs.png';
 import gitlab from '../assets/gitlab.svg';
+import astro from '../assets/astro.svg';
 
 export const skills: Skill[] = [
     {
@@ -67,6 +68,11 @@ export const skills: Skill[] = [
         id: uuid()
         , name: 'Remix'
         , iconSrc: remix
+    }
+    , {
+        id: uuid()
+        , name: 'Astro'
+        , iconSrc: astro
     }
     , {
         id: uuid()
