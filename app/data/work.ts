@@ -114,6 +114,7 @@ export const smallProjects: WorkItem[] = [
         , route: 'battleship'
         , imgSrc: battleship
         , repoLink: 'https://github.com/johnsonav1992/ts-battleship'
+        , prodLink: 'https://ts-battleship.netlify.app/'
         , technologies: [ 
             'React'
             , 'TypeScript'
