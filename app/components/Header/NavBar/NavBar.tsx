@@ -1,5 +1,7 @@
+'use client';
+
 // Libraries
-import { Link } from '@remix-run/react';
+import Link from 'next/link';
 
 // MUI
 import type {
@@ -69,7 +71,7 @@ const NavBar = ( { className }: Props ) => {
                     key={ tab.link } 
                     value={ tab.link } 
                     label={ tab.label }
-                    to={tab.link}
+                    href={tab.link}
                     sx={ 
                         tab.hidden
                             ? hidden

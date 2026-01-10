@@ -2,9 +2,10 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
-    "start": "cross-env NODE_ENV=production netlify dev",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "typecheck": "tsc -b"
   },
   "dependencies": {
@@ -14,29 +15,27 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.0",
+    "@mui/material-nextjs": "7.3.7",
     "@netlify/functions": "^1.3.0",
-    "@remix-run/netlify": "^1.8.2",
-    "@remix-run/node": "^1.8.2",
-    "@remix-run/react": "^1.8.2",
     "@types/nodemailer": "^6.4.7",
     "cross-env": "^7.0.3",
     "formik": "^2.2.9",
     "logrocket": "^8.1.0",
+    "next": "16.1.0",
     "nodemailer": "^6.8.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-uuid": "^2.0.0",
     "tss-react": "^4.5.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.8.2",
-    "@remix-run/eslint-config": "^1.8.2",
-    "@remix-run/serve": "^1.8.2",
+    "@types/node": "^25.0.5",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
-    "eslint": "^8.31.0",
-    "typescript": "^4.8.4"
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.1",
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=18"

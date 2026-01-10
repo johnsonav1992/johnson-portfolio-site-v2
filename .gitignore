@@ -1,6 +1,8 @@
 node_modules
 
-/.cache
-/public/build
-/.netlify
+# Next.js
+/.next/
+/out/
+
 .env
+.env*.local

@@ -1,5 +1,7 @@
+'use client';
+
 // Libraries
-import { useNavigate } from '@remix-run/react';
+import { useRouter } from 'next/navigation';
 
 // MUI
 import { 
@@ -55,7 +57,7 @@ const Header = () => {
         , setDrawerIsOpen
         , drawerIsOpen
     } = useSiteContext();
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const toggleDrawer = () => {
         setDrawerIsOpen( !drawerIsOpen );
@@ -70,10 +72,10 @@ const Header = () => {
                 <Toolbar>
                     <img 
                         alt="AVJ logo"
-                        src={logo}
+                        src={ typeof logo === 'string' ? logo : (logo as any).src }
                         onClick={ () => {
                             setActiveTab( '/' );
-                            navigate( '/' );
+                            router.push( '/' );
                         }}
                         className={ classes.logo }
                     />

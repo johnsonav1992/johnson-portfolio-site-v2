@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 // MUI
@@ -8,7 +10,7 @@ import { Grid
 // Components
 import ProjectList from '~/components/Work/ProjectList';
 
-const WorkPage = () => {
+export default function Page () {
 
     return (
         <Grid
@@ -35,6 +37,4 @@ const WorkPage = () => {
             <ProjectList projectType='small' />
         </Grid>
     );
-};
-
-export default WorkPage;
+}

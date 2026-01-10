@@ -1,3 +1,5 @@
+'use client';
+
 // MUI
 import { 
     Grid
@@ -27,7 +29,7 @@ const SkillItem = ( { skill }: Props ) => {
         >
             <Grid item>
                 <img
-                    src={ skill.iconSrc } 
+                    src={ typeof skill.iconSrc === 'string' ? skill.iconSrc : (skill.iconSrc as any).src } 
                     alt={ skill.name }
                     style={ { 
                         height: '5rem'

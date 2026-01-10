@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react';
 
 // Libraries
-import { Link } from '@remix-run/react';
+import Link from 'next/link';
 
 // MUI
 import { 
@@ -20,7 +22,7 @@ import { aboutText } from '~/data/text';
 // Theme
 import theme from '~/theme/theme';
 
-const AboutPage = () => {
+export default function Page () {
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
 
     return (
@@ -64,7 +66,7 @@ const AboutPage = () => {
                         <Button 
                             variant='contained'
                             component={Link}
-                            to='/contact'
+                            href='/contact'
                             sx={ { width: '9rem' } }
                         >
                             Contact Me
@@ -81,7 +83,7 @@ const AboutPage = () => {
                 lg={ 5 }
             >
                 <img 
-                    src={ aboutHeadshot } 
+                    src={ typeof aboutHeadshot === 'string' ? aboutHeadshot : (aboutHeadshot as any).src } 
                     alt="Alex Johnson Headshot"
                     style={ { 
                         maxWidth: '70%'
@@ -93,6 +95,4 @@ const AboutPage = () => {
             </Grid>
         </Grid>
     );
-};
-
-export default AboutPage;
+}

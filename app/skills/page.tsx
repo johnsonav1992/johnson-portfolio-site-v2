@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 // MUI
@@ -19,7 +21,7 @@ import type { Skill } from '~/types/types';
 // Theme
 import theme from '~/theme/theme';
 
-const SkillsPage = () => {
+export default function Page () {
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
 
     return (
@@ -52,6 +54,4 @@ const SkillsPage = () => {
             </Grid>
         </Grid>
     );
-};
-
-export default SkillsPage;
+}

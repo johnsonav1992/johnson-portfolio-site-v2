@@ -1,9 +1,10 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 
 // Libraries
 import type { FormikProps } from 'formik';
 import { Form } from 'formik';
-import { useNavigation } from '@remix-run/react';
 
 // MUI
 import { 
@@ -16,25 +17,33 @@ import {
 } from '@mui/material';
 
 // Types
-import type { ContactInput } from '~/routes/contact';
+import type { ContactInput } from '~/contact/page';
 
 // Theme
 import theme from '~/theme/theme';
 
 const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
-    const { state } = useNavigation();
+    const [ isSubmitting, setIsSubmitting ] = useState( false );
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
 
     const {
         values
         , errors
         , handleChange
+        , handleSubmit
     } = formikProps;
 
     const inputWidth = isMdScreen ? '90%' : '40%';
+
+    const onSubmit = async ( e: React.FormEvent<HTMLFormElement> ) => {
+        e.preventDefault();
+        setIsSubmitting( true );
+        await handleSubmit();
+        setIsSubmitting( false );
+    };
     
     return (
-        <Form>
+        <Form onSubmit={ onSubmit }>
             <Grid 
                 container
                 direction='column'
@@ -129,7 +138,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                             , mb: '1rem' 
                         } }
                     >
-                        { state !== 'idle' 
+                        { isSubmitting 
                             ? <CircularProgress 
                                 sx={ { color: ( theme ) => theme.palette.common.white } }
                                 size='1.5rem'

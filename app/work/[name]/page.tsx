@@ -1,10 +1,10 @@
+'use client';
+
 import React from 'react';
 
 // Libraries
-import { 
-    useParams
-    , Link 
-} from '@remix-run/react';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 
 // MUI
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -31,8 +31,9 @@ import {
 import theme from '~/theme/theme';
 import GitHubIcon from '~/components/Footer/GitHubIcon';
 
-const ProjectDetail = () => {
-    const { name: projectRoute } = useParams();
+export default function Page () {
+    const params = useParams();
+    const projectRoute = params.name as string;
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
 
     const project = [ ...smallProjects, ...largeProjects ]
@@ -87,7 +88,7 @@ const ProjectDetail = () => {
                         justifyContent='center'
                     >
                         <img 
-                            src={ project.imgSrc } 
+                            src={ typeof project.imgSrc === 'string' ? project.imgSrc : (project.imgSrc as any).src } 
                             alt={ project.name } 
                             style={ { 
                                 width: isMdScreen ? '100%' : '80%'
@@ -139,7 +140,7 @@ const ProjectDetail = () => {
                                 component={Link} 
                                 variant='contained' 
                                 color='inherit'
-                                to='/work'
+                                href='/work'
                                 startIcon={<ArrowBackIcon />}
                             >
                                 Back
@@ -192,6 +193,4 @@ const ProjectDetail = () => {
             </Grid>
         </Grid>
     );
-};
-
-export default ProjectDetail;
+}

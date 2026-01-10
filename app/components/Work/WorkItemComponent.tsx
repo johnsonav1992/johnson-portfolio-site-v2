@@ -1,5 +1,7 @@
+'use client';
+
 // Libraries
-import { Link } from '@remix-run/react';
+import Link from 'next/link';
 
 // MUI
 import { 
@@ -37,7 +39,7 @@ const WorkItemComponent = ( { project }: Props ) => {
                 }
                 , textDecoration: 'none'
             } }
-            to={ project.route }
+            href={ project.route }
         >
             <Grid 
                 item 
@@ -57,7 +59,7 @@ const WorkItemComponent = ( { project }: Props ) => {
                 </Typography>
             </Grid>
             <img 
-                src={ project.imgSrc }
+                src={ typeof project.imgSrc === 'string' ? project.imgSrc : (project.imgSrc as any).src }
                 alt={ project.name }
                 style={ {
                     width: isMdScreen ? '75vw' : '30vw'

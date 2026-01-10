@@ -1,5 +1,7 @@
+'use client';
+
 // Libraries
-import { Link } from '@remix-run/react';
+import Link from 'next/link';
 
 // MUI
 import { 
@@ -65,7 +67,7 @@ const SideDrawer = () => {
                     <ListItemButton
                         key={ tab.label }
                         component={ Link }
-                        to={ tab.link }
+                        href={ tab.link }
                         selected={ activeTab === tab.link }
                         onClick={ () => {
                             setDrawerIsOpen( false );

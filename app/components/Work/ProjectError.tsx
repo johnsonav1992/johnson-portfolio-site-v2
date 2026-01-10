@@ -1,5 +1,7 @@
+'use client';
+
 // Libraries
-import { Link } from '@remix-run/react';
+import Link from 'next/link';
 
 // MUI
 import { 
@@ -27,7 +29,7 @@ const ProjectError = () => {
                 component={Link} 
                 variant='contained' 
                 color='error'
-                to='/work'
+                href='/work'
                 startIcon={<ArrowBackIcon />}
             >
                 Back

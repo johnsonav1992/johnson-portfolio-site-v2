@@ -1,5 +1,7 @@
+'use client';
+
 // Libraries
-import { Link } from '@remix-run/react';
+import Link from 'next/link';
 
 // MUI
 import { 
@@ -10,13 +12,14 @@ import {
 } from '@mui/material';
 
 // Assets
-import headshot from '../assets/headshot-transparent-bg.png';
+import headshot from './assets/headshot-transparent-bg.png';
 
 // Theme
 import theme from '~/theme/theme';
 
 // Styles
 import { makeStyles } from 'tss-react/mui';
+import Image from 'next/image';
 
 const useStyles = makeStyles()( ( theme ) => {
     return  {
@@ -41,7 +44,7 @@ const useStyles = makeStyles()( ( theme ) => {
     } ;
 } );
 
-export default function Index () {
+export default function Page () {
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
     const { classes } = useStyles();
     
@@ -63,7 +66,7 @@ export default function Index () {
                 sx={ isMdScreen ? { order: 2 } : undefined }
             >
                 <img 
-                    src={ headshot } 
+                    src={ typeof headshot === 'string' ? headshot : (headshot as any).src } 
                     alt="Alex Johnson Headshot"
                     className={ classes.headshot } 
                 />
@@ -94,7 +97,7 @@ export default function Index () {
                         color='primary'
                     >
                         <Link 
-                            to='/work' 
+                            href='/work' 
                             className={ classes.link }
                         >
                             View My Work

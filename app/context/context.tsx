@@ -1,12 +1,15 @@
+'use client';
+
 import React, { 
     createContext
     , useContext
     , useState
+    , useEffect
 } from 'react';
 import type { ReactNode } from 'react';
 
 // Libraries 
-import { useMatches } from '@remix-run/react';
+import { usePathname } from 'next/navigation';
 
 interface Props {
     children?: ReactNode
@@ -40,11 +43,15 @@ export const SiteContext = createContext<ContextInterface>( {
 } );
 
 const ContextProvider = ( { children }: Props ) => {
-    const [ , { pathname } ] = useMatches();
-    const [ activeTab, setActiveTab ] = useState<string | null>( pathname );
+    const pathname = usePathname();
+    const [ activeTab, setActiveTab ] = useState<string | null>( null );
     const [ drawerIsOpen, setDrawerIsOpen ] = useState<boolean>( false );
     const [ snackbarOpen, setSnackbarOpen ] = useState<boolean>( false );
     const [ alert, setAlert ] = useState<Alert | null>( null );
+
+    useEffect( () => {
+        setActiveTab( pathname );
+    }, [ pathname ] );
 
     return (
         <SiteContext.Provider value={ {
