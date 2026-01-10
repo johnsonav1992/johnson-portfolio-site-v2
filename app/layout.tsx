@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from 'next';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import PageWrapper from './components/PageWrapper/PageWrapper';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import LogRocketScript from './LogRocketScript';
 
 // Contexts
@@ -39,6 +40,7 @@ export default function RootLayout ( {
             <body>
                 <ThemeRegistry>
                     <ContextProvider>
+                        <ScrollToTop />
                         <Header />
                         <PageWrapper>
                             {children}
