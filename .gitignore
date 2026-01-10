@@ -11,3 +11,8 @@ node_modules
 
 .env
 .env*.local
+
+.claude/settings.local.json
+
+# TypeScript build info
+*.tsbuildinfo

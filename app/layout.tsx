@@ -1,11 +1,11 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 // Components
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import LogRocketScript from './LogRocketScript';
 
-// Contexts 
+// Contexts
 import ContextProvider from './context/context';
 
 // Theme
@@ -14,7 +14,11 @@ import ThemeRegistry from './ThemeRegistry';
 export const metadata: Metadata = {
     title: 'Alex Johnson - Web Developer'
     , description: 'Full-stack web developer portfolio'
-    , viewport: 'width=device-width, initial-scale=1'
+};
+
+export const viewport: Viewport = {
+    width: 'device-width'
+    , initialScale: 1
 };
 
 export default function RootLayout ( {

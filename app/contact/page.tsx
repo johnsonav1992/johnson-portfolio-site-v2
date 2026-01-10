@@ -13,6 +13,9 @@ import SnackAlert from '~/components/SnackAlert/SnackAlert';
 // Contexts
 import { useSiteContext } from '~/context/context';
 
+// Server Actions
+import { sendContactEmail } from '~/actions/contact';
+
 // Types
 import type { FormikProps } from 'formik';
 
@@ -45,15 +48,8 @@ export default function Page () {
     
     const handleSubmit = async ( values: ContactInput ) => {
         try {
-            const response = await fetch( '/api/contact', {
-                method: 'POST'
-                , headers: {
-                    'Content-Type': 'application/json'
-                }
-                , body: JSON.stringify( values )
-            } );
+            const result = await sendContactEmail( values );
 
-            const result = await response.json();
             setAlert( result );
             setSnackbarOpen( true );
         } catch ( error ) {
@@ -61,6 +57,7 @@ export default function Page () {
                 type: 'error'
                 , message: 'There was an error sending your message - Please try again.'
             } );
+            
             setSnackbarOpen( true );
         }
     };
