@@ -18,16 +18,15 @@ export default function Page () {
             direction='column'
             alignItems='center'
             component='main'
-            sx={ { 
+            sx={ {
                 padding: '2rem'
             } }
         >
-            <Grid 
-                item
+            <Grid
                 sx={ { marginBottom: '2rem' } }
             >
-                <Typography 
-                    variant='h3' 
+                <Typography
+                    variant='h3'
                     gutterBottom
                 >
                     My Work

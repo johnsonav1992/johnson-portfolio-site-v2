@@ -4,5 +4,10 @@ node_modules
 /.next/
 /out/
 
+# Old Remix build artifacts
+/build/
+/.cache/
+/.netlify/
+
 .env
 .env*.local

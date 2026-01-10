@@ -22,28 +22,7 @@ import { tabs } from '~/data/tabs';
 // Theme
 import theme from '~/theme/theme';
 
-// Styles
-import { makeStyles } from 'tss-react/mui';
-
-const useStyles = makeStyles()( {
-    drawerPaper: {
-        width: 150
-        , top: theme.mixins.toolbar.minHeight
-        , overflow: 'auto'
-        , height: '100vh'
-    }
-    , selected: {
-        '&.Mui-selected': {
-            backgroundColor: theme.palette.primary.main
-            , '&:hover': {
-                backgroundColor: theme.palette.primary.dark
-            }
-        }
-    }
-} );
-
 const SideDrawer = () => {
-    const { classes } = useStyles();
     const {
         drawerIsOpen
         , setDrawerIsOpen
@@ -52,18 +31,24 @@ const SideDrawer = () => {
     } = useSiteContext();
 
     return (
-        <SwipeableDrawer 
+        <SwipeableDrawer
             onClose={ () => setDrawerIsOpen( false ) }
             onOpen={ () => setDrawerIsOpen( true ) }
             open={ drawerIsOpen }
             anchor='right'
-            classes={ {
-                paper: classes.drawerPaper
+            disableBackdropTransition
+            sx={ {
+                '& .MuiDrawer-paper': {
+                    width: 150
+                    , top: theme.mixins.toolbar.minHeight
+                    , overflow: 'auto'
+                    , height: '100vh'
+                }
             } }
         >
             <Box sx={ { ...theme.mixins.toolbar } }/>
             <List>
-                { tabs.map( tab => 
+                { tabs.map( tab =>
                     <ListItemButton
                         key={ tab.label }
                         component={ Link }
@@ -73,7 +58,14 @@ const SideDrawer = () => {
                             setDrawerIsOpen( false );
                             setActiveTab( tab.link );
                         } }
-                        classes={ { selected: classes.selected } }
+                        sx={ {
+                            '&.Mui-selected': {
+                                backgroundColor: theme.palette.primary.main
+                                , '&:hover': {
+                                    backgroundColor: theme.palette.primary.dark
+                                }
+                            }
+                        } }
                     >
                         <ListItemText>
                             <Typography variant='body1'>

@@ -10,13 +10,13 @@ import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ExternalLink from '@mui/material/Link';
-import { 
+import {
     Button
-    , Grid
     , Paper
     , Typography
-    , useMediaQuery 
+    , useMediaQuery
 } from '@mui/material';
+import { Grid } from '@mui/material';
 
 // Components
 import ProjectError from '~/components/Work/ProjectError';
@@ -46,63 +46,57 @@ export default function Page () {
     }
 
     return (
-        <Grid 
+        <Grid
             container
             direction='column'
             justifyContent='center'
             alignItems='center'
-            sx={ { 
+            sx={ {
                 padding: '2rem'
                 , minHeight: '90vh'
             } }
         >
-            <Grid 
-                item 
-                container 
+            <Grid
+                container
                 justifyContent='center'
             >
-                <Grid 
+                <Grid
                     component={Paper}
-                    item
                     container
                     direction='column'
-                    md={ 6 }
-                    sm={ 12 }
+                    size={{ sm: 12, md: 6 }}
                     elevation={ 5 }
                     sx={ {
                         padding: '2rem'
                         , gap: '2rem'
                     } }
                 >
-                    <Grid item>
-                        <Typography 
-                            variant={ isMdScreen ? 'h4' : 'h3' } 
+                    <Grid>
+                        <Typography
+                            variant={ isMdScreen ? 'h4' : 'h3' }
                             textAlign='center'
                         >
                             { project.name }
                         </Typography>
                     </Grid>
-                    <Grid 
-                        item
+                    <Grid
                         container
                         justifyContent='center'
                     >
-                        <img 
-                            src={ typeof project.imgSrc === 'string' ? project.imgSrc : (project.imgSrc as any).src } 
-                            alt={ project.name } 
-                            style={ { 
+                        <img
+                            src={ typeof project.imgSrc === 'string' ? project.imgSrc : (project.imgSrc as any).src }
+                            alt={ project.name }
+                            style={ {
                                 width: isMdScreen ? '100%' : '80%'
-                                , borderRadius: '.5em' 
+                                , borderRadius: '.5em'
                             } }
-                        />    
-                    </Grid> 
-                    <Grid 
-                        item
+                        />
+                    </Grid>
+                    <Grid
                         container
                         justifyContent='center'
                     >
-                        <Grid 
-                            item
+                        <Grid
                             container
                             direction='column'
                             component='article'
@@ -111,17 +105,17 @@ export default function Page () {
                                 , gap: '1rem'
                             } }
                         >
-                            <Grid item>
+                            <Grid>
                                 <Typography variant='body1'>
                                     { project.description }
                                 </Typography>
                             </Grid>
-                            <Grid item>
+                            <Grid>
                                 <Typography variant='h6'>
-                                    Tech Stack:     
-                                </Typography>                                    
+                                    Tech Stack:
+                                </Typography>
                                 <Typography variant='body2'>
-                                    { `${ project.technologies.map( 
+                                    { `${ project.technologies.map(
                                         techItem => ` ${ techItem }`
                                     ) }`
                                     }
@@ -129,16 +123,15 @@ export default function Page () {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid 
-                        item
+                    <Grid
                         container
                         justifyContent='space-between'
                         gap={'1rem'}
                     >
-                        <Grid item>
-                            <Button 
-                                component={Link} 
-                                variant='contained' 
+                        <Grid>
+                            <Button
+                                component={Link}
+                                variant='contained'
                                 color='inherit'
                                 href='/work'
                                 startIcon={<ArrowBackIcon />}
@@ -146,8 +139,8 @@ export default function Page () {
                                 Back
                             </Button>
                         </Grid>
-                        <Grid 
-                            container 
+                        <Grid
+                            container
                             wrap={isMdScreen ? 'wrap' : 'nowrap'}
                             width={isMdScreen ? '100%' : 'unset'}
                             gap='1rem'
@@ -158,7 +151,7 @@ export default function Page () {
                                 (
                                     <Button
                                         component={ ExternalLink }
-                                        variant='contained' 
+                                        variant='contained'
                                         color='primary'
                                         href={ project.prodLink }
                                         target='_blank'

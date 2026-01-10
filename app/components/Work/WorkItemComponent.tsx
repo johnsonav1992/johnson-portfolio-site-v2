@@ -24,14 +24,12 @@ const WorkItemComponent = ( { project }: Props ) => {
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
 
     return (
-        <Grid 
-            item
+        <Grid
             container
             component={Link}
             direction='column'
             alignItems='center'
-            xs={ 12 }
-            md={ 6 }
+            size={{ xs: 12, md: 6 }}
             sx={ {
                 gap: '1rem'
                 , '&:hover': {
@@ -41,24 +39,23 @@ const WorkItemComponent = ( { project }: Props ) => {
             } }
             href={ `/work/${ project.route }` }
         >
-            <Grid 
-                item 
-                container 
+            <Grid
+                container
                 justifyContent='flex-start'
                 sx={ {
                     width: isMdScreen ? '90%' : '30vw'
                 } }
             >
-                <Typography 
+                <Typography
                     variant='h6'
-                    sx={ { 
-                        fontSize: 'clamp(1rem, -0.2857rem + 3.0476vw, 2rem)' 
+                    sx={ {
+                        fontSize: 'clamp(1rem, -0.2857rem + 3.0476vw, 2rem)'
                     } }
                 >
                     { project.name }
                 </Typography>
             </Grid>
-            <img 
+            <img
                 src={ typeof project.imgSrc === 'string' ? project.imgSrc : (project.imgSrc as any).src }
                 alt={ project.name }
                 style={ {

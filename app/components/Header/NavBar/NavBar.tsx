@@ -6,8 +6,9 @@ import Link from 'next/link';
 // MUI
 import type {
     Theme
+    , SxProps
 } from '@mui/material';
-import { 
+import {
     Tab
     , Tabs
 } from '@mui/material';
@@ -22,17 +23,17 @@ import { useSiteContext } from '~/context/context';
 import type { SyntheticEvent } from 'react';
 
 interface Props {
-    className?: string;
+    sx?: SxProps<Theme>;
 }
 
-const NavBar = ( { className }: Props ) => {
-    const { 
+const NavBar = ( { sx }: Props ) => {
+    const {
         activeTab
         , setActiveTab
     } = useSiteContext();
-    
+
     const tabStyle = ( theme: Theme ) => ( {
-        color: theme.palette.common.white 
+        color: theme.palette.common.white
         , textTransform: 'none'
         , fontSize: '1.2rem'
         , '&:hover': {
@@ -45,37 +46,37 @@ const NavBar = ( { className }: Props ) => {
         , justifyContent: 'center'
     } );
 
-    const hidden = {
-        ...tabStyle
+    const hidden = ( theme: Theme ) => ( {
+        ...tabStyle( theme )
         , opacity: 0
-        , pointerEvents: 'none' 
-    };
-    
+        , pointerEvents: 'none'
+    } );
+
     const handleChange = ( e: SyntheticEvent<Element, Event>, value: string ) => {
         setActiveTab( value );
     };
-    
+
     return (
-        <Tabs 
-            className={ className } 
-            value={ activeTab }
+        <Tabs
+            sx={ sx }
+            value={ activeTab || false }
             onChange={ handleChange }
-            TabIndicatorProps={{ 
-                style: { 
+            TabIndicatorProps={ {
+                style: {
                     backgroundColor: 'transparent'
-                } }}
+                } } }
         >
             { tabs.map( tab => {
-                return <Tab 
+                return <Tab
                     component={ Link }
-                    key={ tab.link } 
-                    value={ tab.link } 
+                    key={ tab.link }
+                    value={ tab.link }
                     label={ tab.label }
                     href={tab.link}
-                    sx={ 
+                    sx={
                         tab.hidden
                             ? hidden
-                            : tabStyle 
+                            : tabStyle
                     }
                     disableRipple
                 />;
