@@ -4,14 +4,16 @@
 import Link from 'next/link';
 
 // MUI
-import { 
+import {
     SwipeableDrawer
     , List
     , ListItemButton
     , ListItemText
     , Typography
     , Box
+    , IconButton
 } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 // Contexts
 import { useSiteContext } from '~/context/context';
@@ -38,15 +40,38 @@ const SideDrawer = () => {
             anchor='right'
             disableBackdropTransition
             sx={ {
-                '& .MuiDrawer-paper': {
+                zIndex: theme.zIndex.drawer + 2
+                , '& .MuiDrawer-paper': {
                     width: 150
-                    , top: theme.mixins.toolbar.minHeight
                     , overflow: 'auto'
                     , height: '100vh'
+                    , backgroundColor: theme.palette.gray.main
+                    , borderRadius: 0
                 }
             } }
         >
-            <Box sx={ { ...theme.mixins.toolbar } }/>
+            <Box
+                sx={ {
+                    display: 'flex'
+                    , justifyContent: 'flex-end'
+                    , alignItems: 'flex-start'
+                    , paddingTop: '0.5rem'
+                    , paddingRight: '0.5rem'
+                    , paddingBottom: '0.5rem'
+                } }
+            >
+                <IconButton
+                    onClick={ () => setDrawerIsOpen( false ) }
+                >
+                    <CloseIcon
+                        sx={{
+                            color: theme.palette.common.white
+                            , width: '2rem'
+                            , height: '2rem'
+                        }}
+                    />
+                </IconButton>
+            </Box>
             <List>
                 { tabs.map( tab =>
                     <ListItemButton

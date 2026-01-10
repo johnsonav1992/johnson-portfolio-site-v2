@@ -14,7 +14,7 @@ import {
 import { Grid } from '@mui/material';
 
 // Assets
-import aboutHeadshot from '../assets/about-page-headshot.jpg';
+import aboutHeadshot from '../../assets/about-page-headshot.jpg';
 
 // Data
 import { aboutText } from '~/data/text';

@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next';
 // Components
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import PageWrapper from './components/PageWrapper/PageWrapper';
 import LogRocketScript from './LogRocketScript';
 
 // Contexts
@@ -39,8 +40,10 @@ export default function RootLayout ( {
                 <ThemeRegistry>
                     <ContextProvider>
                         <Header />
-                        {children}
-                        <Footer /> 
+                        <PageWrapper>
+                            {children}
+                        </PageWrapper>
+                        <Footer />
                     </ContextProvider>
                 </ThemeRegistry>
                 <LogRocketScript />

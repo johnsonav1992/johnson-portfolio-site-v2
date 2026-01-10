@@ -4,13 +4,12 @@
 import { useRouter } from 'next/navigation';
 
 // MUI
-import { 
+import {
     AppBar
     , Toolbar
     , IconButton
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 // Components
@@ -47,7 +46,7 @@ const Header = () => {
                     backgroundColor: theme.palette.gray.main
                     , height: 100
                     , justifyContent: 'center'
-                    , position: 'sticky'
+                    , position: 'fixed'
                     , zIndex: theme.zIndex.drawer + 1
                     , borderRadius: 0
                 } }
@@ -77,31 +76,18 @@ const Header = () => {
                     { !isMdScreen &&
                     <NavBar sx={ { marginLeft: 'auto' } }/>
                     }
-                    { isMdScreen && 
-                    <IconButton 
+                    { isMdScreen &&
+                    <IconButton
                         sx={ { ml: 'auto' } }
                         onClick={ toggleDrawer }
                     >
-                        { !drawerIsOpen ? 
-                            <MenuIcon 
-                                sx={{ 
-                                    color: ( theme ) => theme.palette.common.white
-                                    , width: '3rem'
-                                    , height: '3rem'
-                                }}
-                            />
-                            :
-                            <CloseIcon 
-                                sx={{ 
-                                    color: ( theme ) => theme.palette.common.white
-                                    , width: '3rem'
-                                    , height: '3rem'
-                                    , '&:hover': {
-                                        cursor: 'pointer'
-                                    }
-                                }}
-                            />
-                        }
+                        <MenuIcon
+                            sx={{
+                                color: ( theme ) => theme.palette.common.white
+                                , width: '3rem'
+                                , height: '3rem'
+                            }}
+                        />
                     </IconButton>
                     }
                 </Toolbar>

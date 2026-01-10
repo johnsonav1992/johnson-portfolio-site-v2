@@ -18,7 +18,7 @@ import {
 import { Grid } from '@mui/material';
 
 // Types
-import type { ContactInput } from '~/contact/page';
+import type { ContactInput } from '~/(modules)/contact/page';
 
 // Theme
 import theme from '~/theme/theme';

@@ -13,41 +13,48 @@ import {
 import { Grid } from '@mui/material';
 
 // Assets
-import headshot from './assets/headshot-transparent-bg.png';
+import headshot from '../assets/headshot-transparent-bg.png';
 
 // Theme
 import theme from '~/theme/theme';
 
 export default function Page () {
-    const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
+    const isLgScreen = useMediaQuery( theme.breakpoints.down( 'lg' ) );
 
     return (
         <Grid
             container
             component='main'
-            spacing={ 4 }
+            spacing={ 2 }
             sx={ {
                 minHeight: '90vh'
-                , marginTop: '1rem'
+                , paddingX: { xs: '1rem', md: '2rem' }
+                , paddingTop: '2rem'
             } }
         >
             <Grid
                 container
-                justifyContent={ isMdScreen ? 'center' : 'flex-end'}
+                justifyContent={ isLgScreen ? 'center' : 'flex-end'}
                 alignItems='flex-end'
                 flexGrow={ 1 }
-                size={{ xs: 12, md: 7 }}
-                sx={ isMdScreen ? { order: 2 } : undefined }
+                size={{ xs: 12, lg: 7 }}
+                sx={ isLgScreen ? { order: 2 } : undefined }
             >
                 <Box
                     component='img'
                     src={ typeof headshot === 'string' ? headshot : (headshot as any).src }
                     alt="Alex Johnson Headshot"
                     sx={ {
-                        maxWidth: 500
-                        , [ theme.breakpoints.down( 'md' ) ]: {
-                            transform: 'translateX(-5%)'
+                        width: '100%'
+                        , maxWidth: {
+                            xs: '90vw'
+                            , sm: '80vw'
+                            , md: '60vw'
+                            , lg: '50vw'
+                            , xl: '800px'
                         }
+                        , height: 'auto'
+                        , objectFit: 'contain'
                         , filter: 'drop-shadow( 0px 5px 12px rgba(0, 0, 0, 0.7))'
                     } }
                 />
@@ -56,12 +63,12 @@ export default function Page () {
                 container
                 direction='column'
                 justifyContent='center'
-                alignItems={ isMdScreen ? 'center' : undefined }
-                spacing={ 2 }
-                size={{ xs: 12, md: 5 }}
+                alignItems={ isLgScreen ? 'center' : undefined }
+                spacing={{ xs: 0.5, md: 1.5, lg: 2 }}
+                size={{ xs: 12, lg: 5 }}
             >
                 <Grid>
-                    <Typography variant={ isMdScreen ? 'h3' : 'h2'}>
+                    <Typography variant={ isLgScreen ? 'h3' : 'h2'}>
                         Alex Johnson
                     </Typography>
                 </Grid>
