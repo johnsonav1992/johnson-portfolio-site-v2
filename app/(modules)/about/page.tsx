@@ -1,18 +1,20 @@
+'use client';
+
 import React from 'react';
 
 // Libraries
-import { Link } from '@remix-run/react';
+import Link from 'next/link';
 
 // MUI
-import { 
+import {
     Button
-    , Grid
     , Typography
     , useMediaQuery
 } from '@mui/material';
+import { Grid } from '@mui/material';
 
 // Assets
-import aboutHeadshot from '../assets/about-page-headshot.jpg';
+import aboutHeadshot from '../../assets/about-page-headshot.jpg';
 
 // Data
 import { aboutText } from '~/data/text';
@@ -20,51 +22,48 @@ import { aboutText } from '~/data/text';
 // Theme
 import theme from '~/theme/theme';
 
-const AboutPage = () => {
+export default function Page () {
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
 
     return (
-        <Grid 
-            container 
+        <Grid
+            container
             justifyContent='center'
             direction={ isMdScreen ? 'column' : 'row' }
             spacing={ 3 }
-            sx={ { 
+            sx={ {
                 padding: '2rem'
                 , minHeight: '90vh'
                 , gap: isMdScreen ? '1rem' : '2rem'
             } }
         >
-            <Grid 
-                item 
-                container 
-                justifyContent='center' 
-                xs={ 12 }
-                lg={ 5 } 
+            <Grid
+                container
+                justifyContent='center'
+                size={{ xs: 12, lg: 5 }}
             >
-                <Grid 
-                    item 
+                <Grid
                     container
                     direction='column'
                     alignItems={ isMdScreen ? 'center' : 'flex-start' }
                     justifyContent='center'
                     spacing={ 2 }
                 >
-                    <Grid item>
+                    <Grid>
                         <Typography variant='h3'>
                         About Me
                         </Typography>
                     </Grid>
-                    <Grid item>
+                    <Grid>
                         <Typography variant='body1'>
                             { aboutText }
                         </Typography>
                     </Grid>
-                    <Grid item>
-                        <Button 
+                    <Grid>
+                        <Button
                             variant='contained'
                             component={Link}
-                            to='/contact'
+                            href='/contact'
                             sx={ { width: '9rem' } }
                         >
                             Contact Me
@@ -72,27 +71,23 @@ const AboutPage = () => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid 
-                item
+            <Grid
                 container
                 justifyContent='center'
                 alignItems='center'
-                xs={ 10 }
-                lg={ 5 }
+                size={{ xs: 10, lg: 5 }}
             >
-                <img 
-                    src={ aboutHeadshot } 
+                <img
+                    src={ typeof aboutHeadshot === 'string' ? aboutHeadshot : (aboutHeadshot as any).src }
                     alt="Alex Johnson Headshot"
-                    style={ { 
+                    style={ {
                         maxWidth: '70%'
                         //@ts-ignore
                         , boxShadow: theme.shadows[ 25 ]
                         , borderRadius: '.5em'
-                    } } 
+                    } }
                 />
             </Grid>
         </Grid>
     );
-};
-
-export default AboutPage;
+}

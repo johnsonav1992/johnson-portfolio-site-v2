@@ -1,22 +1,22 @@
+'use client';
+
 import React from 'react';
 
 // Libraries
-import { 
-    useParams
-    , Link 
-} from '@remix-run/react';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 
 // MUI
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ExternalLink from '@mui/material/Link';
-import { 
+import {
     Button
-    , Grid
     , Paper
     , Typography
-    , useMediaQuery 
+    , useMediaQuery
 } from '@mui/material';
+import { Grid } from '@mui/material';
 
 // Components
 import ProjectError from '~/components/Work/ProjectError';
@@ -31,8 +31,9 @@ import {
 import theme from '~/theme/theme';
 import GitHubIcon from '~/components/Footer/GitHubIcon';
 
-const ProjectDetail = () => {
-    const { name: projectRoute } = useParams();
+export default function Page () {
+    const params = useParams();
+    const projectRoute = params.name as string;
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
 
     const project = [ ...smallProjects, ...largeProjects ]
@@ -45,63 +46,57 @@ const ProjectDetail = () => {
     }
 
     return (
-        <Grid 
+        <Grid
             container
             direction='column'
             justifyContent='center'
             alignItems='center'
-            sx={ { 
+            sx={ {
                 padding: '2rem'
                 , minHeight: '90vh'
             } }
         >
-            <Grid 
-                item 
-                container 
+            <Grid
+                container
                 justifyContent='center'
             >
-                <Grid 
+                <Grid
                     component={Paper}
-                    item
                     container
                     direction='column'
-                    md={ 6 }
-                    sm={ 12 }
+                    size={{ sm: 12, md: 6 }}
                     elevation={ 5 }
                     sx={ {
                         padding: '2rem'
                         , gap: '2rem'
                     } }
                 >
-                    <Grid item>
-                        <Typography 
-                            variant={ isMdScreen ? 'h4' : 'h3' } 
+                    <Grid>
+                        <Typography
+                            variant={ isMdScreen ? 'h4' : 'h3' }
                             textAlign='center'
                         >
                             { project.name }
                         </Typography>
                     </Grid>
-                    <Grid 
-                        item
+                    <Grid
                         container
                         justifyContent='center'
                     >
-                        <img 
-                            src={ project.imgSrc } 
-                            alt={ project.name } 
-                            style={ { 
+                        <img
+                            src={ typeof project.imgSrc === 'string' ? project.imgSrc : (project.imgSrc as any).src }
+                            alt={ project.name }
+                            style={ {
                                 width: isMdScreen ? '100%' : '80%'
-                                , borderRadius: '.5em' 
+                                , borderRadius: '.5em'
                             } }
-                        />    
-                    </Grid> 
-                    <Grid 
-                        item
+                        />
+                    </Grid>
+                    <Grid
                         container
                         justifyContent='center'
                     >
-                        <Grid 
-                            item
+                        <Grid
                             container
                             direction='column'
                             component='article'
@@ -110,17 +105,17 @@ const ProjectDetail = () => {
                                 , gap: '1rem'
                             } }
                         >
-                            <Grid item>
+                            <Grid>
                                 <Typography variant='body1'>
                                     { project.description }
                                 </Typography>
                             </Grid>
-                            <Grid item>
+                            <Grid>
                                 <Typography variant='h6'>
-                                    Tech Stack:     
-                                </Typography>                                    
+                                    Tech Stack:
+                                </Typography>
                                 <Typography variant='body2'>
-                                    { `${ project.technologies.map( 
+                                    { `${ project.technologies.map(
                                         techItem => ` ${ techItem }`
                                     ) }`
                                     }
@@ -128,25 +123,24 @@ const ProjectDetail = () => {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid 
-                        item
+                    <Grid
                         container
                         justifyContent='space-between'
                         gap={'1rem'}
                     >
-                        <Grid item>
-                            <Button 
-                                component={Link} 
-                                variant='contained' 
+                        <Grid>
+                            <Button
+                                component={Link}
+                                variant='contained'
                                 color='inherit'
-                                to='/work'
+                                href='/work'
                                 startIcon={<ArrowBackIcon />}
                             >
                                 Back
                             </Button>
                         </Grid>
-                        <Grid 
-                            container 
+                        <Grid
+                            container
                             wrap={isMdScreen ? 'wrap' : 'nowrap'}
                             width={isMdScreen ? '100%' : 'unset'}
                             gap='1rem'
@@ -157,7 +151,7 @@ const ProjectDetail = () => {
                                 (
                                     <Button
                                         component={ ExternalLink }
-                                        variant='contained' 
+                                        variant='contained'
                                         color='primary'
                                         href={ project.prodLink }
                                         target='_blank'
@@ -192,6 +186,4 @@ const ProjectDetail = () => {
             </Grid>
         </Grid>
     );
-};
-
-export default ProjectDetail;
+}

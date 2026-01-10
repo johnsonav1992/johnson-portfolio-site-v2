@@ -4,7 +4,11 @@ import nodemailer from 'nodemailer';
 // Utils
 import { formattedReceiptEmail } from './formattedReceiptEmail'; //save for later!
 
-export const sendEmail = async ( name: string, email: string, message: string ) => {
+export const sendEmail = async (
+    name: string
+    , email: string
+    , message: string
+): Promise<{ type: 'success' | 'error'; message: string }> => {
 
     const transporter = nodemailer.createTransport( {
         service: 'gmail'
@@ -30,15 +34,15 @@ export const sendEmail = async ( name: string, email: string, message: string ) 
 
     try {
         await transporter.sendMail( mailOptions );
-        return { 
-            type: 'success'
-            , message: 'Email sent successfully! We will get back to you soon!' 
+        return {
+            type: 'success' as const
+            , message: 'Email sent successfully! We will get back to you soon!'
         };
     } catch ( error: any ) {
         console.error( error );
-        return { 
-            type: 'error'
-            , message: 'There was an error sending your message - Please try again.' 
+        return {
+            type: 'error' as const
+            , message: 'There was an error sending your message - Please try again.'
         };
     }
 };

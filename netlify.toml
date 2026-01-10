@@ -1,28 +1,11 @@
 [build]
-  command = "remix build"
-  publish = "public"
+  command = "npm run build"
+  publish = ".next"
   
 [build.environment]
-  NODE_VERSION = "18"
-
-[dev]
-  command = "remix watch"
-  port = 3000
-
-[functions]
-  node_bundler = "esbuild"
+  NODE_VERSION = "22"
 
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/server"
+  to = "/index.html"
   status = 200
-
-[[headers]]
-  for = "/build/*"
-  [headers.values]
-    "Cache-Control" = "public, max-age=31536000, s-maxage=31536000"
-    
-[[headers]]
-  for = "/_static/*"
-  [headers.values]
-    "Cache-Control" = "public, max-age=31536000, s-maxage=31536000"

@@ -1,9 +1,6 @@
 // Types
 import type { Skill } from '~/types/types';
 
-// Libraries
-import uuid from 'react-uuid';
-
 // Assets
 import axios from '../assets/axios.svg';
 import bootstrap from '../assets/bootstrap.svg';
@@ -45,187 +42,187 @@ import astro from '../assets/astro.svg';
 
 export const skills: Skill[] = [
     {
-        id: uuid()
+        id: 'React'
         , name: 'React'
         , iconSrc: react
     }
     , {
-        id: uuid()
+        id: 'TypeScript'
         , name: 'TypeScript'
         , iconSrc: ts
     }
     , {
-        id: uuid()
+        id: 'Angular'
         , name: 'Angular'
         , iconSrc: angular
     }
     , {
-        id: uuid()
+        id: 'Next.js'
         , name: 'Next.js'
         , iconSrc: nextjs
     }
     , {
-        id: uuid()
+        id: 'Remix'
         , name: 'Remix'
         , iconSrc: remix
     }
     , {
-        id: uuid()
+        id: 'Astro'
         , name: 'Astro'
         , iconSrc: astro
     }
     , {
-        id: uuid()
+        id: 'MUI'
         , name: 'MUI'
         , iconSrc: mui
     }
     , {
-        id: uuid()
+        id: 'HTML'
         , name: 'HTML'
         , iconSrc: html
     }
     , {
-        id: uuid()
+        id: 'CSS'
         , name: 'CSS'
         , iconSrc: css
     }
     , {
-        id: uuid()
+        id: 'JavaScript'
         , name: 'JavaScript'
         , iconSrc: js
     }
     , {
-        id: uuid()
+        id: 'Node.js'
         , name: 'Node.js'
         , iconSrc: nodejs
     }
     , {
-        id: uuid()
+        id: 'Rust'
         , name: 'Rust'
         , iconSrc: rust
     }
     , {
-        id: uuid()
+        id: 'C#'
         , name: 'C#'
         , iconSrc: csharp
     }
     , {
-        id: uuid()
+        id: '.NET'
         , name: '.NET'
         , iconSrc: dotnet
     }
     , {
-        id: uuid()
+        id: 'Svelte'
         , name: 'Svelte'
         , iconSrc: svelte
     }
     , {
-        id: uuid()
+        id: 'Vue'
         , name: 'Vue'
         , iconSrc: vue
     }
     , {
-        id: uuid()
+        id: 'MongoDB'
         , name: 'MongoDB'
         , iconSrc: mongodb
     }
     , {
-        id: uuid()
+        id: 'PostgreSQL'
         , name: 'PostgreSQL'
         , iconSrc: postgres
     }
     , {
-        id: uuid()
+        id: 'Firebase'
         , name: 'Firebase'
         , iconSrc: firebase
     }
     , {
-        id: uuid()
+        id: 'GraphQL'
         , name: 'GraphQL'
         , iconSrc: graphql
     }
     , {
-        id: uuid()
+        id: 'Apollo'
         , name: 'Apollo'
         , iconSrc: apollo
     }
     , {
-        id: uuid()
+        id: 'Hasura'
         , name: 'Hasura'
         , iconSrc: hasura
     }
     , {
-        id: uuid()
+        id: 'Prisma'
         , name: 'Prisma'
         , iconSrc: prisma
     }
     , {
-        id: uuid()
+        id: 'Postman'
         , name: 'Postman'
         , iconSrc: postman
     }
     , {
-        id: uuid()
+        id: 'Axios'
         , name: 'Axios'
         , iconSrc: axios
     }
     , {
-        id: uuid()
+        id: 'PHP'
         , name: 'PHP'
         , iconSrc: php
     }
     , {
-        id: uuid()
+        id: 'Laravel'
         , name: 'Laravel'
         , iconSrc: laravel
     }
     , {
-        id: uuid()
+        id: 'Python'
         , name: 'Python'
         , iconSrc: python
     }
     , {
-        id: uuid()
+        id: 'Bootstrap'
         , name: 'Bootstrap'
         , iconSrc: bootstrap
     }
     , {
-        id: uuid()
+        id: 'Tailwind CSS'
         , name: 'Tailwind CSS'
         , iconSrc: tailwind
     }
     , {
-        id: uuid()
+        id: 'jQuery'
         , name: 'jQuery'
         , iconSrc: jquery
     }
     , {
-        id: uuid()
+        id: 'Git'
         , name: 'Git'
         , iconSrc: git
     }
     , {
-        id: uuid()
+        id: 'GitHub'
         , name: 'GitHub'
         , iconSrc: github
     }
     , {
-        id: uuid()
+        id: 'GitLab'
         , name: 'GitLab'
         , iconSrc: gitlab
     }
     , {
-        id: uuid()
+        id: 'Redux'
         , name: 'Redux'
         , iconSrc: redux
     }
     , {
-        id: uuid()
+        id: 'Cypress'
         , name: 'Cypress'
         , iconSrc: cypress
     }
     , {
-        id: uuid()
+        id: 'Jest'
         , name: 'Jest'
         , iconSrc: jest
     }

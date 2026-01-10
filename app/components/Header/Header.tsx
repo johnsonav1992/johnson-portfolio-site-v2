@@ -1,14 +1,15 @@
+'use client';
+
 // Libraries
-import { useNavigate } from '@remix-run/react';
+import { useRouter } from 'next/navigation';
 
 // MUI
-import { 
+import {
     AppBar
     , Toolbar
     , IconButton
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 // Components
@@ -24,38 +25,14 @@ import { useSiteContext } from '~/context/context';
 // Theme
 import theme from '~/theme/theme';
 
-// Styles
-import { makeStyles } from 'tss-react/mui';
-
-const useStyles = makeStyles()( {
-    appBar: {
-        backgroundColor: theme.palette.gray.main
-        , height: 100
-        , justifyContent: 'center'
-        , position: 'sticky'
-        , zIndex: theme.zIndex.drawer + 1
-        , borderRadius: 0
-    }
-    , navBar: {
-        marginLeft: 'auto'
-    }
-    , logo: {
-        '&:hover': {
-            cursor: 'pointer'
-        }
-        , boxShadow: '0px 1px 10px rgb(0 0 0 / 70%)'
-    }
-} );
-
 const Header = () => {
-    const { classes } = useStyles();
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
-    const { 
+    const {
         setActiveTab
         , setDrawerIsOpen
         , drawerIsOpen
     } = useSiteContext();
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const toggleDrawer = () => {
         setDrawerIsOpen( !drawerIsOpen );
@@ -63,22 +40,32 @@ const Header = () => {
 
     return (
         <>
-            <AppBar 
+            <AppBar
                 elevation={ 8 }
-                className={ classes.appBar }
+                sx={ {
+                    backgroundColor: theme.palette.gray.main
+                    , height: 100
+                    , justifyContent: 'center'
+                    , position: 'fixed'
+                    , zIndex: theme.zIndex.drawer + 1
+                    , borderRadius: 0
+                } }
             >
                 <Toolbar>
-                    <img 
+                    <img
                         alt="AVJ logo"
-                        src={logo}
+                        src={ typeof logo === 'string' ? logo : (logo as any).src }
                         onClick={ () => {
                             setActiveTab( '/' );
-                            navigate( '/' );
+                            router.push( '/' );
                         }}
-                        className={ classes.logo }
+                        style={ {
+                            cursor: 'pointer'
+                            , boxShadow: '0px 1px 10px rgb(0 0 0 / 70%)'
+                        } }
                     />
-                    {/* { !isSmScreen && 
-                    <Typography 
+                    {/* { !isSmScreen &&
+                    <Typography
                         variant={isSmScreen ? 'h4' : 'h3'}
                         marginLeft='1rem'
                         alignSelf='flex-end'
@@ -86,34 +73,21 @@ const Header = () => {
                         Alex Johnson
                     </Typography>
                     } */}
-                    { !isMdScreen && 
-                    <NavBar className={ classes.navBar }/> 
+                    { !isMdScreen &&
+                    <NavBar sx={ { marginLeft: 'auto' } }/>
                     }
-                    { isMdScreen && 
-                    <IconButton 
+                    { isMdScreen &&
+                    <IconButton
                         sx={ { ml: 'auto' } }
                         onClick={ toggleDrawer }
                     >
-                        { !drawerIsOpen ? 
-                            <MenuIcon 
-                                sx={{ 
-                                    color: ( theme ) => theme.palette.common.white
-                                    , width: '3rem'
-                                    , height: '3rem'
-                                }}
-                            />
-                            :
-                            <CloseIcon 
-                                sx={{ 
-                                    color: ( theme ) => theme.palette.common.white
-                                    , width: '3rem'
-                                    , height: '3rem'
-                                    , '&:hover': {
-                                        cursor: 'pointer'
-                                    }
-                                }}
-                            />
-                        }
+                        <MenuIcon
+                            sx={{
+                                color: ( theme ) => theme.palette.common.white
+                                , width: '3rem'
+                                , height: '3rem'
+                            }}
+                        />
                     </IconButton>
                     }
                 </Toolbar>

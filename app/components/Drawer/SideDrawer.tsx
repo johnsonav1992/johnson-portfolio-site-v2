@@ -1,15 +1,19 @@
+'use client';
+
 // Libraries
-import { Link } from '@remix-run/react';
+import Link from 'next/link';
 
 // MUI
-import { 
+import {
     SwipeableDrawer
     , List
     , ListItemButton
     , ListItemText
     , Typography
     , Box
+    , IconButton
 } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 // Contexts
 import { useSiteContext } from '~/context/context';
@@ -20,28 +24,7 @@ import { tabs } from '~/data/tabs';
 // Theme
 import theme from '~/theme/theme';
 
-// Styles
-import { makeStyles } from 'tss-react/mui';
-
-const useStyles = makeStyles()( {
-    drawerPaper: {
-        width: 150
-        , top: theme.mixins.toolbar.minHeight
-        , overflow: 'auto'
-        , height: '100vh'
-    }
-    , selected: {
-        '&.Mui-selected': {
-            backgroundColor: theme.palette.primary.main
-            , '&:hover': {
-                backgroundColor: theme.palette.primary.dark
-            }
-        }
-    }
-} );
-
 const SideDrawer = () => {
-    const { classes } = useStyles();
     const {
         drawerIsOpen
         , setDrawerIsOpen
@@ -50,28 +33,64 @@ const SideDrawer = () => {
     } = useSiteContext();
 
     return (
-        <SwipeableDrawer 
+        <SwipeableDrawer
             onClose={ () => setDrawerIsOpen( false ) }
             onOpen={ () => setDrawerIsOpen( true ) }
             open={ drawerIsOpen }
             anchor='right'
-            classes={ {
-                paper: classes.drawerPaper
+            disableBackdropTransition
+            sx={ {
+                zIndex: theme.zIndex.drawer + 2
+                , '& .MuiDrawer-paper': {
+                    width: 150
+                    , overflow: 'auto'
+                    , height: '100vh'
+                    , backgroundColor: theme.palette.gray.main
+                    , borderRadius: 0
+                }
             } }
         >
-            <Box sx={ { ...theme.mixins.toolbar } }/>
+            <Box
+                sx={ {
+                    display: 'flex'
+                    , justifyContent: 'flex-end'
+                    , alignItems: 'flex-start'
+                    , paddingTop: '0.5rem'
+                    , paddingRight: '0.5rem'
+                    , paddingBottom: '0.5rem'
+                } }
+            >
+                <IconButton
+                    onClick={ () => setDrawerIsOpen( false ) }
+                >
+                    <CloseIcon
+                        sx={{
+                            color: theme.palette.common.white
+                            , width: '2rem'
+                            , height: '2rem'
+                        }}
+                    />
+                </IconButton>
+            </Box>
             <List>
-                { tabs.map( tab => 
+                { tabs.map( tab =>
                     <ListItemButton
                         key={ tab.label }
                         component={ Link }
-                        to={ tab.link }
+                        href={ tab.link }
                         selected={ activeTab === tab.link }
                         onClick={ () => {
                             setDrawerIsOpen( false );
                             setActiveTab( tab.link );
                         } }
-                        classes={ { selected: classes.selected } }
+                        sx={ {
+                            '&.Mui-selected': {
+                                backgroundColor: theme.palette.primary.main
+                                , '&:hover': {
+                                    backgroundColor: theme.palette.primary.dark
+                                }
+                            }
+                        } }
                     >
                         <ListItemText>
                             <Typography variant='body1'>

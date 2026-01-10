@@ -1,5 +1,6 @@
 // Theme
 import type React from 'react';
+import type { StaticImageData } from 'next/image';
 
 declare module '@mui/material/styles' {
     export interface Palette {
@@ -19,14 +20,14 @@ declare module '@mui/material/styles' {
 export interface Skill {
     id: string;
     name: string;
-    iconSrc: string;
+    iconSrc: string | StaticImageData;
 }
 
 export interface WorkItem {
     id: string;
     name: string;
     route: string;
-    imgSrc: string;
+    imgSrc: string | StaticImageData;
     prodLink?: string;
     repoLink?: string;
     videoLink?: string;

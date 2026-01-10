@@ -1,10 +1,8 @@
-import { useEffect } from 'react';
+'use client';
+
+import { useEffect, useState } from 'react';
 
 // Libraries
-import { 
-    useActionData
-    , useSubmit 
-} from '@remix-run/react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -12,14 +10,13 @@ import * as Yup from 'yup';
 import ContactForm from '~/components/Contact/ContactForm';
 import SnackAlert from '~/components/SnackAlert/SnackAlert';
 
-// Utils
-import { sendEmail } from '~/email/sendEmail';
-
 // Contexts
 import { useSiteContext } from '~/context/context';
 
+// Server Actions
+import { sendContactEmail } from '~/actions/contact';
+
 // Types
-import type { ActionFunction } from '@remix-run/node';
 import type { FormikProps } from 'formik';
 
 export interface ContactInput {
@@ -28,20 +25,11 @@ export interface ContactInput {
     message: string;
 }
 
-const ContactPage = () => {
-    const submit = useSubmit();
+export default function Page () {
     const { 
         setSnackbarOpen
         , setAlert
     } = useSiteContext();
-    const actionData = useActionData();
-    
-    useEffect( () => {
-        if ( actionData ) {
-            setSnackbarOpen( true );
-            setAlert( actionData );
-        }
-    }, [ actionData, setAlert, setSnackbarOpen ] );
     
     const initialValues: ContactInput = {
         name: ''
@@ -58,8 +46,20 @@ const ContactPage = () => {
         , message: Yup.string().required( 'You must enter a message.' )
     } );
     
-    const handleSubmit = ( values: any ) => {
-        submit( values, { method: 'post' } ); 
+    const handleSubmit = async ( values: ContactInput ) => {
+        try {
+            const result = await sendContactEmail( values );
+
+            setAlert( result );
+            setSnackbarOpen( true );
+        } catch ( error ) {
+            setAlert( {
+                type: 'error'
+                , message: 'There was an error sending your message - Please try again.'
+            } );
+            
+            setSnackbarOpen( true );
+        }
     };
 
     
@@ -83,19 +83,4 @@ const ContactPage = () => {
             <SnackAlert />
         </>
     );
-};
-
-export const action: ActionFunction = async ( { request } ) => {
-    const formData = await request.formData(); 
-    const data = Object.fromEntries( formData ); 
-
-    const result = await sendEmail( 
-        String( data.name )
-        , String( data.email )
-        , String( data.message ) 
-    );
-
-    return result; 
-};
-
-export default ContactPage;
+}

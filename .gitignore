@@ -1,6 +1,18 @@
 node_modules
 
-/.cache
-/public/build
-/.netlify
+# Next.js
+/.next/
+/out/
+
+# Old Remix build artifacts
+/build/
+/.cache/
+/.netlify/
+
 .env
+.env*.local
+
+.claude/settings.local.json
+
+# TypeScript build info
+*.tsbuildinfo

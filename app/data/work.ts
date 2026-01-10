@@ -1,6 +1,3 @@
-// Libraries
-import uuid from 'react-uuid';
-
 // Types
 import type { WorkItem } from '~/types/types';
 
@@ -22,7 +19,7 @@ import a1 from '../assets/a1-sprinkler-repair.png';
 
 export const largeProjects: WorkItem[] = [
     {
-        id: uuid()
+        id: 'yardvark'
         , name: 'Yardvark'
         , route: 'yardvark'
         , imgSrc: yardvark
@@ -39,7 +36,7 @@ export const largeProjects: WorkItem[] = [
         , description: `A fully-fledged lawncare tracking app for avid Lawn Care Nuts!`
     }
     , {
-        id: uuid()
+        id: 'a1-sprinkler-repair'
         , name: 'A1 Sprinkler Repair'
         , route: 'a1-sprinkler-repair'
         , imgSrc: a1
@@ -52,7 +49,7 @@ export const largeProjects: WorkItem[] = [
         , description: `A modern website for a local sprinkler repair company built with Astro and TypeScript.`
     }
     , {
-        id: uuid()
+        id: 'formularity'
         , name: 'Formularity - React Form Library'
         , route: 'formularity'
         , imgSrc: formularity
@@ -64,7 +61,7 @@ export const largeProjects: WorkItem[] = [
         , description: `A React library for building forms with ease! Currently in dev with alpha pre-releases happening frequently!`
     }
     , {
-        id: uuid()
+        id: 'babybright'
         , name: 'BabyBright'
         , route: 'babybright'
         , imgSrc: babyBrightImg
@@ -87,7 +84,7 @@ export const largeProjects: WorkItem[] = [
         , objectPosition: 'left top'
     }
     , {
-        id: uuid()
+        id: 'cocktailcentral'
         , name: 'Cocktail Central App'
         , route: 'cocktailcentral'
         , imgSrc: cocktailCentralImg
@@ -109,7 +106,7 @@ export const largeProjects: WorkItem[] = [
 
 export const smallProjects: WorkItem[] = [
     {
-        id: uuid()
+        id: 'battleship'
         , name: 'Battleship'
         , route: 'battleship'
         , imgSrc: battleship
@@ -124,7 +121,7 @@ export const smallProjects: WorkItem[] = [
         , description: `A fully-fledged battleship game with a computer AI that can potentially beat human players!`
     }
     , {
-        id: uuid()
+        id: 'memory-fun'
         , name: 'Memory Fun'
         , route: 'memory-fun'
         , imgSrc: memory
@@ -139,7 +136,7 @@ export const smallProjects: WorkItem[] = [
         , description: `A fun memory game for one or two players. Can choose between different card sets!`
     }
     , {
-        id: uuid()
+        id: 'tungsten-carbide'
         , name: 'Tungsten Carbide VSC Theme'
         , route: 'tungsten-carbide'
         , imgSrc: tc
@@ -153,7 +150,7 @@ export const smallProjects: WorkItem[] = [
         , objectPosition: 'left top'
     }
     , {
-        id: uuid()
+        id: 'calc'
         , name: 'TI-108 Calculator'
         , route: 'calc'
         , imgSrc: calc
@@ -167,7 +164,7 @@ export const smallProjects: WorkItem[] = [
         , description: `A custom-built replica of the old-school TI-108 school calculator built with React and CSS`
     }
     , {
-        id: uuid()
+        id: 'reactmetronome'
         , name: 'React Metronome'
         , route: 'reactmetronome'
         , imgSrc: metronome
@@ -180,7 +177,7 @@ export const smallProjects: WorkItem[] = [
         , description: `Working metronome built with React`
     }
     , {
-        id: uuid()
+        id: 'giffinder'
         , name: 'Gif Finder App'
         , route: 'giffinder'
         , imgSrc: gif
@@ -193,7 +190,7 @@ export const smallProjects: WorkItem[] = [
         , description: `An app that allows a user to search for gifs, powered by the Giphy API.`
     }
     , {
-        id: uuid()
+        id: 'tictactoe'
         , name: 'React Tic Tac Toe'
         , route: 'tictactoe'
         , imgSrc: tictactoe
@@ -206,7 +203,7 @@ export const smallProjects: WorkItem[] = [
         , description: `Tic Tac Toe with a React flair!`
     }
     , {
-        id: uuid()
+        id: 'rps'
         , name: 'Rock, Paper, Scissors'
         , route: 'rps'
         , imgSrc: rps
