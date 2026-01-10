@@ -39,7 +39,7 @@ const WorkItemComponent = ( { project }: Props ) => {
                 }
                 , textDecoration: 'none'
             } }
-            href={ project.route }
+            href={ `/work/${ project.route }` }
         >
             <Grid 
                 item 
