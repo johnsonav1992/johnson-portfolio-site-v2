@@ -24,7 +24,7 @@ export const largeProjects: WorkItem[] = [
         , name: 'Dupre Music Designs'
         , route: 'dupre-music-designs'
         , imgSrc: dupreImg
-        , prodLink: 'https://dupremusicdesigns.netlify.app'
+        , prodLink: 'https://dupremusicdesigns.com'
         , technologies: [ 
             'React'
             , 'Next.js'
