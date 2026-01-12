@@ -15,10 +15,26 @@ import battleship from '../assets/battleship.png';
 import formularity from '../assets/formularity_logo_orig.png';
 import yardvark from '../assets/yardvark.png';
 import a1 from '../assets/a1-sprinkler-repair.png';
+import dupreImg from '../assets/dupre-music-designs.png';
 
 
 export const largeProjects: WorkItem[] = [
     {
+        id: 'dupre-music-designs'
+        , name: 'Dupre Music Designs'
+        , route: 'dupre-music-designs'
+        , imgSrc: dupreImg
+        , prodLink: 'https://dupremusicdesigns.netlify.app'
+        , technologies: [ 
+            'React'
+            , 'Next.js'
+            , 'Panda CSS'
+            , 'Base UI'
+            , 'Strapi CMS'
+        ]
+        , description: `Official site for Scott Dupre, Arranger and Composer.`
+    }
+    , {
         id: 'yardvark'
         , name: 'Yardvark'
         , route: 'yardvark'
