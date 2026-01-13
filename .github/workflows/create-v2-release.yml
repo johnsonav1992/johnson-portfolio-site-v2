@@ -1,0 +1,66 @@
+name: Create v2.0.0 Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Create and push tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Create tag if it doesn't exist
+          if ! git rev-parse v2.0.0 >/dev/null 2>&1; then
+            git tag -a v2.0.0 5805e3afd3d4a32d752c4cf3f110880b97535106 -m "v2.0.0 - Framework Migration to Next.js and Scott Dupre Site Integration"
+            git push origin v2.0.0
+          fi
+
+      - name: Read release notes
+        id: release_notes
+        run: |
+          cat << 'EOF' > /tmp/release_notes.md
+          ## v2.0.0 - Framework Migration to Next.js and Scott Dupre Site Integration
+
+          ### Key Updates
+          - Migrated the portfolio to the Next.js framework for improved performance and scalability.
+          - Integrated the Scott Dupre site into the portfolio.
+          - General bug fixes and performance optimizations.
+
+          ### Release Date
+          2026-01-13
+          EOF
+          
+          echo "notes<<EOF" >> $GITHUB_OUTPUT
+          cat /tmp/release_notes.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: v2.0.0
+          name: v2.0.0 - Framework Migration to Next.js and Scott Dupre Site Integration
+          body: |
+            ## v2.0.0 - Framework Migration to Next.js and Scott Dupre Site Integration
+
+            ### Key Updates
+            - Migrated the portfolio to the Next.js framework for improved performance and scalability.
+            - Integrated the Scott Dupre site into the portfolio.
+            - General bug fixes and performance optimizations.
+
+            ### Release Date
+            2026-01-13
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
