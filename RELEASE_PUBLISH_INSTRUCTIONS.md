@@ -19,7 +19,21 @@
 2026-01-13
 ```
 
-## How to Publish the Release
+## ⚠️ Important Note
+Due to the limitations of the GitHub MCP server (read-only operations) and the sandboxed environment restrictions, the release cannot be published automatically by the AI agent. However, a GitHub Actions workflow has been created to automate the release publishing process.
+
+## 🚀 Recommended Approach: Use the GitHub Actions Workflow (EASIEST)
+
+A workflow file has been created at `.github/workflows/create-v2-release.yml`. Once this PR is merged to master:
+
+1. Go to the Actions tab in your repository: https://github.com/johnsonav1992/johnson-portfolio-site-v2/actions
+2. Select the "Create v2.0.0 Release" workflow
+3. Click "Run workflow" button
+4. The workflow will:
+   - Create and push the v2.0.0 tag
+   - Publish the release with the prepared release notes
+
+## Alternative Methods to Publish the Release
 
 ### Option 1: Using GitHub CLI (gh)
 ```bash
