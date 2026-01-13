@@ -74,7 +74,7 @@ However, the GitHub Actions workflow created in this PR provides a fully automat
 - `.github/workflows/create-v2-release.yml` - Automated release creation workflow
 - `.github/workflows/README.md` - Workflow documentation
 - `RELEASE_PUBLISH_INSTRUCTIONS.md` - Detailed publication instructions
-- `THIS_FILE.md` - This summary document
+- `RELEASE_PUBLICATION_SUMMARY.md` - This summary document
 
 ## Next Steps
 
