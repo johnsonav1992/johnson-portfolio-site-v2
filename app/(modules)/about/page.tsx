@@ -34,7 +34,7 @@ export default function Page () {
             sx={ {
                 padding: '2rem'
                 , minHeight: '90vh'
-                , gap: isMdScreen ? '1rem' : '2rem'
+                , gap: isMdScreen ? '3rem' : '2rem'
             } }
         >
             <Grid
@@ -75,7 +75,7 @@ export default function Page () {
                 container
                 justifyContent='center'
                 alignItems='center'
-                size={{ xs: 10, lg: 5 }}
+                size={{ xs: 12, lg: 5 }}
             >
                 <img
                     src={ typeof aboutHeadshot === 'string' ? aboutHeadshot : (aboutHeadshot as any).src }
