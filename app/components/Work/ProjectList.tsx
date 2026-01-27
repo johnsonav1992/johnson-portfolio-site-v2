@@ -31,38 +31,51 @@ const ProjectList = ( { projectType }: Props ) => {
         <Grid
             container
             direction='column'
-            alignItems='center'
             sx={ {
-                gap: '2rem'
-                , mb: '4rem'
+                maxWidth: '1400px'
+                , width: '100%'
+                , mb: '5rem'
             } }
         >
-            <Grid>
+            <Grid
+                sx={ {
+                    mb: '3rem'
+                    , pl: isMdScreen ? '1rem' : '2rem'
+                } }
+            >
                 <Typography
-                    variant={ isMdScreen ? 'h5' : 'h4' }
+                    variant={ isMdScreen ? 'h4' : 'h3' }
+                    sx={ {
+                        fontWeight: 600
+                        , position: 'relative'
+                        , display: 'inline-block'
+                        , paddingBottom: '12px'
+                        , '&::after': {
+                            content: '""'
+                            , position: 'absolute'
+                            , bottom: 0
+                            , left: 0
+                            , width: '80px'
+                            , height: '4px'
+                            , backgroundColor: 'primary.main'
+                            , borderRadius: '2px'
+                        }
+                    } }
                 >
                     {
                         projectType === 'large'
-                            ? 'Large Projects/Websites'
-                            : 'Small Projects'
+                            ? 'Featured Projects'
+                            : 'More Projects'
                     }
                 </Typography>
             </Grid>
-            <Divider
-                variant='middle'
-                sx={ {
-                    borderColor: ( theme ) => theme.palette.common.white
-                    , width: '75%'
-                } }
-            />
             <Grid
                 container
                 sx={ {
-                    width: isMdScreen
-                        ? '100%'
-                        : '90%'
+                    width: '100%'
+                    , padding: isMdScreen ? '0 0.5rem' : '0 1rem'
                 } }
-                spacing={ 4 }
+                spacing={ isMdScreen ? 4 : 6 }
             >
                 { projectType === 'large'
                     ? largeProjects.map( project =>

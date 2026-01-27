@@ -19,17 +19,33 @@ export default function Page () {
             alignItems='center'
             component='main'
             sx={ {
-                padding: '2rem'
+                padding: '3rem 2rem'
+                , minHeight: '90vh'
             } }
         >
             <Grid
-                sx={ { marginBottom: '2rem' } }
+                sx={ {
+                    marginBottom: '4rem'
+                    , textAlign: 'center'
+                } }
             >
                 <Typography
-                    variant='h3'
-                    gutterBottom
+                    variant='h2'
+                    sx={ {
+                        fontWeight: 600
+                        , marginBottom: '0.5rem'
+                    } }
                 >
                     My Work
+                </Typography>
+                <Typography
+                    variant='body1'
+                    sx={ {
+                        color: 'rgba(255, 255, 255, 0.7)'
+                        , fontSize: '1.1rem'
+                    } }
+                >
+                    Recent projects and applications
                 </Typography>
             </Grid>
             <ProjectList projectType='large' />

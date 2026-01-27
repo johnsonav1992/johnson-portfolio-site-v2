@@ -50,7 +50,11 @@ const ContextProvider = ( { children }: Props ) => {
     const [ alert, setAlert ] = useState<Alert | null>( null );
 
     useEffect( () => {
-        setActiveTab( pathname );
+        if ( pathname.startsWith( '/work/' ) ) {
+            setActiveTab( '/work' );
+        } else {
+            setActiveTab( pathname );
+        }
     }, [ pathname ] );
 
     return (

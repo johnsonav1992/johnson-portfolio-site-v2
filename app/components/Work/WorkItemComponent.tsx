@@ -28,7 +28,6 @@ const WorkItemComponent = ( { project }: Props ) => {
             container
             component={Link}
             direction='column'
-            alignItems='center'
             size={{ xs: 12, md: 6 }}
             sx={ {
                 gap: '1rem'
@@ -36,38 +35,62 @@ const WorkItemComponent = ( { project }: Props ) => {
                     cursor: 'pointer'
                 }
                 , textDecoration: 'none'
+                , transition: 'transform 0.2s ease'
+                , '&:hover': {
+                    transform: 'translateY(-2px)'
+                }
             } }
             href={ `/work/${ project.route }` }
         >
             <Grid
+                sx={ {
+                    width: '100%'
+                    , height: isMdScreen ? '50vw' : '20vw'
+                    , display: 'flex'
+                    , alignItems: 'center'
+                    , justifyContent: 'center'
+                    , overflow: 'hidden'
+                    , borderRadius: '0.75rem'
+                    , backgroundColor: 'rgba(255, 255, 255, 0.05)'
+                    // @ts-ignore
+                    , boxShadow: theme.shadows[ 25 ]
+                    , transition: 'box-shadow 0.3s ease'
+                    , '&:hover': {
+                        // @ts-ignore
+                        boxShadow: theme.shadows[ 30 ]
+                    }
+                } }
+            >
+                <img
+                    src={ typeof project.imgSrc === 'string' ? project.imgSrc : (project.imgSrc as any).src }
+                    alt={ project.name }
+                    style={ {
+                        width: '100%'
+                        , height: '100%'
+                        , objectFit: 'cover'
+                        , objectPosition: 'center top'
+                        , transition: 'transform 0.3s ease'
+                    } }
+                />
+            </Grid>
+            <Grid
                 container
                 justifyContent='flex-start'
                 sx={ {
-                    width: isMdScreen ? '90%' : '30vw'
+                    width: '100%'
+                    , px: '0.5rem'
                 } }
             >
                 <Typography
                     variant='h6'
                     sx={ {
-                        fontSize: 'clamp(1rem, -0.2857rem + 3.0476vw, 2rem)'
+                        fontSize: isMdScreen ? '1.25rem' : '1.5rem'
+                        , fontWeight: 500
                     } }
                 >
                     { project.name }
                 </Typography>
             </Grid>
-            <img
-                src={ typeof project.imgSrc === 'string' ? project.imgSrc : (project.imgSrc as any).src }
-                alt={ project.name }
-                style={ {
-                    width: isMdScreen ? '75vw' : '30vw'
-                    , height: isMdScreen ? '50vw' : '20vw'
-                    , objectFit: 'cover'
-                    , objectPosition: project.objectPosition || 'center top'
-                    , borderRadius: '0.5em'
-                    // @ts-ignore
-                    , boxShadow: theme.shadows[ 25 ]
-                } }
-            />
         </Grid>
     );
 };
