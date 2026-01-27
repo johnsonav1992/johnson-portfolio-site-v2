@@ -31,13 +31,11 @@ const WorkItemComponent = ( { project }: Props ) => {
             size={{ xs: 12, md: 6 }}
             sx={ {
                 gap: '1rem'
-                , '&:hover': {
-                    cursor: 'pointer'
-                }
                 , textDecoration: 'none'
                 , transition: 'transform 0.2s ease'
                 , '&:hover': {
-                    transform: 'translateY(-2px)'
+                    cursor: 'pointer'
+                    , transform: 'translateY(-2px)'
                 }
             } }
             href={ `/work/${ project.route }` }
