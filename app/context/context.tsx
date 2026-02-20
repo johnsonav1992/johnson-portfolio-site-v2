@@ -1,10 +1,9 @@
 'use client';
 
-import React, { 
+import {
     createContext
     , useContext
     , useState
-    , useEffect
 } from 'react';
 import type { ReactNode } from 'react';
 
@@ -21,9 +20,8 @@ export interface Alert {
 }
 
 interface ContextInterface {
-    activeTab: string| null;
+    activeTab: string;
     drawerIsOpen: boolean;
-    setActiveTab: ( selectedTab: string | null ) => void;
     setDrawerIsOpen: ( newState: boolean ) => void;
     snackbarOpen: boolean;
     setSnackbarOpen: ( newState: boolean ) => void;
@@ -32,9 +30,8 @@ interface ContextInterface {
 }
 
 export const SiteContext = createContext<ContextInterface>( {
-    activeTab: null
+    activeTab: '/'
     , drawerIsOpen: false
-    , setActiveTab: () => {}
     , setDrawerIsOpen: () => {}
     , snackbarOpen: false
     , setSnackbarOpen: () => {}
@@ -44,24 +41,22 @@ export const SiteContext = createContext<ContextInterface>( {
 
 const ContextProvider = ( { children }: Props ) => {
     const pathname = usePathname();
-    const [ activeTab, setActiveTab ] = useState<string | null>( null );
     const [ drawerIsOpen, setDrawerIsOpen ] = useState<boolean>( false );
     const [ snackbarOpen, setSnackbarOpen ] = useState<boolean>( false );
     const [ alert, setAlert ] = useState<Alert | null>( null );
 
-    useEffect( () => {
+    const activeTab = (() => {
         if ( pathname.startsWith( '/work/' ) ) {
-            setActiveTab( '/work' );
+            return '/work';
         } else {
-            setActiveTab( pathname );
+            return pathname;
         }
-    }, [ pathname ] );
+    })();
 
     return (
         <SiteContext.Provider value={ {
             activeTab
             , drawerIsOpen
-            , setActiveTab
             , setDrawerIsOpen
             , snackbarOpen
             , setSnackbarOpen

@@ -19,18 +19,12 @@ import { tabs } from '../../../data/tabs';
 // Contexts
 import { useSiteContext } from '~/context/context';
 
-// Types
-import type { SyntheticEvent } from 'react';
-
 interface Props {
     sx?: SxProps<Theme>;
 }
 
 const NavBar = ( { sx }: Props ) => {
-    const {
-        activeTab
-        , setActiveTab
-    } = useSiteContext();
+    const { activeTab } = useSiteContext();
 
     const tabStyle = ( theme: Theme ) => ( {
         color: theme.palette.common.white
@@ -52,15 +46,10 @@ const NavBar = ( { sx }: Props ) => {
         , pointerEvents: 'none'
     } );
 
-    const handleChange = ( e: SyntheticEvent<Element, Event>, value: string ) => {
-        setActiveTab( value );
-    };
-
     return (
         <Tabs
             sx={ sx }
             value={ activeTab || false }
-            onChange={ handleChange }
             TabIndicatorProps={ {
                 style: {
                     backgroundColor: 'transparent'

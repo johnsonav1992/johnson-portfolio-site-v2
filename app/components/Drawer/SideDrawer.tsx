@@ -29,7 +29,6 @@ const SideDrawer = () => {
         drawerIsOpen
         , setDrawerIsOpen
         , activeTab
-        , setActiveTab
     } = useSiteContext();
 
     return (
@@ -79,10 +78,7 @@ const SideDrawer = () => {
                         component={ Link }
                         href={ tab.link }
                         selected={ activeTab === tab.link }
-                        onClick={ () => {
-                            setDrawerIsOpen( false );
-                            setActiveTab( tab.link );
-                        } }
+                        onClick={ () => setDrawerIsOpen( false ) }
                         sx={ {
                             '&.Mui-selected': {
                                 backgroundColor: theme.palette.primary.main

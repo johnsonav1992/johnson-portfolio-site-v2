@@ -28,8 +28,7 @@ import theme from '~/theme/theme';
 const Header = () => {
     const isMdScreen = useMediaQuery( theme.breakpoints.down( 'md' ) );
     const {
-        setActiveTab
-        , setDrawerIsOpen
+        setDrawerIsOpen
         , drawerIsOpen
     } = useSiteContext();
     const router = useRouter();
@@ -55,10 +54,7 @@ const Header = () => {
                     <img
                         alt="AVJ logo"
                         src={ typeof logo === 'string' ? logo : (logo as any).src }
-                        onClick={ () => {
-                            setActiveTab( '/' );
-                            router.push( '/' );
-                        }}
+                        onClick={ () => router.push( '/' ) }
                         style={ {
                             cursor: 'pointer'
                             , boxShadow: '0px 1px 10px rgb(0 0 0 / 70%)'

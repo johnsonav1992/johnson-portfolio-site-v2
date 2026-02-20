@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 // Libraries
 import { Formik } from 'formik';
 import * as Yup from 'yup';
