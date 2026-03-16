@@ -21,6 +21,8 @@ export interface ContactInput {
     name: string;
     email: string;
     message: string;
+    honeypot: string;
+    loadedAt: number;
 }
 
 export default function Page () {
@@ -33,15 +35,21 @@ export default function Page () {
         name: ''
         , email: ''
         , message: ''
+        , honeypot: ''
+        , loadedAt: Date.now()
     };
     
     const validationSchema = Yup.object( {
-        name: Yup.string().required( 'You must enter a name.' )
-        , email: 
+        name: Yup.string()
+            .min( 2, 'Name must be at least 2 characters.' )
+            .required( 'You must enter a name.' )
+        , email:
             Yup.string()
                 .email( 'Must be a valid email address.' )
                 .required( 'You must enter an email address.' )
-        , message: Yup.string().required( 'You must enter a message.' )
+        , message: Yup.string()
+            .min( 20, 'Please enter a more detailed message (at least 20 characters).' )
+            .required( 'You must enter a message.' )
     } );
     
     const handleSubmit = async ( values: ContactInput ) => {

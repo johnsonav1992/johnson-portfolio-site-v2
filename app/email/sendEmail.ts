@@ -1,5 +1,6 @@
 
 import nodemailer from 'nodemailer';
+import { escapeHtml } from '~/utils/sanitize';
 
 // Utils
 import { formattedReceiptEmail } from './formattedReceiptEmail'; //save for later!
@@ -26,9 +27,9 @@ export const sendEmail = async (
         , subject: `Message received from ${ name } - ${ email }`
         , html: `
         <h1>New AJ Web Development Contact Form Submission</h1>
-        <h2>From ${ name } - ${ email }</h2>
+        <h2>From ${ escapeHtml( name ) } - ${ escapeHtml( email ) }</h2>
         <h3>Message:</h3>
-        <p>${ message }</p>
+        <p>${ escapeHtml( message ).replace( /\n/g, '<br>' ) }</p>
         `
     };
 

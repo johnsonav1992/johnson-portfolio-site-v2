@@ -34,6 +34,17 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
         , handleSubmit
     } = formikProps;
 
+    // Honeypot: hidden from real users, but bots will fill it
+    const honeypotStyle: React.CSSProperties = {
+        position: 'absolute'
+        , left: '-9999px'
+        , width: '1px'
+        , height: '1px'
+        , overflow: 'hidden'
+        , opacity: 0
+        , pointerEvents: 'none'
+    };
+
     const inputWidth = isMdScreen ? '90%' : '40%';
 
     const onSubmit = async ( e: React.FormEvent<HTMLFormElement> ) => {
@@ -44,7 +55,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
     };
     
     return (
-        <Form onSubmit={ onSubmit }>
+        <Form onSubmit={ onSubmit } style={ { position: 'relative' } }>
             <Box
                 sx={ {
                     display: 'flex'
@@ -70,6 +81,19 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
                     Please fill out the form below and I will
                     get back to you as soon as I can. Thank you!
                 </Typography>
+
+                { /* Honeypot - invisible to humans, bots will fill it */ }
+                <div style={ honeypotStyle } aria-hidden='true'>
+                    <input
+                        type='text'
+                        name='honeypot'
+                        value={ values.honeypot }
+                        onChange={ handleChange }
+                        tabIndex={ -1 }
+                        autoComplete='off'
+                    />
+                </div>
+                <input type='hidden' name='loadedAt' value={ values.loadedAt } />
 
                 <TextField
                     name='name'

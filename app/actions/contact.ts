@@ -1,11 +1,15 @@
 'use server';
 
+import { headers } from 'next/headers';
 import { sendEmail } from '~/email/sendEmail';
+import { extractContactData, validateContactData } from '~/utils/contactValidation';
 
 export interface ContactData {
     name: string;
     email: string;
     message: string;
+    honeypot?: string;
+    loadedAt?: number;
 }
 
 type ContactResult = {
@@ -13,40 +17,37 @@ type ContactResult = {
     message: string;
 };
 
-const MAX_NAME_LENGTH = 100;
-const MAX_MESSAGE_LENGTH = 5000;
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const extractContactData = ( data: ContactData | FormData ): ContactData => {
-    if ( data instanceof FormData ) {
-        return {
-            name: data.get( 'name' ) as string
-            , email: data.get( 'email' ) as string
-            , message: data.get( 'message' ) as string
-        };
-    }
-    return data;
-};
-
-const validateContactData = ( { name, email, message }: ContactData ): string | null => {
-    if ( !name || !email || !message ) return 'All fields are required.';
-    if ( !EMAIL_REGEX.test( email ) ) return 'Invalid email format.';
-    if ( name.length > MAX_NAME_LENGTH ) return `Name is too long (max ${ MAX_NAME_LENGTH } characters).`;
-    if ( message.length > MAX_MESSAGE_LENGTH ) return `Message is too long (max ${ MAX_MESSAGE_LENGTH } characters).`;
-    return null;
-};
+const rateLimitMap = new Map<string, number>();
+const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 
 export async function sendContactEmail ( data: ContactData ): Promise<ContactResult>;
 export async function sendContactEmail ( data: FormData ): Promise<ContactResult>;
 
 export async function sendContactEmail ( data: ContactData | FormData ): Promise<ContactResult> {
     try {
+        const headersList = await headers();
+        const ip =
+            headersList.get( 'x-forwarded-for' )?.split( ',' )[ 0 ]?.trim()
+            ?? headersList.get( 'x-real-ip' )
+            ?? 'unknown';
+
+        const lastSubmit = rateLimitMap.get( ip );
+
+        if ( lastSubmit && Date.now() - lastSubmit < RATE_LIMIT_WINDOW_MS ) {
+            return {
+                type: 'error' as const
+                , message: 'Please wait a moment before sending another message.'
+            };
+        }
+
         const contactData = extractContactData( data );
         const validationError = validateContactData( contactData );
 
         if ( validationError ) {
             return { type: 'error' as const, message: validationError };
         }
+
+        rateLimitMap.set( ip, Date.now() );
 
         return await sendEmail(
             contactData.name
@@ -55,7 +56,7 @@ export async function sendContactEmail ( data: ContactData | FormData ): Promise
         );
     } catch ( error ) {
         console.error( 'Contact form error:', error );
-        
+
         return {
             type: 'error' as const
             , message: 'There was an error sending your message - Please try again.'
