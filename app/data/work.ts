@@ -39,7 +39,7 @@ export const largeProjects: WorkItem[] = [
         , name: 'Yardvark'
         , route: 'yardvark'
         , imgSrc: yardvark
-        , repoLink: 'https://github.com/johnsonav1992/yardvark'
+        , prodLink: 'https://yardvark.app'
         , technologies: [ 
             'Angular'
             , 'PrimeNG'
