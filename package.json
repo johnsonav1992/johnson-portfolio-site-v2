@@ -5,7 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "typecheck": "tsc -b"
   },
   "dependencies": {
@@ -16,11 +16,11 @@
     "@mui/icons-material": "^7.3.7",
     "@mui/material": "^7.3.7",
     "@mui/material-nextjs": "^7.3.7",
-    "@types/nodemailer": "^7.0.5",
+    "@types/nodemailer": "^8.0.0",
     "formik": "^2.4.9",
     "logrocket": "^11.0.0",
-    "next": "^16.1.1",
-    "nodemailer": "^7.0.12",
+    "next": "^16.2.3",
+    "nodemailer": "^8.0.5",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "yup": "^1.7.1"
@@ -30,14 +30,24 @@
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.2",
-    "eslint-config-next": "^16.1.6",
+    "eslint-config-next": "^16.2.3",
     "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=18"
   },
   "overrides": {
-    "ajv": "^8.18.0",
-    "minimatch": "^10.2.1"
+    "brace-expansion": "^5.0.5",
+    "flatted": "^3.4.2",
+    "lodash": "^4.17.24",
+    "lodash-es": "^4.17.24",
+    "micromatch": {
+      "picomatch": "^2.3.2"
+    },
+    "minimatch": "^10.2.1",
+    "tinyglobby": {
+      "picomatch": "^4.0.4"
+    },
+    "yaml": "^1.10.3"
   }
 }

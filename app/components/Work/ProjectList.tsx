@@ -1,11 +1,8 @@
 'use client';
 
-import React from 'react';
-
 // MUI
 import {
-    Divider
-    , Typography
+    Typography
     , useMediaQuery
 } from '@mui/material';
 import { Grid } from '@mui/material';

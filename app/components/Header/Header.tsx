@@ -1,6 +1,7 @@
 'use client';
 
 // Libraries
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 // MUI
@@ -51,9 +52,12 @@ const Header = () => {
                 } }
             >
                 <Toolbar>
-                    <img
-                        alt="AVJ logo"
-                        src={ typeof logo === 'string' ? logo : (logo as any).src }
+                    <Image
+                        alt='AVJ logo'
+                        src={ typeof logo === 'string' ? logo : logo.src }
+                        width={ 70 }
+                        height={ 70 }
+                        priority
                         onClick={ () => router.push( '/' ) }
                         style={ {
                             cursor: 'pointer'

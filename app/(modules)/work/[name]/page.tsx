@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react';
-
 // Libraries
+import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -12,7 +11,6 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ExternalLink from '@mui/material/Link';
 import {
     Button
-    , Paper
     , Typography
     , useMediaQuery
 } from '@mui/material';
@@ -232,13 +230,15 @@ export default function Page () {
                             , boxShadow: theme.shadows[ 25 ]
                         } }
                     >
-                        <img
-                            src={ typeof project.imgSrc === 'string' ? project.imgSrc : (project.imgSrc as any).src }
+                        <Image
+                            src={ project.imgSrc }
                             alt={ project.name }
+                            sizes={ isMdScreen ? '100vw' : '50vw' }
                             style={ {
                                 width: '100%'
                                 , height: 'auto'
                                 , display: 'block'
+                                , objectPosition: project.objectPosition ?? 'center'
                             } }
                         />
                     </Grid>

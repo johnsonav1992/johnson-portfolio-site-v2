@@ -1,6 +1,7 @@
 'use client';
 
 // Libraries
+import Image from 'next/image';
 import Link from 'next/link';
 
 // MUI
@@ -8,7 +9,6 @@ import {
     Button
     , Typography
     , useMediaQuery
-    , Box
 } from '@mui/material';
 import { Grid } from '@mui/material';
 
@@ -40,22 +40,16 @@ export default function Page () {
                 size={{ xs: 12, lg: 7 }}
                 sx={ isLgScreen ? { order: 2 } : undefined }
             >
-                <Box
-                    component='img'
-                    src={ typeof headshot === 'string' ? headshot : (headshot as any).src }
-                    alt="Alex Johnson Headshot"
-                    sx={ {
+                <Image
+                    src={ headshot }
+                    alt='Alex Johnson Headshot'
+                    priority
+                    style={ {
                         width: '100%'
-                        , maxWidth: {
-                            xs: '90vw'
-                            , sm: '80vw'
-                            , md: '60vw'
-                            , lg: '50vw'
-                            , xl: '800px'
-                        }
+                        , maxWidth: isLgScreen ? '90vw' : '50vw'
                         , height: 'auto'
                         , objectFit: 'contain'
-                        , filter: 'drop-shadow( 0px 5px 12px rgba(0, 0, 0, 0.7))'
+                        , filter: 'drop-shadow( 0px 5px 12px rgba( 0, 0, 0, 0.7 ) )'
                     } }
                 />
             </Grid>

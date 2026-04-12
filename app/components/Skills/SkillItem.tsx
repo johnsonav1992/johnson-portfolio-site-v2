@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 // MUI
 import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
@@ -21,11 +23,14 @@ const SkillItem = ( { skill }: Props ) => {
             sx={ { p: '1rem 0 1rem' } }
         >
             <Grid>
-                <img
-                    src={ typeof skill.iconSrc === 'string' ? skill.iconSrc : (skill.iconSrc as any).src }
+                <Image
+                    src={ skill.iconSrc }
                     alt={ skill.name }
+                    width={ 80 }
+                    height={ 80 }
                     style={ {
                         height: '5rem'
+                        , width: 'auto'
                         , filter: 'drop-shadow( 0px 5px 12px rgba(0, 0, 0, 0.7))'
                     } }
                 />

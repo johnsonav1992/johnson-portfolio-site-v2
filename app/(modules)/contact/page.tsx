@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 // Libraries
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -31,13 +33,13 @@ export default function Page () {
         , setAlert
     } = useSiteContext();
     
-    const initialValues: ContactInput = {
+    const [ initialValues ] = useState<ContactInput>( () => ( {
         name: ''
         , email: ''
         , message: ''
         , honeypot: ''
         , loadedAt: Date.now()
-    };
+    } ) );
     
     const validationSchema = Yup.object( {
         name: Yup.string()
@@ -58,7 +60,7 @@ export default function Page () {
 
             setAlert( result );
             setSnackbarOpen( true );
-        } catch ( error ) {
+        } catch {
             setAlert( {
                 type: 'error'
                 , message: 'There was an error sending your message - Please try again.'

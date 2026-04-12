@@ -45,13 +45,13 @@ const ContextProvider = ( { children }: Props ) => {
     const [ snackbarOpen, setSnackbarOpen ] = useState<boolean>( false );
     const [ alert, setAlert ] = useState<Alert | null>( null );
 
-    const activeTab = (() => {
+    const activeTab = ( () => {
         if ( pathname.startsWith( '/work/' ) ) {
             return '/work';
         } else {
             return pathname;
         }
-    })();
+    } )();
 
     return (
         <SiteContext.Provider value={ {

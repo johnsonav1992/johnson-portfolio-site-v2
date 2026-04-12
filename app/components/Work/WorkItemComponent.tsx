@@ -1,6 +1,7 @@
 'use client';
 
 // Libraries
+import Image from 'next/image';
 import Link from 'next/link';
 
 // MUI
@@ -44,6 +45,7 @@ const WorkItemComponent = ( { project }: Props ) => {
                 sx={ {
                     width: '100%'
                     , height: isMdScreen ? '50vw' : '20vw'
+                    , position: 'relative'
                     , display: 'flex'
                     , alignItems: 'center'
                     , justifyContent: 'center'
@@ -59,14 +61,14 @@ const WorkItemComponent = ( { project }: Props ) => {
                     }
                 } }
             >
-                <img
-                    src={ typeof project.imgSrc === 'string' ? project.imgSrc : (project.imgSrc as any).src }
+                <Image
+                    src={ project.imgSrc }
                     alt={ project.name }
+                    fill
+                    sizes={ isMdScreen ? '100vw' : '50vw' }
                     style={ {
-                        width: '100%'
-                        , height: '100%'
-                        , objectFit: 'cover'
-                        , objectPosition: 'center top'
+                        objectFit: 'cover'
+                        , objectPosition: project.objectPosition ?? 'center top'
                         , transition: 'transform 0.3s ease'
                     } }
                 />

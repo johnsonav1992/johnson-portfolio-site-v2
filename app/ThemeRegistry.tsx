@@ -1,12 +1,13 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
 import theme from './theme/theme';
 
 interface Props {
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 export default function ThemeRegistry ( { children }: Props ) {

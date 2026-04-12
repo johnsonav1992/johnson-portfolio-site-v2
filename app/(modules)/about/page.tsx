@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react';
-
 // Libraries
+import Image from 'next/image';
 import Link from 'next/link';
 
 // MUI
@@ -77,13 +76,13 @@ export default function Page () {
                 alignItems='center'
                 size={{ xs: 12, lg: 5 }}
             >
-                <img
-                    src={ typeof aboutHeadshot === 'string' ? aboutHeadshot : (aboutHeadshot as any).src }
-                    alt="Alex Johnson Headshot"
+                <Image
+                    src={ aboutHeadshot }
+                    alt='Alex Johnson Headshot'
                     style={ {
                         maxWidth: '70%'
-                        //@ts-ignore
-                        , boxShadow: theme.shadows[ 25 ]
+                        , height: 'auto'
+                        , boxShadow: theme.shadows[ 24 ]
                         , borderRadius: '.5em'
                     } }
                 />

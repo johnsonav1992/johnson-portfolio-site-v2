@@ -1,4 +1,6 @@
+import type { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
+import { Ubuntu } from 'next/font/google';
 
 // Components
 import Header from './components/Header/Header';
@@ -13,6 +15,12 @@ import ContextProvider from './context/context';
 // Theme
 import ThemeRegistry from './ThemeRegistry';
 
+const ubuntu = Ubuntu( {
+    subsets: [ 'latin' ]
+    , weight: [ '300', '400', '500', '700' ]
+    , display: 'swap'
+} );
+
 export const metadata: Metadata = {
     title: 'Alex Johnson - Web Developer'
     , description: 'Full-stack web developer portfolio'
@@ -26,18 +34,12 @@ export const viewport: Viewport = {
 export default function RootLayout ( {
     children
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 } ) {
 
     return (
-        <html lang="en">
-            <head>
-                <link 
-                    href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" 
-                    rel="stylesheet"
-                />
-            </head>
-            <body>
+        <html lang='en'>
+            <body className={ ubuntu.className }>
                 <ThemeRegistry>
                     <ContextProvider>
                         <ScrollToTop />

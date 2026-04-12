@@ -2,9 +2,6 @@
 import nodemailer from 'nodemailer';
 import { escapeHtml } from '~/utils/sanitize';
 
-// Utils
-import { formattedReceiptEmail } from './formattedReceiptEmail'; //save for later!
-
 export const sendEmail = async (
     name: string
     , email: string

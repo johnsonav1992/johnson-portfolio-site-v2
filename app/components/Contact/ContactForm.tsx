@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
+import type { CSSProperties, FormEvent } from 'react';
 
 // Libraries
 import type { FormikProps } from 'formik';
@@ -15,7 +16,6 @@ import {
     , useMediaQuery
     , Box
 } from '@mui/material';
-import { Grid } from '@mui/material';
 
 // Types
 import type { ContactInput } from '~/(modules)/contact/page';
@@ -35,7 +35,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
     } = formikProps;
 
     // Honeypot: hidden from real users, but bots will fill it
-    const honeypotStyle: React.CSSProperties = {
+    const honeypotStyle: CSSProperties = {
         position: 'absolute'
         , left: '-9999px'
         , width: '1px'
@@ -47,7 +47,7 @@ const ContactForm = ( { ...formikProps }: FormikProps<ContactInput> ) => {
 
     const inputWidth = isMdScreen ? '90%' : '40%';
 
-    const onSubmit = async ( e: React.FormEvent<HTMLFormElement> ) => {
+    const onSubmit = async ( e: FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
         setIsSubmitting( true );
         await handleSubmit();
