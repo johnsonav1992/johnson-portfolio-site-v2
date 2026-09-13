@@ -27,10 +27,16 @@ export const largeProjects: WorkItem[] = [
         , imgSrc: americanCivilWarExperience
         , prodLink: 'https://americancivilwarexperience.org'
         , technologies: [
-            'Sanity CMS'
+            'React'
+            , 'TypeScript'
+            , 'TanStack Start'
+            , 'TanStack Router'
+            , 'Panda CSS'
+            , 'Better Auth'
+            , 'Sanity CMS'
             , 'Netlify'
         ]
-        , description: `A nonprofit website that brings Civil War living history to life through events, visitor information, and volunteer engagement.`
+        , description: `A nonprofit organization that brings Civil War living history to life through events, visitor information, and volunteer engagement.`
     }
     , {
         id: 'dupre-music-designs'
