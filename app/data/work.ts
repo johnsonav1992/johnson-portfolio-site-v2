@@ -16,10 +16,23 @@ import formularity from '../assets/formularity_logo_orig.png';
 import yardvark from '../assets/yardvark.png';
 import a1 from '../assets/a1-sprinkler-repair.png';
 import dupreImg from '../assets/dupre-music-designs.png';
+import americanCivilWarExperience from '../assets/american-civil-war-experience.png';
 
 
 export const largeProjects: WorkItem[] = [
     {
+        id: 'american-civil-war-experience'
+        , name: 'The American Civil War Experience'
+        , route: 'american-civil-war-experience'
+        , imgSrc: americanCivilWarExperience
+        , prodLink: 'https://americancivilwarexperience.org'
+        , technologies: [
+            'Sanity CMS'
+            , 'Netlify'
+        ]
+        , description: `A nonprofit website that brings Civil War living history to life through events, visitor information, and volunteer engagement.`
+    }
+    , {
         id: 'dupre-music-designs'
         , name: 'Dupre Music Designs'
         , route: 'dupre-music-designs'
